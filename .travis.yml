@@ -8,5 +8,4 @@ cache:
     - node_modules
 services:
   - mongodb
-before_install:
-  - mongodb -e 'CREATE DATABASE IF NOT EXISTS testdb;'
+
