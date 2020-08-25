@@ -11,9 +11,7 @@ const QuestionsSchema = new Schema({
     },
     answers: [
         {
-            test: String,
-            correct: true,
-            required: true
+            test: String
         }
     ],
     category: {
