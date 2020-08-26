@@ -1,0 +1,31 @@
+language: node_js
+node_js: 
+   - "12"
+    - "13"
+branches:
+  only:
+    - master
+cache:
+  directories:
+    - node_modules
+services: 
+- mongodb
+before_script:
+  - sleep 15
+  - var url = "mongodb://localhost:27017/achilles-heel";
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  console.log("Database created!");
+  db.close();});
+  env:
+  - NODE_ENV=ci PORT=8080
+
+  before_install:
+  - sudo apt-get install -y libxml2-dev
+install:
+  - npm install
+
+  script:
+  - npm run start 
+  - npm run dev
