@@ -1,0 +1,20 @@
+{
+    "root": true,
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "extends": [
+        "airbnb"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2015,
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-console": 0,
+        "quotes": ["error", "double"],
+        "arrow-parens": "warn",
+        "comma-dangle": 0
+    }
+}

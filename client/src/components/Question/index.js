@@ -28,9 +28,9 @@ const styles = {
 function Question(props) {
   const [showQuestion, setShowQuestion] = useState(false);
 
-  function onCloseQuestion() {
-    // set provider?
-  }
+  // function onCloseQuestion() {
+  //   // set provider?
+  // }
 
   function handleAnswerClick(correct) {
     if (correct) {
