@@ -16,6 +16,6 @@
         "no-console": 0,
         "quotes": ["error", "double"],
         "arrow-parens": "warn",
-        "comma-dangle": "warn"
+        "comma-dangle": 0
     }
 }
