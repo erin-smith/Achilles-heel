@@ -3,9 +3,6 @@ const Schema = mongoose.Schema;
 
 
 const WorldSchema = new Schema({
-    _id: {
-        type: Schema.Types.ObjectId
-    },
     name: {
         type: String,
         required: true,
@@ -14,14 +11,14 @@ const WorldSchema = new Schema({
     background_image: {
         type: String
     },
-    levels: {
-        level: [
+    levels: 
+        [
             {
               type: Schema.Types.ObjectId,
               ref: "Level"
             }
-          ]
-    }
+        ]
+
 });
 
 const World = mongoose.model("World", WorldSchema);

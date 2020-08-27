@@ -225,8 +225,10 @@ const questionsSeed =  [{
 ];
 
 
-db.Achilles-heel.deleteMany({})
-  .then(() => db.Achilles-heel.collection.insertMany(questionsSeed))
+db.Questions.deleteMany({})
+  .then(() => db.Questions.collection.insertMany(questionsSeed))
+
+  // .then(() => db.Achilles-heel.collection.insertMany(questionsSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
@@ -235,3 +237,5 @@ db.Achilles-heel.deleteMany({})
     console.error(err);
     process.exit(1);
   });
+
+ 
