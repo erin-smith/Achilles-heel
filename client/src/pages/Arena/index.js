@@ -3,7 +3,6 @@ import { Grid } from '@material-ui/core'
 import { useLocation } from "react-router-dom";
 import API from '../../utils/API';
 import Question from '../../components/Question';
-import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
 
 const styles = {
