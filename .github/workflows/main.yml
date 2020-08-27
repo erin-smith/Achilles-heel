@@ -21,7 +21,14 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
+      - name: Eslint check
+        # You may pin to the exact commit or the version.
+        # uses: Krizzu/eslint-check-action@a10fa11628d6ba82cd67c76b5fb7d1549d55039e
+        uses: Krizzu/eslint-check-action@v1.1.0
+        with:
+          # GitHub token
+          ghToken: ${{ secrets.ESLINT_ACCESS_TOKEN }}
+          # Relative path to files/directories to run lint on.
       - name: eslint + fix
       # You may pin to the exact commit or the version.
       # uses: getsentry/action-eslint-fix@18ace2d079e048d88f01cd6623b3f503d80bb487
