@@ -11,7 +11,7 @@ jobs:
     - name: Lint
       uses: Krizzu/eslint-check-action@v1.1.0
       with:
-        ghToken: ${{ secrets.ESLINT_ACCESS_TOKEN }}
+        ghToken: ${{ secrets.GITHUB_TOKEN }}
         eslintFiles: "lib, scripts"
         eslintConfig: "myConfigs/eslint.config.js"
         eslintExt: "ts, tsx"
