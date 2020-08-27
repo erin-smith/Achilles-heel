@@ -15,7 +15,8 @@
     "rules": {
         "no-console": 0,
         "quotes": ["error", "double"],
-        "arrow-parens": "warn"
+        "arrow-parens": "warn",
+        "no-trailing-commas": "warn"
 
     }
 }
