@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Paper } from '@material-ui/core'
-import GoogleLogin from 'react-google-login';
+import GoogleButton from '../../components/Login/GoogleButton';
 
 function Home() {
   return (
@@ -9,7 +9,7 @@ function Home() {
       <Paper>
         Placeholder for Image
       </Paper>
-      <GoogleLogin />
+      <GoogleButton />
     </Grid>
   )
 }
