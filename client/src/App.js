@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Header from './components/Header'
 import Overworld from './pages/Overworld';
 import Arena from './pages/Arena';
+import Test from './components/Test';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" exact component={GoogleButton} />
         <Route path="/privacy" exact component={PrivacyPolicy} />
         <Route path="/tos" component={TOS} />
+        <Route path="/test" component={Test} />
       </Switch>
       </div>
     </Router>

@@ -16,9 +16,14 @@ const LevelSchema = new Schema({
     topic: {
         type: String,
         required: true
+    },
+    world: {
+        type: Schema.Types.ObjectId,
+        ref: "World"
     }
 });
 
 const Level = mongoose.model("Level", LevelSchema);
 
 module.exports = Level;
+
