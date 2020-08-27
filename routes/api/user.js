@@ -5,6 +5,6 @@ const gameController = require("../../controllers/gameController");
 router.route("/")
   .get(gameController.findUser)
   .post(gameController.createUser)
-  .put(gameController.updateUserByDisplayName); 
+  .put(gameController.updateUserByDisplayName);
 
 module.exports = router;

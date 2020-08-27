@@ -6,4 +6,4 @@ router.route("/")
   .get(gameController.findOverworld)
   .post(gameController.createOverworld);
 
-module.exports = router
+module.exports = router;
