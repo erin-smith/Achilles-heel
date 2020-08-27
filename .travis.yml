@@ -19,7 +19,7 @@ MongoClient.connect(url, function(err, db) {
   console.log("Database created!");
   db.close();});
   env:
-  - NODE_ENV=ci PORT=8080
+  - NODE_ENV=ci PORT=3001
 
   before_install:
   - sudo apt-get install -y libxml2-dev
