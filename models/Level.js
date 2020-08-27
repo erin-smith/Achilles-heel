@@ -17,9 +17,13 @@ const LevelSchema = new Schema({
         type: String,
         required: true
     },
-    world: {
-        type: Schema.Types.ObjectId,
-        ref: "World"
+    x_coordinate: {
+        type: Number,
+        required: true
+    },
+    y_coordinate: {
+        type: Number,
+        required: true
     }
 });
 
