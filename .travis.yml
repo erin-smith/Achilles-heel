@@ -29,3 +29,8 @@ install:
   script:
   - npm run start 
   - npm run dev
+
+  deploy:
+  provider: heroku
+  api_key: ea21a605-bff8-4121-95bd-9629e8f7a74d
+  app: achilles-heel
