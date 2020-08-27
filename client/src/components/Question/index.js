@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
 import {Paper, Grid, Button} from '@material-ui/core';
 import HelpIcon from '@material-ui/icons/Help';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import CancelIcon from '@material-ui/icons/Cancel';
+import './style.css'
+
 import {Dialog, DialogTitle, DialogContent } from '@material-ui/core';
 
 const styles = {
@@ -13,8 +17,8 @@ const styles = {
   },
   paper: {
     backgroundColor: "#DDD",
-    paddingTop: "1em",
-    paddingBottom: "1em",
+    paddingTop: "1.5em",
+    paddingBottom: "1.5em",
     paddingLeft: "0.5em",
     paddingRight: "0.5em",
     width: "10vw"
@@ -36,6 +40,7 @@ function Question(props) {
       console.log("You're wrong");
     }
     setShowQuestion(false);
+    props.onQuestionAnswered(props.index, correct)
   }
 
   function handlePaperClick() {
@@ -46,7 +51,8 @@ function Question(props) {
     <Grid item xs={4} container justify="center">
       <Paper style={styles.paper} onClick={handlePaperClick}>
         <Grid container justify="center" alignItems="center">
-          <HelpIcon style={styles.icon} />
+          { props.question.answered !== undefined ? props.question.answered === true? <CheckCircleIcon className="icon right" /> : <CancelIcon className="icon wrong" /> : <HelpIcon className="icon" />}
+          
         </Grid>
       </Paper>
       <Dialog open={showQuestion}>

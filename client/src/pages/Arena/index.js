@@ -3,6 +3,8 @@ import { Grid } from '@material-ui/core'
 import { useLocation } from "react-router-dom";
 import API from '../../utils/API';
 import Question from '../../components/Question';
+import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
+import FlashOnIcon from '@material-ui/icons/FlashOn';
 
 const styles = {
   levelDetails: {
@@ -10,6 +12,9 @@ const styles = {
     marginBottom: "0.5em"
   },
   levelCards: {
+    marginTop: "1em"
+  },
+  pointsGrid: {
     marginTop: "1em"
   }
 }
@@ -19,6 +24,7 @@ function Arena() {
   const id = new URLSearchParams(location.search).get("id");
   const [arena, setArena] = useState({name: "", score_points: "", difficulty: "", topic: ""});
   const [questions, setQuestions] = useState([]);
+  const [runningScore, setRunningScore] = useState(0);
 
   useEffect(() => {
     console.log("fetching");
@@ -38,6 +44,13 @@ function Arena() {
     
   },[arena])
 
+  function onQuestionAnswered(index,correct, points) {
+    questions[index].answered = correct;
+    if (correct) {
+      setRunningScore(runningScore + questions[index].points);
+    }
+  } 
+
   return (
     <Grid container direction="column" justify="center" alignItems="center">
       <Grid item container direction="column" justify="center" alignItems="center">
@@ -47,19 +60,12 @@ function Arena() {
         <h6 style={styles.levelDetails}>Subject: {arena.topic}</h6>
       </Grid>
       <Grid style={styles.levelCards} container direction="row" justify="space-around" spacing={4}>
-        {questions.map(question => <Question question={question} />)}
+        {questions.map((question,index) => <Question question={question} index={index} onQuestionAnswered={onQuestionAnswered} />)}
       </Grid>
-      {/*
-        <ol>
-        {
-          questions.map(question => {
-            return <li>{question.question}</li>
-          })
-        }
-      </ol>
-      */}
-      
-      
+      <Grid item container direction="row" justify="center" alignItems="center" style={styles.pointsGrid}>
+        <FlashOnIcon />
+        {runningScore}
+      </Grid>
     </Grid>
   )
 }
