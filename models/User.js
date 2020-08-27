@@ -20,14 +20,13 @@ const UserSchema = new Schema({
     avatar: {
         type: String
     },
-    completed_levels: {
-        level: [
+    completed_levels:
+        [
             {
               type: Schema.Types.ObjectId,
               ref: "Level"
             }
-          ]
-    }
+        ]
 });
 
 

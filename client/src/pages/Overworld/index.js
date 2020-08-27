@@ -11,7 +11,7 @@ function Overworld() {
   const styles = {
     worldContainer: {
       backgroundImage: `url(${worldState.background_image})`,
-      width: `100vw`,
+      width: `200vw`,
       height: `100vh`,
       backgroundSize: `cover`,
       marginBottom: 0
