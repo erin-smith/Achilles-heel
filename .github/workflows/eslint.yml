@@ -13,5 +13,5 @@ jobs:
       with:
         ghToken: ${{ secrets.ESLINT_ACCESS_TOKEN }}
         eslintFiles: "lib, scripts"
-        eslintConfig: "myConfigs/eslint.config.js",
+        eslintConfig: "myConfigs/eslint.config.js"
         eslintExt: "ts, tsx"
