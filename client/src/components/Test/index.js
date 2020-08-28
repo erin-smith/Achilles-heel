@@ -55,12 +55,12 @@ const question = {
 function Test() {
   const [output,setOutput] = useState("");
   
-  async function onCreateUserClicked() {
-    out(await API.createUser(user))
+  function onCreateUserClicked() {
+    API.createUser(user).then((response) => out(response.data));
   }
   
-  async function onUpdateUserClicked() {
-    out(await API.saveUser(display_name, updatedUser));
+  function onUpdateUserClicked() {
+    API.saveUser(display_name, updatedUser).then((response) => out(response.data));
   }
 
   async function onGetUserClicked() {

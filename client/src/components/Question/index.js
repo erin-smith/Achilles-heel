@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { 
+import {
   Paper,
   Grid,
   Button,
   Dialog,
   DialogTitle,
-  DialogContent 
+  DialogContent
 } from "@material-ui/core";
 import HelpIcon from "@material-ui/icons/Help";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
@@ -51,7 +51,7 @@ function Question(props) {
     <Grid item xs={4} container justify="center">
       <Paper style={styles.paper} onClick={handlePaperClick}>
         <Grid container justify="center" alignItems="center">
-          { props.question.answered !== undefined ? props.question.answered === true? <CheckCircleIcon className="icon right" /> : <CancelIcon className="icon wrong" /> : <HelpIcon className="icon" />}
+          { props.question.answered !== undefined ? props.question.answered === true ? <CheckCircleIcon className="icon right" /> : <CancelIcon className="icon wrong" /> : <HelpIcon className="icon" />}
         </Grid>
       </Paper>
       <Dialog open={showQuestion}>
@@ -60,7 +60,7 @@ function Question(props) {
         <DialogContent>
           <Grid container direction="row" spacing={1}>
             {props.question.answerOptions.map((answer) => {
-              return (
+              (
                 <Grid container item xs={6}>
                   <Button
                     variant="contained"
@@ -78,4 +78,4 @@ function Question(props) {
   );
 }
 
-export default Question
+export default Question;
