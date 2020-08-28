@@ -45,6 +45,7 @@ export default class GoogleBtn extends React.Component {
     console.log("Failed to log out");
   }
 
+  /* eslint disable */
   render() {
     return (
       <div>
@@ -72,12 +73,12 @@ export default class GoogleBtn extends React.Component {
         {
           this.state.accessToken
             ? (
-              <h5>
-              Your Access Token:
-              <br />
-              <br />
-              { this.state.accessToken }
-            </h5>
+                <h5>
+                Your Access Token:
+                <br />
+                <br />
+                { this.state.accessToken }
+                </h5>
             )
             : null
         }
@@ -93,5 +94,6 @@ export default class GoogleBtn extends React.Component {
           : null }
       </div>
     );
+    /* eslint enable */
   }
 }

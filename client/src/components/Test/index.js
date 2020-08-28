@@ -56,39 +56,57 @@ function Test() {
   const [output,setOutput] = useState("");
   
   function onCreateUserClicked() {
-    API.createUser(user).then((response) => out(response.data));
+    API.createUser(user)
+    .then((response) => out(response.data))
+    .catch((err) => console.log(err));
   }
   
   function onUpdateUserClicked() {
-    API.saveUser(display_name, updatedUser).then((response) => out(response.data));
+    API.saveUser(display_name, updatedUser)
+    .then((response) => out(response.data))
+    .catch((err) => console.log(err));
   }
 
   function onGetUserClicked() {
-    API.getUser("reptile18").then((response) => out(response.data));
+    API.getUser("reptile18")
+    .then((response) => out(response.data))
+    .catch((err) => console.log(err));
   }
 
   async function onOverworldCreateClicked() {
-    API.createOverworld(overworld).then((response) => out(response.data));
+    API.createOverworld(overworld)
+    .then((response) => out(response.data))
+    .catch((err) => console.log(err));
   }
 
   async function onOverworldGetClicked() {
-    API.findOverworld("Greece").then((response) => out(response.data));
+    API.findOverworld("Greece")
+    .then((response) => out(response.data))
+    .catch((err) => console.log(err));
   }
 
   async function onLevelCreateClicked() {
-    API.createArena(level).then((response) => out(response.data));
+    API.createArena(level)
+    .then((response) => out(response.data))
+    .catch((err) => console.log(err));
   }
 
   async function onLevelGetClicked() {
-    API.findArena("5f46a4fd9b23dc854cb46a27").then((response) => out(response.data));
+    API.findArena("5f46aaa0040aa52bb0a56ce4")
+    .then((response) => out(response.data))
+    .catch((err) => console.log(err));
   }
 
   async function onQuestionCreateClicked() {
-    API.createQuestion(question).then((response) => out(response.data));
+    API.createQuestion(question)
+    .then((response) => out(response.data))
+    .catch((err) => console.log(err));
   }
 
   async function onQuestionGetClicked() {
-    API.findQuestions("Myth_and_Legend").then((response) => out(response.data));
+    API.findQuestions("Myth_and_Legend")
+    .then((response) => out(response.data))
+    .catch((err) => console.log(err));
   }
 
   function out(obj) {
