@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Paper, Grid, Button, Dialog, DialogTitle, DialogContent } from "@material-ui/core";
+import { 
+  Paper,
+  Grid,
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogContent 
+} from "@material-ui/core";
 import HelpIcon from "@material-ui/icons/Help";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import CancelIcon from "@material-ui/icons/Cancel";

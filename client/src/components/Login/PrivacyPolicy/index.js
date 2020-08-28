@@ -13,7 +13,7 @@ function PrivacyPolicy() {
       Achilles Heel operates the Achilles&apos; Heel website, which provides the SERVICE.
 
       This page is used to inform website visitors regarding our policies with the collection, use,
-      and disclosure of Personal Information if anyone decided to use our Service, the Achilles 
+      and disclosure of Personal Information if anyone decided to use our Service, the Achilles
       Heel website.
 
       If you choose to use our Service, then you agree to the collection and use of information in
@@ -34,8 +34,8 @@ function PrivacyPolicy() {
       <h2>Log Data</h2>
       We want to inform you that whenever you visit our Service, we collect information that your
       browser sends to us that is called Log Data. This Log Data may include information such as
-      your computer&apos;s Internet Protocol (“IP”) address, browser version, pages of our Service that
-      you visit, the time and date of your visit, the time spent on those pages, and other
+      your computer&apos;s Internet Protocol (“IP”) address, browser version, pages of our Service
+      that you visit, the time and date of your visit, the time spent on those pages, and other
       statistics.
 
       <h2>Cookies</h2>
@@ -73,12 +73,11 @@ function PrivacyPolicy() {
       third-party sites or services.
 
       <h2>Children&apos;s Privacy</h2>
-
       Our Services do not address anyone under the age of 13. We do not knowingly collect personal
-       identifiable information from children under 13. In the case we discover that a child under
-       13 has provided us with personal information, we immediately delete this from our servers.
-       If you are a parent or guardian and you are aware that your child has provided us with
-       personal information, please contact us so that we will be able to do necessary actions.
+      identifiable information from children under 13. In the case we discover that a child under
+      13 has provided us with personal information, we immediately delete this from our servers.
+      If you are a parent or guardian and you are aware that your child has provided us with
+      personal information, please contact us so that we will be able to do necessary actions.
 
       <h2>Changes to This Privacy Policy</h2>
       We may update our Privacy Policy from time to time. Thus, we advise you to review this page

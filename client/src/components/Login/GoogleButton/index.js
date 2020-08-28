@@ -50,22 +50,21 @@ export default class GoogleBtn extends React.Component {
       <div>
         { this.state.isLogined 
         ?
-          <GoogleLogout
+          (<GoogleLogout
             clientId={CLIENT_ID}
             buttonText="Logout"
             onLogoutSuccess={this.logout}
             onFailure={this.handleLogoutFailure}
-          />
-          : <GoogleLogin
+          />)
+          : (<GoogleLogin
             clientId={CLIENT_ID}
             buttonText="Login"
             onSuccess={this.login}
             onFailure={this.handleLoginFailure}
             cookiePolicy="single_host_origin"
             responseType="code,token"
-          />
-        }
-        { this.state.accessToken ?
+          />)
+        }{ this.state.accessToken ?
           <h5>
             Your Access Token: 
             <br/>
