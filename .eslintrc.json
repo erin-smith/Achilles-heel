@@ -1,5 +1,6 @@
 {
     "root": true,
+    "plugins": ["jest"],
     "env": {
         "browser": true,
         "node": true
@@ -18,6 +19,7 @@
         "comma-dangle": 0,
         "react/jsx-filename-extension": [0],
         "no-nested-ternary": "off",
-        "react/destructuring-assignment": "off"
+        "react/destructuring-assignment": "off",
+        "import/no-named-as-default": 0
     }
 }

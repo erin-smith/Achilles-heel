@@ -5,7 +5,7 @@ import PrivacyPolicy from "./components/Login/PrivacyPolicy";
 import TOS from "./components/Login/TOS";
 import GoogleButton from "./components/Login/GoogleButton";
 import Home from "./pages/Home";
-import Header from "./components/Header"
+import Header from "./components/Header";
 import Overworld from "./pages/Overworld";
 import Arena from "./pages/Arena";
 import Test from "./components/Test";
