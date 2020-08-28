@@ -1,31 +1,31 @@
 import axios from "axios";
 
 export default {
-  createUser = (userData) => {
+  createUser: (userData) => {
     return axios.post("/api/user", userData);
   },
-  saveUser = (displayName, userData) => {
+  saveUser: (displayName, userData) => {
     return axios.put(`/api/user?display_name=${displayName}`, userData);
   },
-  getUser = (displayName) => {
+  getUser: (displayName) => {
     return axios.get(`/api/user?display_name=${displayName}`);
   },
-  createOverworld = (worldData) => {
+  createOverworld: (worldData) => {
     return axios.post("/api/world", worldData);
   },
-  findOverworld = (worldName) => {
+  findOverworld: (worldName) => {
     return axios.get(`/api/world?name=${worldName}`);
   },
-  createArena = (arenaData) => {
+  createArena: (arenaData) => {
     return axios.post("/api/level", arenaData);
   },
-  findArena = (arenaID) => {
+  findArena: (arenaID) => {
     return axios.get(`/api/level?id=${arenaID}`);
   },
-  createQuestion = (questionData) => {
+  createQuestion: (questionData) => {
     return axios.post("/api/questions", questionData);
   },
-  findQuestions = (questionTopic) => {
+  findQuestions: (questionTopic) => {
     return axios.get(`/api/questions?topic=${questionTopic}`);
   }
 };
