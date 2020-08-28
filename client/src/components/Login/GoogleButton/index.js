@@ -38,17 +38,18 @@ export default class GoogleBtn extends React.Component {
   }
 
   handleLoginFailure() {
-    alert("Failed to log in");
+    console.log("Failed to log in");
   }
 
   handleLogoutFailure() {
-    alert("Failed to log out");
+    console.log("Failed to log out");
   }
 
   render() {
     return (
       <div>
-        { this.state.isLogined ?
+        { this.state.isLogined 
+        ?
           <GoogleLogout
             clientId={CLIENT_ID}
             buttonText="Logout"
