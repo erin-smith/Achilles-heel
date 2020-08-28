@@ -5,6 +5,7 @@ import API from '../../utils/API';
 import Question from '../../components/Question';
 // import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
+import BlockIcon from '@material-ui/icons/Block';
 
 const styles = {
   levelDetails: {
