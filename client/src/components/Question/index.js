@@ -1,11 +1,9 @@
-import React, {useState} from 'react';
-import {Paper, Grid, Button} from '@material-ui/core';
-import HelpIcon from '@material-ui/icons/Help';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-import CancelIcon from '@material-ui/icons/Cancel';
-import './style.css'
-
-import {Dialog, DialogTitle, DialogContent } from '@material-ui/core';
+import React, { useState } from "react";
+import { Paper, Grid, Button, Dialog, DialogTitle, DialogContent } from "@material-ui/core";
+import HelpIcon from "@material-ui/icons/Help";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import CancelIcon from "@material-ui/icons/Cancel";
+import "./style.css";
 
 const styles = {
   circleDiv: {
@@ -23,21 +21,19 @@ const styles = {
     paddingRight: "0.5em",
     width: "10vw"
   }
-}
+};
 
 function Question(props) {
   const [showQuestion, setShowQuestion] = useState(false);
 
-
   function handleAnswerClick(correct) {
     if (correct) {
-      console.log("You're right!")
-    }
-    else {
+      console.log("You're right!");
+    } else {
       console.log("You're wrong");
     }
     setShowQuestion(false);
-    props.onQuestionAnswered(props.index, correct)
+    props.onQuestionAnswered(props.index, correct);
   }
 
   function handlePaperClick() {
