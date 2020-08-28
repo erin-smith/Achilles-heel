@@ -184,7 +184,7 @@ function Test() {
       {/* Question */}
       <Grid item xs={12} sm={12}>
         <Typography component="h2">
-        Question
+          Question
         </Typography>
       </Grid>
       <Grid item xs={12} sm={6}>
@@ -212,9 +212,8 @@ function Test() {
           { output }
         </Typography>
       </Grid>
-      
     </Grid>
-  )
+  );
 }
 
-export default Test
+export default Test;
