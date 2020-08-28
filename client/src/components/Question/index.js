@@ -45,7 +45,6 @@ function Question(props) {
       <Paper style={styles.paper} onClick={handlePaperClick}>
         <Grid container justify="center" alignItems="center">
           { props.question.answered !== undefined ? props.question.answered === true? <CheckCircleIcon className="icon right" /> : <CancelIcon className="icon wrong" /> : <HelpIcon className="icon" />}
-          
         </Grid>
       </Paper>
       <Dialog open={showQuestion}>
@@ -59,15 +58,17 @@ function Question(props) {
                   <Button
                     variant="contained"
                     onClick={() => handleAnswerClick(answer.isCorrect)}
-                  >{answer.answerBody}</Button>
+                  >
+                    {answer.answerBody}
+                  </Button>
                 </Grid>
-              )
+              );
             })}
           </Grid>
         </DialogContent>
       </Dialog>
     </Grid>
-  )
+  );
 }
 
 export default Question
