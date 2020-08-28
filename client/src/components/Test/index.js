@@ -63,32 +63,32 @@ function Test() {
     API.saveUser(display_name, updatedUser).then((response) => out(response.data));
   }
 
-  async function onGetUserClicked() {
-    out(await API.getUser("reptile18"));
+  function onGetUserClicked() {
+    API.getUser("reptile18").then((response) => out(response.data));
   }
 
   async function onOverworldCreateClicked() {
-    out(await API.createOverworld(overworld));
+    API.createOverworld(overworld).then((response) => out(response.data));
   }
 
   async function onOverworldGetClicked() {
-    out(await API.findOverworld("Greece"));
+    API.findOverworld("Greece").then((response) => out(response.data));
   }
 
   async function onLevelCreateClicked() {
-    out(await API.createArena(level));
+    API.createArena(level).then((response) => out(response.data));
   }
 
   async function onLevelGetClicked() {
-    out(await API.findArena("5f46a4fd9b23dc854cb46a27"));
+    API.findArena("5f46a4fd9b23dc854cb46a27").then((response) => out(response.data));
   }
 
   async function onQuestionCreateClicked() {
-    out(await API.createQuestion(question));
+    API.createQuestion(question).then((response) => out(response.data));
   }
 
   async function onQuestionGetClicked() {
-    out(await API.findQuestions("Myth_and_Legend"))
+    API.findQuestions("Myth_and_Legend").then((response) => out(response.data));
   }
 
   function out(obj) {

@@ -51,39 +51,39 @@ export default class GoogleBtn extends React.Component {
         {
           this.state.isLogined
             ? (
-            <GoogleLogout
-              clientId={CLIENT_ID}
-              buttonText="Logout"
-              onLogoutSuccess={this.logout}
-              onFailure={this.handleLogoutFailure}
-            />
+              <GoogleLogout
+                clientId={CLIENT_ID}
+                buttonText="Logout"
+                onLogoutSuccess={this.logout}
+                onFailure={this.handleLogoutFailure}
+              />
             )
             : (
-            <GoogleLogin
-              clientId={CLIENT_ID}
-              buttonText="Login"
-              onSuccess={this.login}
-              onFailure={this.handleLoginFailure}
-              cookiePolicy="single_host_origin"
-              responseType="code,token"
-            />
+              <GoogleLogin
+                clientId={CLIENT_ID}
+                buttonText="Login"
+                onSuccess={this.login}
+                onFailure={this.handleLoginFailure}
+                cookiePolicy="single_host_origin"
+                responseType="code,token"
+              />
             )
         }
         {
           this.state.accessToken
             ? (
-            <h5>
+              <h5>
               Your Access Token:
               <br />
               <br />
               { this.state.accessToken }
             </h5>
             )
-            : null 
+            : null
         }
-        { this.state.googleId 
-            ? (
-            <h5>
+        { this.state.googleId
+          ? (
+              <h5>
               Your GoogleId:
               <br />
               <br />
