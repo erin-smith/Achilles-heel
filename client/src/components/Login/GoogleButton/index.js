@@ -48,45 +48,46 @@ export default class GoogleBtn extends React.Component {
   render() {
     return (
       <div>
-        { 
+        {
           this.state.isLogined
-          ? (
-              <GoogleLogout
-                clientId={CLIENT_ID}
-                buttonText="Logout"
-                onLogoutSuccess={this.logout}
-                onFailure={this.handleLogoutFailure}
-              />
-          )
-          : (
-              <GoogleLogin
-                clientId={CLIENT_ID}
-                buttonText="Login"
-                onSuccess={this.login}
-                onFailure={this.handleLoginFailure}
-                cookiePolicy="single_host_origin"
-                responseType="code,token"
-              />
-          )
+            ? (
+            <GoogleLogout
+              clientId={CLIENT_ID}
+              buttonText="Logout"
+              onLogoutSuccess={this.logout}
+              onFailure={this.handleLogoutFailure}
+            />
+            )
+            : (
+            <GoogleLogin
+              clientId={CLIENT_ID}
+              buttonText="Login"
+              onSuccess={this.login}
+              onFailure={this.handleLoginFailure}
+              cookiePolicy="single_host_origin"
+              responseType="code,token"
+            />
+            )
         }
-        { 
-          this.state.accessToken ?
-          (
+        {
+          this.state.accessToken
+            ? (
             <h5>
-              Your Access Token: 
+              Your Access Token:
               <br />
-              <br /> 
+              <br />
               { this.state.accessToken }
             </h5>
-          )
-          : null }
-        { this.state.googleId ? 
-          (
+            )
+            : null 
+        }
+        { this.state.googleId 
+            ? (
             <h5>
-              Your GoogleId: 
+              Your GoogleId:
               <br />
               <br />
-              { this.state.googleId } 
+              { this.state.googleId }
             </h5>
           )
           : null }

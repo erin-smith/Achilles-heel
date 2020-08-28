@@ -59,8 +59,7 @@ function Question(props) {
         {/* Question Picture would go here */}
         <DialogContent>
           <Grid container direction="row" spacing={1}>
-            {props.question.answerOptions.map((answer) => {
-              (
+            {props.question.answerOptions.map((answer) => (
                 <Grid container item xs={6}>
                   <Button
                     variant="contained"
@@ -69,8 +68,7 @@ function Question(props) {
                     {answer.answerBody}
                   </Button>
                 </Grid>
-              );
-            })}
+            ))}
           </Grid>
         </DialogContent>
       </Dialog>
