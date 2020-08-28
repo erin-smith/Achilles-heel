@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const styles = {
   container: {
@@ -10,14 +10,19 @@ function TOS() {
   return (
     <div style={styles.container}>
       <h1>Terms of Service</h1>
-      <p>Please read these terms of service ("terms", "terms of service") carefully before using Achilles Heel website (the "service") operated by Achilles Heel LLC ("us", 'we", "our").</p>
+      <p>Please read these terms of service ("terms", "terms of service") carefully before using
+      Achilles Heel website (the "service") operated by Achilles Heel LLC ("us", "we", "our").</p>
 
       <h2>Conditions of Use</h2>
-      <p>We will provide their services to you, which are subject to the conditions stated below in this document. Every time you visit this website, use its services or make a purchase, you accept the following conditions. This is why we urge you to read them carefully.</p>
+      <p>We will provide their services to you, which are subject to the conditions stated below in
+      this document. Every time you visit this website, use its services or make a purchase, you
+      accept the following conditions. This is why we urge you to read them carefully.</p>
 
       <h2>Privacy Policy</h2>
 
-      <p>Before you continue using our website we advise you to read our privacy policy [link to privacy policy] regarding our user data collection. It will help you better understand our practices.</p>
+      <p>Before you continue using our website we advise you to read our privacy policy [link to
+        privacy policy] regarding our user data collection. It will help you better understand our
+        practices.</p>
 
       <h2>Copyright</h2>
 

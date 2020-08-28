@@ -15,6 +15,7 @@
         "no-console": 0,
         "quotes": ["error", "double"],
         "arrow-parens": "warn",
-        "comma-dangle": 0
+        "comma-dangle": 0,
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
 }

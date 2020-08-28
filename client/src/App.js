@@ -14,16 +14,16 @@ function App() {
   return (
     <Router>
       <div className="App">
-      <Header />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/overworld" exact component={Overworld} />
-        <Route path="/arena" exact component={Arena} />
-        <Route path="/login" exact component={GoogleButton} />
-        <Route path="/privacy" exact component={PrivacyPolicy} />
-        <Route path="/tos" component={TOS} />
-        <Route path="/test" component={Test} />
-      </Switch>
+        <Header />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/overworld" exact component={Overworld} />
+          <Route path="/arena" exact component={Arena} />
+          <Route path="/login" exact component={GoogleButton} />
+          <Route path="/privacy" exact component={PrivacyPolicy} />
+          <Route path="/tos" component={TOS} />
+          <Route path="/test" component={Test} />
+        </Switch>
       </div>
     </Router>
   );
