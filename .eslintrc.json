@@ -17,6 +17,10 @@
         "quotes": ["error", "double"],
         "arrow-parens": "warn",
         "comma-dangle": 0,
-        "react/jsx-filename-extension": [0]
+        "react/jsx-filename-extension": [0],
+        "no-nested-ternary": "off",
+        "react/destructuring-assignment": "off",
+        "import/no-named-as-default": 0,
+        "import/no-named-as-default-member": 0
     }
 }
