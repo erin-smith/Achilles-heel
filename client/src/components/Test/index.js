@@ -63,7 +63,7 @@ function Test() {
       .then((response) => out(response.data))
       .catch((err) => console.log(err));
   }
-  
+
   function onUpdateUserClicked() {
     API.saveUser(display_name, updatedUser)
       .then((response) => out(response.data))
@@ -121,17 +121,25 @@ function Test() {
       </Grid>
       <Grid item xs={12} sm={6}>
         <Typography component="h6">
-          <button onClick={onCreateUserClicked} >Create {display_name}</button>
+          <button type="button" onClick={onCreateUserClicked}>
+            Create
+            {display_name}
+          </button>
         </Typography>
       </Grid>
       <Grid item xs={12} sm={6}>
         <Typography component="h6">
-          <button onClick={onUpdateUserClicked} >Update {display_name}</button>
+          <button type="button" onClick={onUpdateUserClicked}>
+            Update
+            {display_name}
+          </button>
         </Typography>
       </Grid>
       <Grid item xs={12} sm={6}>
         <Typography component="h6">
-          <button onClick={onGetUserClicked} >Get reptile18</button>
+          <button type="button" onClick={onGetUserClicked}>
+            Get reptile18
+          </button>
         </Typography>
       </Grid>
       <Grid item xs={12} sm={12}>
@@ -141,12 +149,16 @@ function Test() {
       </Grid>
       <Grid item xs={12} sm={6}>
         <Typography component="h6">
-          <button onClick={onOverworldCreateClicked} >Create Overworld</button>
+          <button type="button" onClick={onOverworldCreateClicked}>
+            Create Overworld
+          </button>
         </Typography>
       </Grid>
       <Grid item xs={12} sm={6}>
         <Typography component="h6">
-          <button onClick={onOverworldGetClicked} >Get Overworld</button>
+          <button type="button" onClick={onOverworldGetClicked}>
+            Get Overworld
+          </button>
         </Typography>
       </Grid>
       {/* Arena */}
@@ -157,12 +169,16 @@ function Test() {
       </Grid>
       <Grid item xs={12} sm={6}>
         <Typography component="h6">
-          <button onClick={onLevelCreateClicked} >Create Arena</button>
+          <button type="button" onClick={onLevelCreateClicked}>
+            Create Arena
+          </button>
         </Typography>
       </Grid>
       <Grid item xs={12} sm={6}>
         <Typography component="h6">
-          <button onClick={onLevelGetClicked} >Get Arena</button>
+          <button type="button" onClick={onLevelGetClicked}>
+            Get Arena
+          </button>
         </Typography>
       </Grid>
       {/* Question */}
@@ -173,12 +189,16 @@ function Test() {
       </Grid>
       <Grid item xs={12} sm={6}>
         <Typography component="h6">
-          <button onClick={onQuestionCreateClicked} >Create Question</button>
+          <button type="button" onClick={onQuestionCreateClicked}>
+            Create Question
+          </button>
         </Typography>
       </Grid>
       <Grid item xs={12} sm={6}>
         <Typography component="h6">
-          <button onClick={onQuestionGetClicked} >Get Myth &amp; Legends Question</button>
+          <button type="button" onClick={onQuestionGetClicked}>
+            Get Myth &amp; Legends Question
+          </button>
         </Typography>
       </Grid>
       {/* Output */}
