@@ -1,15 +1,15 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import PrivacyPolicy from './components/Login/PrivacyPolicy';
-import TOS from './components/Login/TOS';
-import GoogleButton from './components/Login/GoogleButton';
-import Home from './pages/Home';
-import Header from './components/Header'
-import Overworld from './pages/Overworld';
-import Arena from './pages/Arena';
-import Test from './components/Test';
-import { Store } from './utils/globalState';
+import PrivacyPolicy from "./components/Login/PrivacyPolicy";
+import TOS from "./components/Login/TOS";
+import GoogleButton from "./components/Login/GoogleButton";
+import Home from "./pages/Home";
+import Header from "./components/Header";
+import Overworld from "./pages/Overworld";
+import Arena from "./pages/Arena";
+import Test from "./components/Test";
+import { Store } from "./utils/globalState";
 
 function App() {
   return (
