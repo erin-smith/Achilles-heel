@@ -9,13 +9,13 @@ import Header from "./components/Header";
 import Overworld from "./pages/Overworld";
 import Arena from "./pages/Arena";
 import Test from "./components/Test";
-import { Store } from "./utils/globalState";
+import { Store, StoreProvider } from "./utils/GlobalState";
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Store>
+        <StoreProvider>
           <Header />
           <Switch>
             <Route path="/" exact component={Home} />
@@ -26,7 +26,7 @@ function App() {
             <Route path="/tos" component={TOS} />
             <Route path="/test" component={Test} />
           </Switch>
-        </Store>
+        </StoreProvider>
       </div>
     </Router>
   );

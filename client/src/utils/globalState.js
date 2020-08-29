@@ -10,15 +10,11 @@ const initialState = {
   }
 };
 
-const StoreContext = createContext(
-  {
-  email: "",
-  display_name: "",
-  avatar: "",
-  score: 0
-});
+const StoreContext = createContext();
+const {Provider} = StoreContext
 
 const reducer = (state, action) => {
+  console.log("am i in reducer");
   switch (action.type) {
     case "LogIn":
       return {
@@ -28,6 +24,8 @@ const reducer = (state, action) => {
         score: action.user.score
       }
       case "getUser":
+        console.log("am i getting user");
+        console.log("what's state.user", state.user);
         return {
           user: state.user
         }
@@ -36,17 +34,22 @@ const reducer = (state, action) => {
   }
 }
 
- export const Store = ({ children }) => {
+//  export const Store = ({ children }) => {
+  
+
+//   return (
+//     <StoreContext.Provider value={{ state, dispatch }}>
+//       {children}
+//     </StoreContext.Provider>
+//   )
+// }
+
+export function StoreProvider ({value , ...props}) {
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  return (
-    <StoreContext.Provider value={{ state, dispatch }}>
-      {children}
-    </StoreContext.Provider>
-  )
+  console.log("in storeprovider", {state});
+  console.log("in storeprovider", {dispatch})
+  return <Provider value={[state, dispatch]} {...props} />
 }
-console.log(StoreContext);
-
-// console.log(useContext(StoreContext));
+console.log({StoreContext});
 
 export const useStore = () => useContext(StoreContext);

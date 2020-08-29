@@ -4,7 +4,7 @@ import {
 } from "@material-ui/core";
 import API from "../../utils/API";
 import "./style.css";
-import { useStore } from "../../utils/globalState";
+import { useStore } from "../../utils/GlobalState";
 
 
 
