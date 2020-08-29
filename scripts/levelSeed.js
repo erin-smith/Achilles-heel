@@ -11,14 +11,14 @@ const levelSeeds = [
     name: "Medusa's Lair",
     score_points: 1000,
     difficulty: 1,
-    topic: "Myth_and_Legend",
+    topic: "Myth",
     icon: "https://i.imgur.com/xLBbq4z.png"
   },
   {
     name: "Den of Hades",
     score_points: 5000,
     difficulty: 2,
-    topic: "Myth_and_Legend",
+    topic: "Underworld",
     icon: "https://i.imgur.com/0sjDcfB.png"
   }
 ];
