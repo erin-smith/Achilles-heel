@@ -1,0 +1,24 @@
+.App .worldMap {
+    width: 200vw;
+    height: 100vh;
+    background-size: cover;
+    margin-bottom: 0;
+    position: relative;
+    background-repeat: no-repeat;
+}
+
+.icons {
+    width: 10vw;
+}
+
+.levelTitle {
+    text-align: center;
+    font-size: 30px;
+}
+
+@media (min-width: 400px) {  
+    .App .worldMap {
+      width: 100vw ;
+      height: 200vh;
+    }
+}

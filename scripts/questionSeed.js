@@ -1,14 +1,13 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/achilles-heel"
 );
 
-const questionsSeed =  [{
+const questionsSeed = [{
     question: "How do you destroy the Golem ?",
-    image: "https://pixabay.com/photos/rock-golem-mobile-online-game-4860877/",
+    image: "https://cdn.pixabay.com/photo/2020/02/18/23/01/rock-4860877_1280.jpg",
     answerOptions: [{
         answerBody: "Bury it 20 feet deep",
         isCorrect: false
@@ -32,7 +31,7 @@ const questionsSeed =  [{
   },
   {
     question: "How do you kill a Chimaera ?",
-    image: "https://www.pngkey.com/download/u2q8o0u2a9o0u2w7_chimera-transparent-chimera-png/",
+    image: "https://www.pngkey.com/png/full/155-1550665_chimera-transparent-chimera-png.png",
     answerOptions: [{
         answerBody: "Decapitation",
         isCorrect: false
@@ -56,7 +55,7 @@ const questionsSeed =  [{
   },
   {
     question: "How do you vanquish a Sphinx?",
-    image: "https://pixabay.com/vectors/animal-anthropomorphic-fictional-1300232/",
+    image: "https://www.netclipart.com/pp/m/380-3804709_greek-mythology-sphinx-drawing.png",
     answerOptions: [{
         answerBody: "Pour water on it",
         isCorrect: false
@@ -80,7 +79,7 @@ const questionsSeed =  [{
   },
   {
     question: "How do you quash a Basilisk without a mirror ?",
-    image: "https://pixabay.com/vectors/basilisk-creatures-drawing-fantasy-1296543/",
+    image: "https://cdn.pixabay.com/photo/2016/03/31/21/38/basilisk-1296543_1280.png",
     answerOptions: [{
         answerBody: "The crow of a Rooster",
         isCorrect: true
@@ -128,7 +127,7 @@ const questionsSeed =  [{
   },
   {
     question: "How do you kill a Nemean Lion ?",
-    image: "https://pixabay.com/photos/lion-statue-mythology-greece-2660858/",
+    image: "https://cdn.pixabay.com/photo/2017/08/20/08/21/lion-2660858_1280.jpg",
     answerOptions: [{
         answerBody: "Decapitation",
         isCorrect: false
@@ -152,7 +151,7 @@ const questionsSeed =  [{
   },
   {
     question: "How do you exterminate Medusa ?",
-    image: "https://pixabay.com/photos/medusa-sculpture-desert-head-4802219/",
+    image: "https://cdn.pixabay.com/photo/2020/01/29/11/17/medusa-4802219_1280.jpg",
     answerOptions: [{
         answerBody: "Use a mirror to decapitate her",
         isCorrect: true
@@ -176,7 +175,7 @@ const questionsSeed =  [{
   },
   {
     question: "How do you defeat Sirens ?",
-    image: "https://pixabay.com/photos/woman-mermaid-fantasy-mythology-3789114/",
+    image: "https://cdn.pixabay.com/photo/2018/11/01/21/40/woman-3789114_1280.jpg",
     answerOptions: [{
         answerBody: "Shoot with harpoon",
         isCorrect: false
@@ -200,7 +199,7 @@ const questionsSeed =  [{
   },
   {
     question: "How do you kill a Werewolf ?",
-    image: "https://pixabay.com/illustrations/creature-3d-render-3d-render-4955806/",
+    image: "https://cdn.pixabay.com/photo/2020/03/22/04/10/creature-4955806_1280.png",
     answerOptions: [{
         answerBody: "Leave it in the Sun",
         isCorrect: false
@@ -223,8 +222,8 @@ const questionsSeed =  [{
     topic: "Myth"
   },
   {
-  question: "How can one destory a Wendigo?",
-    image: "https://www.freepik.com/premium-vector/wendigo-sport-logo-illustration_8065985.htm#page=1&query=wendigo&position=0",
+    question: "How can one destroy a Wendigo?",
+    image: "https://image.freepik.com/free-vector/wendigo-sport-logo-illustration_72076-362.jpg",
     answerOptions: [{
         answerBody: "Eat its arm",
         isCorrect: false
@@ -248,7 +247,7 @@ const questionsSeed =  [{
   },
   {
     question: "How was the Minotaur killed?",
-    image: "https://pixabay.com/illustrations/minotaur-sword-weapon-fantasy-horn-1950012/",
+    image: "https://cdn.pixabay.com/photo/2017/01/03/17/11/minotaur-1950012_1280.png",
     answerOptions: [{
         answerBody: "Pushed into the river Styx",
         isCorrect: false
@@ -272,7 +271,7 @@ const questionsSeed =  [{
   },
   {
     question: "How do you escape a Nuckelavee?",
-    image: "https://favpng.com/png_view/monster-the-bards-tale-nuckelavee-legendary-creature-monster-centaur-png/PA5reTpU",
+    image: "https://img.favpng.com/25/18/1/the-bard-s-tale-nuckelavee-legendary-creature-monster-centaur-png-favpng-MqU1zigUdxGGZRQVjPEA3JsXi.jpg",
     answerOptions: [{
         answerBody: "Play the lyre",
         isCorrect: false
@@ -296,20 +295,15 @@ const questionsSeed =  [{
   },
 ];
 
-
-
-
 db.Questions.deleteMany({})
   .then(() => db.Questions.collection.insertMany(questionsSeed))
 
   // .then(() => db.Achilles-heel.collection.insertMany(questionsSeed))
-  .then(data => {
-    console.log(data.result.n + " records inserted!");
+  .then((data) => {
+    console.log(`${data.result.n} records inserted!`);
     process.exit(0);
   })
-  .catch(err => {
+  .catch((err) => {
     console.error(err);
     process.exit(1);
   });
-
- 

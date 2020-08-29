@@ -1,8 +1,10 @@
 {
     "root": true,
+    "plugins": ["jest"],
     "env": {
         "browser": true,
-        "node": true
+        "node": true,
+        "jest/globals": true
     },
     "extends": [
         "airbnb"
@@ -16,6 +18,16 @@
         "quotes": ["error", "double"],
         "arrow-parens": "warn",
         "comma-dangle": 0,
-        "camelcase": "warn"
+        "react/jsx-filename-extension": [0],
+        "no-nested-ternary": "off",
+        "react/destructuring-assignment": "off",
+        "import/no-named-as-default": 0,
+        "import/no-named-as-default-member": 0,
+        "class-methods-use-this": "warn",
+        "react/prop-types": "warn",
+        "camelcase": "warn",
+        "no-underscore-dangle": "warn",
+        "click-events-have-key-events": "off",
+        "no-noninteractive-element-interactions": "off"
     }
 }
