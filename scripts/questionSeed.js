@@ -32,7 +32,7 @@ const questionsSeed =  [{
   },
   {
     question: "How do you kill a Chimaera ?",
-    image: "https://pixabay.com/vectors/chimera-creature-greece-greek-2027203/",
+    image: "https://www.pngkey.com/download/u2q8o0u2a9o0u2w7_chimera-transparent-chimera-png/",
     answerOptions: [{
         answerBody: "Decapitation",
         isCorrect: false
@@ -51,7 +51,7 @@ const questionsSeed =  [{
       }
     ],
     category: "Monsters",
-    points: 600,
+    points: 900,
     topic: "Myth_and_Legend"
   },
   {
@@ -75,7 +75,7 @@ const questionsSeed =  [{
       }
     ],
     category: "Monsters",
-    points: 300,
+    points: 600,
     topic: "Myth_and_Legend"
   },
   {
@@ -199,27 +199,99 @@ const questionsSeed =  [{
     topic: "Myth_and_Legend"
   },
   {
-    question: "What was Pandora's fatal flaw ?",
-    image: "https://pixabay.com/photos/sculpture-pandora-chauncey-bradley-835617/",
+    question: "How do you kill a Werewolf ?",
+    image: "https://pixabay.com/illustrations/creature-3d-render-3d-render-4955806/",
     answerOptions: [{
-        answerBody: "Curiosity",
+        answerBody: "Leave it in the Sun",
+        isCorrect: false
+      },
+      {
+        answerBody: "Shoot with a silver bullet",
         isCorrect: true
       },
       {
-        answerBody: "Pride",
+        answerBody: "Put garlic around its neck",
         isCorrect: false
       },
       {
-        answerBody: "Vanity",
-        isCorrect: false
-      },
-      {
-        answerBody: "Wrath",
+        answerBody: "Use a Bow and Arrow",
         isCorrect: false
       }
     ],
     category: "Monsters",
     points: 100,
+    topic: "Myth_and_Legend"
+  },
+  {
+  question: "How can one destory a Wendigo?",
+    image: "https://www.freepik.com/premium-vector/wendigo-sport-logo-illustration_8065985.htm#page=1&query=wendigo&position=0",
+    answerOptions: [{
+        answerBody: "Eat its arm",
+        isCorrect: false
+      },
+      {
+        answerBody: "Melt it with water",
+        isCorrect: false
+      },
+      {
+        answerBody: "Subdue and cut out its icy heart and melt that in fire",
+        isCorrect: true
+      },
+      {
+        answerBody: "Feed it another Wendigo",
+        isCorrect: false
+      }
+    ],
+    category: "Monsters",
+    points: 900,
+    topic: "Myth_and_Legend"
+  },
+  {
+    question: "How was the Minotaur killed?",
+    image: "https://pixabay.com/illustrations/minotaur-sword-weapon-fantasy-horn-1950012/",
+    answerOptions: [{
+        answerBody: "Pushed into the river Styx",
+        isCorrect: false
+      },
+      {
+        answerBody: "Exposed to chlorine gas",
+        isCorrect: false
+      },
+      {
+        answerBody: "Shot with a slingshot in the eye",
+        isCorrect: false
+      },
+      {
+        answerBody: "Made a trail with a skein of yarn and slain with Sword",
+        isCorrect: true
+      }
+    ],
+    category: "Monsters",
+    points: 300,
+    topic: "Myth_and_Legend"
+  },
+  {
+    question: "How do you escape a Nuckelavee?",
+    image: "https://favpng.com/png_view/monster-the-bards-tale-nuckelavee-legendary-creature-monster-centaur-png/PA5reTpU",
+    answerOptions: [{
+        answerBody: "Play the lyre",
+        isCorrect: false
+      },
+      {
+        answerBody: "Splash it with rain or fresh water",
+        isCorrect: true
+      },
+      {
+        answerBody: "Show it its reflection",
+        isCorrect: false
+      },
+      {
+        answerBody: "Hurl fire and brimstone at it",
+        isCorrect: false
+      }
+    ],
+    category: "Monsters",
+    points: 900,
     topic: "Myth_and_Legend"
   },
 ];
