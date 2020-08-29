@@ -2,12 +2,12 @@
 const db = require("../models");
 
 module.exports = {
-  createUser(req, res) {
+  createUser: (req, res) => {
     db.User.create(req.body)
       .then((dbUser) => res.json(dbUser))
       .catch((err) => res.status(422).json(err));
   },
-  findUser(req, res) {
+  findUser: (req, res) => {
     const { email } = req.query;
     const { display_name } = req.query;
     if (display_name) {
