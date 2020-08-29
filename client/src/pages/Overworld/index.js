@@ -36,8 +36,9 @@ function Overworld() {
     setShowLevel(thisLevel);
   }
 
+  console.log(worldState);
+
   function renderDialog() {
-    console.log("in render function");
     if (open) {
       return (
         <Dialog open={open}>
