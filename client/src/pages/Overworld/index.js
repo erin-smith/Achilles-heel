@@ -22,7 +22,7 @@ function Overworld() {
       .then((res) => {
         setWorldState(res.data[0]);
         setWorldLevels(res.data[0].levels);
-    })
+      })
     .catch((err) => console.log(err));
   }
 
@@ -96,10 +96,10 @@ function Overworld() {
 
   return (
     <Grid container justify="center" alignItems="center" style={styles.worldContainer} className="worldMap">
-      {worldLevels.map((level) =>{ return (<img src={level.icon} className="icons" alt="level-icon" data-level={level._id} onClick={handleIconClick} />); })}
+      {worldLevels.map((level) => { return (<img src={level.icon} className="icons" alt="level-icon" data-level={level._id} onClick={handleIconClick} />); })}
 
       {renderDialog()}
-      
+    
     </Grid>
   );
 }
