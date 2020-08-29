@@ -5,4 +5,4 @@ router.route("/")
   .get(gameController.findArenaById)
   .post(gameController.createArena);
 
-module.exports = router
+module.exports = router;
