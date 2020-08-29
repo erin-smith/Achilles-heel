@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Dialog, DialogTitle, DialogContent, Typography, Button } from "@material-ui/core";
+import { 
+  Grid, Dialog, DialogTitle, DialogContent, Typography, Button 
+} from "@material-ui/core";
 import API from "../../utils/API";
 import "./style.css";
 

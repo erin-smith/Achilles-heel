@@ -10,14 +10,16 @@ function Credits() {
   return (
     <div style={styles.container}>
       <h1>Credits</h1>
-      <p>Medusa Icon 
+      <p>
+        Medusa Icon
         <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a> 
-        from 
+        from
         <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
       </p>
-      <p>Hades Icon 
+      <p>
+        Hades Icon
         <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> 
-        from 
+        from
         <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
       </p>
     </div>
