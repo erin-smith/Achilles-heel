@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const db = require("../models");
 
 module.exports = {
@@ -31,7 +32,7 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   findOverworld(req, res) {
-    db.World.find({ name: req.query.name })
+    db.World.find({ name: req.query.name }).populate("levels")
       .then((dbWorld) => res.json(dbWorld))
       .catch((err) => res.status(422).json(err));
   },

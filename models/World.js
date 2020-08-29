@@ -1,22 +1,22 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 
+const { Schema } = mongoose;
 
 const WorldSchema = new Schema({
-    name: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    background_image: {
-        type: String
-    },
-    levels: 
+  name: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  background_image: {
+    type: String
+  },
+  levels:
         [
-            {
-              type: Schema.Types.ObjectId,
-              ref: "Level"
-            }
+          {
+            type: Schema.Types.ObjectId,
+            ref: "Level"
+          }
         ]
 
 });
