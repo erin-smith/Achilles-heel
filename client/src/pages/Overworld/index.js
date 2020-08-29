@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { 
-  Grid, Dialog, DialogTitle, DialogContent, Typography, Button 
+import {
+  Grid, Dialog, DialogTitle, DialogContent, Typography, Button
 } from "@material-ui/core";
 import API from "../../utils/API";
 import "./style.css";
@@ -18,12 +18,12 @@ function Overworld() {
   };
 
   function loadWorld(worldName) {
-      API.findOverworld(worldName)
-        .then((res) => {
-          setWorldState(res.data[0]);
-          setWorldLevels(res.data[0].levels);
-      })
-      .catch((err) => console.log(err));
+    API.findOverworld(worldName)
+      .then((res) => {
+        setWorldState(res.data[0]);
+        setWorldLevels(res.data[0].levels);
+    })
+    .catch((err) => console.log(err));
   }
 
   useEffect(() => {
@@ -43,7 +43,7 @@ function Overworld() {
         <Dialog open={open}>
           <Grid container direction="row">
             <Grid item xs container direction="column" spacing={1}>
-              <img src={showLevel[0].icon} width="100%" margin="0 auto" alt="level-graphic"/>
+              <img src={showLevel[0].icon} width="100%" margin="0 auto" alt="level-graphic" />
             </Grid>
             <Grid item xs container direction="column" justify="center">
               <DialogTitle className="levelTitle">
@@ -72,11 +72,13 @@ function Overworld() {
                     </Typography>
                     <Typography variant="body2" gutterBottom>
                       Difficulty:
-                      {" "}{showLevel[0].difficulty}
+                      {" "}
+                      {showLevel[0].difficulty}
                     </Typography>
                     <Typography variant="body2" gutterBottom>
                       Max Points:
-                      {" "}{showLevel[0].score_points}
+                      {" "}
+                      {showLevel[0].score_points}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -90,12 +92,11 @@ function Overworld() {
   }
 
   // in this file, need to render the icons at specific coordinates on map
-  // play button needs 
-
+  // play button needs
 
   return (
     <Grid container justify="center" alignItems="center" style={styles.worldContainer} className="worldMap">
-      {worldLevels.map((level) => { return ( <img src={level.icon} className="icons" alt="level-icon" data-level={level._id} onClick={handleIconClick} />)})}
+      {worldLevels.map((level) =>{ return (<img src={level.icon} className="icons" alt="level-icon" data-level={level._id} onClick={handleIconClick} />); })}
 
       {renderDialog()}
       

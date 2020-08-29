@@ -12,13 +12,13 @@ function Credits() {
       <h1>Credits</h1>
       <p>
         Medusa Icon
-        <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a> 
+        <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a>
         from
         <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
       </p>
       <p>
         Hades Icon
-        <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> 
+        <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
         from
         <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
       </p>
