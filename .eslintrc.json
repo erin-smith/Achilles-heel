@@ -25,6 +25,9 @@
         "import/no-named-as-default-member": 0,
         "class-methods-use-this": "warn",
         "react/prop-types": "warn",
-        "camelcase": "warn"
+        "camelcase": "warn",
+        "no-underscore-dangle": "warn",
+        "click-events-have-key-events": "off",
+        "no-noninteractive-element-interactions": "off"
     }
 }
