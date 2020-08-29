@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 module.exports = {
-  Worlds: require("./worldSeed"),
   Levels: require("./levelSeed"),
+  // Worlds: require("./worldSeed"),
   Questions: require("./questionSeed")
 };
