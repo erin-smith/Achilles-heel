@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Grid } from '@material-ui/core';
-import API from '../../utils/API';
-// import { createOverworld } from '../../../../controllers/gameController';
-
+import React, { useEffect, useState } from "react";
+import { Grid } from "@material-ui/core";
+import API from "../../utils/API";
 
 function Overworld() {
-
   const [ worldState, setWorldState ] = useState("");
   // const [ backgroundState, setBackground ] = useState("");
   const styles = {
