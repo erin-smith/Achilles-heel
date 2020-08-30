@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   Grid, Dialog, DialogTitle, DialogContent, Typography, Button
 } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import "./style.css";
 
@@ -36,8 +37,6 @@ function Overworld() {
     setShowLevel(thisLevel);
   }
 
-  console.log(worldState);
-
   function renderDialog() {
     if (open) {
       return (
@@ -46,11 +45,13 @@ function Overworld() {
             <Grid item xs container direction="column" spacing={1}>
               <img src={showLevel[0].icon} width="100%" margin="0 auto" alt="level-graphic" />
             </Grid>
-            <Grid item xs container direction="column" justify="center">
+            <Grid item xs container direction="column" justify="center" alignItems="center">
               <DialogTitle className="levelTitle">
                 {showLevel[0].name}
               </DialogTitle>
-              <Button variant="contained">Play!</Button>
+              <Link to={`/arena?id=${showLevel[0]._id}`}>
+                <Button size="medium" variant="contained" id={showLevel[0]._id}>Play!</Button>
+              </Link>
             </Grid>
           </Grid>
 
@@ -77,9 +78,14 @@ function Overworld() {
                       {showLevel[0].difficulty}
                     </Typography>
                     <Typography variant="body2" gutterBottom>
-                      Max Points:
+                      Reward:
                       {" "}
                       {showLevel[0].score_points}
+                    </Typography>
+                    <Typography variant="body2" gutterBottom>
+                      Subject:
+                      {" "}
+                      {showLevel[0].topic}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -97,7 +103,7 @@ function Overworld() {
 
   return (
     <Grid container justify="center" alignItems="center" style={styles.worldContainer} className="worldMap">
-      {worldLevels.map((level) => { return (<img src={level.icon} className="icons" alt="level-icon" data-level={level._id} onClick={handleIconClick} />); })}
+      {worldLevels.map((level) => { return (<img src={level.icon} className="icons" alt="level-icon" key={level._id} data-level={level._id} onClick={handleIconClick} />); })}
 
       {renderDialog()}
     
