@@ -10,7 +10,7 @@ const colorsArr = [
 ];
 
 const randomColor = colorsArr[Math.floor(Math.random() * colorsArr.length)];
-//console.log(randomColor);
+// console.log(randomColor);
 
 const randomAvatar = avatarAPI + randomColor;
 
