@@ -14,10 +14,7 @@ const colorsArr = [
   "lightBlue", "lightGreen", "lime", "orange", "pink", "purple", "red", "teal", "yellow"
 ];
 
-const randomColor = colorsArr[Math.floor(Math.random() * colorsArr.length)];
-//console.log(randomColor);
-
-const randomAvatar = avatarAPI + randomColor;
+const randomColorId = Math.floor(Math.random() * colorsArr.length);
 
 export default class AvatarPic extends React.Component {
 
@@ -26,18 +23,35 @@ export default class AvatarPic extends React.Component {
 
     this.state = {
       username: "",
-      randomAvatar: ""
+      randomAvatar: "",
+      choiceColor: randomColorId
     };
+  }
+
+  getAvatar(colorId){
+    return avatarAPI + colorsArr[colorId];
+  }
+
+  handleDecrement = () => {
+    this.setState(prevState => (
+      {choiceColor: (prevState.choiceColor-1) < 0 ? colorsArr.length-1 : prevState.choiceColor-1})
+    )
+    this.props.onAvatarChange(this.getAvatar(this.state.choiceColor));
+  }
+  handleIncrement = () => {
+    this.setState(prevState => (
+      {choiceColor: (prevState.choiceColor+1) >= colorsArr.length ? 0 : prevState.choiceColor+1})
+    )
+    this.props.onAvatarChange(this.getAvatar(this.state.choiceColor));
   }
 
   render() {
     return (
       <div className="row mt-5">
-        <div key={randomAvatar} className="card mx-auto col-4">
-          <img className="card-img-top" src={randomAvatar} style={{ width: 150, height: 150 }} alt="avatarPic" />
+        <div key={this.getAvatar(this.state.choiceColor)} className="card mx-auto col-4">
+          <img className="card-img-top" src={this.getAvatar(this.state.choiceColor)} style={{ width: 150, height: 150 }} alt="avatarPic" />
           <div className="card-body">
-            <h4 className="card-title">{this.state.username}User Name Here</h4>
-            <p className="card-text">Extra details about user we want to display here</p>
+    <button onClick={this.handleDecrement} >Prev</button><h4 className="card-title">{this.state.choiceColor}:{colorsArr[this.state.choiceColor]}</h4><button onClick={this.handleIncrement}>Next</button>
           </div>
         </div>
       </div>

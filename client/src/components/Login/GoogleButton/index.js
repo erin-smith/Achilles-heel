@@ -1,5 +1,6 @@
 import React from "react";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
+import SignUp from "../../SignUp";
 
 const CLIENT_ID = "15003138507-rrf8me4d9tdffufbu8l38mji2h372j2m.apps.googleusercontent.com";
 
@@ -76,10 +77,12 @@ export default class GoogleBtn extends React.Component {
             responseType='code,token'
           />
         }
-        {this.state.accessToken ? <h5>Your Access Token: <br /><br /> {this.state.accessToken}</h5> : null}
+        {this.state.googleId ? <SignUp googleId={this.state.googleId} accessToken={this.state.accessToken} avatar={randomAvatar}>
+        {/*{this.state.accessToken ? <h5>Your Access Token: <br /><br /> {this.state.accessToken}</h5> : null}
         {this.state.googleId ? <h5>Your GoogleId: <br /><br /> {this.state.googleId} <br /><br />
         Your Avatar:<br /><br />
-        <img style={{ width: 150, height: 150 }} src={randomAvatar} alt="avatarPic"></img></h5> : null}
+      <img style={{ width: 150, height: 150 }} src={randomAvatar} alt="avatarPic"></img></h5> : null}*/}
+        </SignUp> : null}
       </div>
     )
   }
