@@ -2,15 +2,18 @@
     "root": true,
     "plugins": ["jest"],
     "env": {
+        "es6": true,
         "browser": true,
         "node": true,
         "jest/globals": true
     },
     "extends": [
-        "airbnb"
+        "airbnb",
+        "eslint:recommended",
+        "google"
     ],
     "parserOptions": {
-        "ecmaVersion": 2015,
+        "ecmaVersion": 9,
         "sourceType": "module"
     },
     "rules": {
