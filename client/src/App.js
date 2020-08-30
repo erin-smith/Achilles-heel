@@ -10,7 +10,7 @@ import Overworld from "./pages/Overworld";
 import Arena from "./pages/Arena";
 import Test from "./components/Test";
 import AvatarPic from "./components/AvatarPic";
-import { StoreProvider } from "./utils/GlobalState";
+import { StoreProvider } from "./utils/GlobalState.js";
 
 function App() {
   return (

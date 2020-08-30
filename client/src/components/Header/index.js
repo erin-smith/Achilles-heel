@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
-import { useStore } from "../../utils/GlobalState.js";
+import { useStore } from "../../utils/GlobalState";
 
 function Header() {
-  const [state, dispatch] = useStore();
+  const [state] = useStore();
   useEffect(() => {
 
     // test code demonstrating how to set the user and world in store
