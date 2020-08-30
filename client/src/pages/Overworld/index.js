@@ -37,12 +37,6 @@ function Overworld() {
     setShowLevel(thisLevel);
   }
 
-  function handlePlayClick(evt) {
-    const selectedLevel = evt.currentTarget.id;
-    API.findArena(selectedLevel)
-    .then((res) => console.log("arena data", res));
-  }
-
   function renderDialog() {
     if (open) {
       return (
