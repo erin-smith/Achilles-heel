@@ -107,7 +107,7 @@ function Overworld() {
 
   return (
     <Grid container justify="center" alignItems="center" style={styles.worldContainer} className="worldMap">
-      {worldLevels.map((level) => { return (<img src={level.icon} className="icons" alt="level-icon" key={level._id} data-level={level._id} onClick={handleIconClick} />); })}
+      {worldLevels.map((level) => <img src={level.icon} className="icons" alt="level-icon" key={level._id} data-level={level._id} onClick={handleIconClick} />)}
 
       {renderDialog()}
     
