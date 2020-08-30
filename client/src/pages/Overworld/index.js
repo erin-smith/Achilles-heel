@@ -5,9 +5,7 @@ import {
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import "./style.css";
-import { useStore } from "../../utils/GlobalState";
-
-
+import { useStore } from "../../utils/globalState";
 
 function Overworld() {
   const [worldState, setWorldState] = useState("");

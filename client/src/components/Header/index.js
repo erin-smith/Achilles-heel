@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
-import { useStore } from "../../utils/GlobalState";
+import { useStore } from "../../utils/globalState";
 
 function Header() {
   const [state] = useStore();
