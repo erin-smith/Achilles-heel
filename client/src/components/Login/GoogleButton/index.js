@@ -36,9 +36,10 @@ export default class GoogleBtn extends React.Component {
       this.setState(() => ({
         isLogined: true,
         accessToken: response.accessToken,
-        googleId: response.googleId
+        googleId: response.googleId,
+        email: response.profileObj.email
       }));
-      console.log(response.profileObj.email);
+      return(response.profileObj.email);
     }
   }
 
@@ -77,7 +78,7 @@ export default class GoogleBtn extends React.Component {
             responseType='code,token'
           />
         }
-        {this.state.googleId ? <SignUp googleId={this.state.googleId} accessToken={this.state.accessToken} avatar={randomAvatar}>
+        {this.state.googleId ? <SignUp googleId={this.state.googleId} accessToken={this.state.accessToken} avatar={randomAvatar} email={this.state.email}>
         {/*{this.state.accessToken ? <h5>Your Access Token: <br /><br /> {this.state.accessToken}</h5> : null}
         {this.state.googleId ? <h5>Your GoogleId: <br /><br /> {this.state.googleId} <br /><br />
         Your Avatar:<br /><br />

@@ -1,4 +1,6 @@
 import React from "react";
+import { Button } from "@material-ui/core";
+
 // import { Avatar } from 'react-native-elements';
 // import Avatar from 'react-avatar-edit';
 // import Avatars from '@dicebear/avatars';
@@ -36,26 +38,26 @@ export default class AvatarPic extends React.Component {
     this.setState(prevState => (
       {choiceColor: (prevState.choiceColor-1) < 0 ? colorsArr.length-1 : prevState.choiceColor-1})
     )
-    this.props.onAvatarChange(this.getAvatar(this.state.choiceColor));
   }
   handleIncrement = () => {
     this.setState(prevState => (
       {choiceColor: (prevState.choiceColor+1) >= colorsArr.length ? 0 : prevState.choiceColor+1})
     )
-    this.props.onAvatarChange(this.getAvatar(this.state.choiceColor));
   }
 
   render() {
+    this.props.onAvatarChange(this.getAvatar(this.state.choiceColor));
     return (
       <div className="row mt-3">
-         <div className="card-header">
-        <div key={this.getAvatar(this.state.choiceColor)} className="card mx-auto col-4"></div>
-        <button justify-content="left" onClick={this.handleDecrement}>Prev</button><img className="card-img-top" src={this.getAvatar(this.state.choiceColor)} style={{ width: 150, height: 150 }} alt="avatarPic" /><button onClick={this.handleIncrement}>Next</button>
-        <div className="card-title">{this.state.choiceColor}:{colorsArr[this.state.choiceColor]} </div>
-        <br></br>
-        <br></br>
-          </div>
+        <div className="card-header">
+          <button justify-content="left" onClick={this.handleDecrement}>Prev</button>
+          <img className="card-img-top" src={this.getAvatar(this.state.choiceColor)} style={{ width: 150, height: 150 }} alt="avatarPic" />
+          <button onClick={this.handleIncrement}>Next</button>
+          {/* <div className="card-title">{this.state.choiceColor}:{colorsArr[this.state.choiceColor]} </div> */}
+          <br></br>
+          <br></br>
         </div>
+      </div>
     );
   }
 
