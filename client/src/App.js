@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import Overworld from "./pages/Overworld";
 import Arena from "./pages/Arena";
 import Test from "./components/Test";
+import AvatarPic from './components/AvatarPic';
 import { Store, StoreProvider } from "./utils/GlobalState";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/privacy" exact component={PrivacyPolicy} />
             <Route path="/tos" component={TOS} />
             <Route path="/test" component={Test} />
+            <Route path="/avatar" component={AvatarPic} />
           </Switch>
         </StoreProvider>
       </div>
