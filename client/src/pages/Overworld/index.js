@@ -5,22 +5,12 @@ import {
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import "./style.css";
-import { useStore } from "../../utils/globalState";
 
 function Overworld() {
   const [worldState, setWorldState] = useState("");
   const [worldLevels, setWorldLevels] = useState([]);
   const [showLevel, setShowLevel] = useState([]);
   const [open, setOpen] = useState(false);
-
-  const [state, dispatch] = useStore();
-
-  const user = {
-    email: "example@gmail.com",
-    display_name: "example",
-    avatar: "blank_image",
-    score: 0
-  }
 
   const styles = {
     worldContainer: {
@@ -39,7 +29,6 @@ function Overworld() {
 
   useEffect(() => {
     loadWorld("Greece");
-    dispatch({type:"LogIn", user});
   }, []);
 
   function handleIconClick(evt) {
