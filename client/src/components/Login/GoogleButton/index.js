@@ -10,12 +10,11 @@ const colorsArr = [
 ];
 
 const randomColor = colorsArr[Math.floor(Math.random() * colorsArr.length)];
-//console.log(randomColor);
+// console.log(randomColor);
 
 const randomAvatar = avatarAPI + randomColor;
 
 export default class GoogleBtn extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -39,7 +38,6 @@ export default class GoogleBtn extends React.Component {
         googleId: response.googleId
       }));
       console.log(response.profileObj.email);
-
     }
   }
 
