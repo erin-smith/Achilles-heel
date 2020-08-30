@@ -4,15 +4,20 @@ import {useStore} from "../../utils/GlobalState";
 
 
 function Header() {
-  //console.log(useStore);
-  // demo();
   const [state, dispatch] = useStore();
   useEffect(() => {
-  console.log({dispatch});
-  console.log({state});
-  console.log("dispatch", dispatch({ type: "getUser" }));
+
+  // test code demonstrating how to set the user and world in store
+  // const setNewUser = {
+  //   email: "kennethMurphy@gmail.com",
+  //   display_name: "KennethMurphy",
+  //   avatar: "cat21.jpg",
+  //   score: -17
+  // }
+  // dispatch({type: "SetUser", user: setNewUser});
+  // dispatch({type: "SetWorld", worldName: "Greece"});
+
   }, [])
-  
 
   return (
     <AppBar position="static">
@@ -21,7 +26,7 @@ function Header() {
           Achilles Heel
         </Typography>
         <Typography>
-          {dispatch({ type: "getUser" }).display_name}
+          { `${state.user.display_name}:${state.currentWorld.name}`  }
         </Typography>
       </Toolbar>
     </AppBar>
