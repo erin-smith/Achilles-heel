@@ -47,14 +47,15 @@ export default class AvatarPic extends React.Component {
 
   render() {
     return (
-      <div className="row mt-5">
-        <div key={this.getAvatar(this.state.choiceColor)} className="card mx-auto col-4">
-          <img className="card-img-top" src={this.getAvatar(this.state.choiceColor)} style={{ width: 150, height: 150 }} alt="avatarPic" />
-          <div className="card-body">
-    <button onClick={this.handleDecrement} >Prev</button><h4 className="card-title">{this.state.choiceColor}:{colorsArr[this.state.choiceColor]}</h4><button onClick={this.handleIncrement}>Next</button>
+      <div className="row mt-3">
+         <div className="card-header">
+        <div key={this.getAvatar(this.state.choiceColor)} className="card mx-auto col-4"></div>
+        <button justify-content="left" onClick={this.handleDecrement}>Prev</button><img className="card-img-top" src={this.getAvatar(this.state.choiceColor)} style={{ width: 150, height: 150 }} alt="avatarPic" /><button onClick={this.handleIncrement}>Next</button>
+        <div className="card-title">{this.state.choiceColor}:{colorsArr[this.state.choiceColor]} </div>
+        <br></br>
+        <br></br>
           </div>
         </div>
-      </div>
     );
   }
 
