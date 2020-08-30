@@ -9,8 +9,7 @@
     },
     "extends": [
         "airbnb",
-        "eslint:recommended",
-        "google"
+        "eslint:recommended"
     ],
     "parserOptions": {
         "ecmaVersion": 9,
