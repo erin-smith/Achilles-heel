@@ -292,7 +292,7 @@ const questionsSeed = [{
   category: "Monsters",
   points: 900,
   topic: "Myth"
-},
+}
 ];
 
 db.Questions.deleteMany({})
