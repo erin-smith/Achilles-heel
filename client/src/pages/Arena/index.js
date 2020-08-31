@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { 
+import {
   Grid,
   Dialog,
   DialogTitle,
   DialogContent,
   DialogActions,
-  Button 
+  Button
 } from "@material-ui/core";
 import { useLocation, Redirect } from "react-router-dom";
 import FlashOnIcon from "@material-ui/icons/FlashOn";
