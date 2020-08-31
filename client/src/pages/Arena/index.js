@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@material-ui/core";
+import { 
+  Grid,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button 
+} from "@material-ui/core";
 import { useLocation, Redirect } from "react-router-dom";
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import API from "../../utils/API";
@@ -55,13 +62,13 @@ function Arena() {
     if (strikes >= 3) {
       setGameEnded(true);
     }
-  }, [strikes])
+  }, [strikes]);
 
   useEffect(() => {
     if (numQuestionsAnswered >= questions.length && numQuestionsAnswered > 0) {
       setGameEnded(true);
     }
-  },[numQuestionsAnswered, questions.length])
+  }, [numQuestionsAnswered, questions.length]);
 
   function gameLost() {
     return strikes >= 3;
@@ -69,28 +76,26 @@ function Arena() {
 
   function onQuestionAnswered(index, correct) {
     questions[index].answered = correct;
-    setNumQuestionsAnswered(numQuestionsAnswered+1);
+    setNumQuestionsAnswered(numQuestionsAnswered + 1);
     if (correct) {
       setRunningScore(runningScore + questions[index].points);
-    }
-    else {
-      setStrikes(strikes+1);
+    } else {
+      setStrikes(strikes + 1);
     }
   }
 
   function handleGameEndAccept() {
     // update store
-    const user = state.user;
-    user.score_points = user.score_points + runningScore;
-    dispatch({type: "SetUser", user});
+    const { user } = state;
+    user.score_points += runningScore;
+    dispatch({ type: "SetUser", user });
     // save user to db
     API.saveUser(user.display_name, user).then(() => {
       setGameEnded(false);
       setReturnToOverworld(true);
-    }).catch(err => {
+    }).catch((err) => {
       console.log(err);
     });
-    
   }
 
   return (
@@ -131,12 +136,12 @@ function Arena() {
         {runningScore}
       </Grid>
       <Dialog open={gameEnded}>
-        <DialogTitle>{ gameLost() ? "Failure": "Victory!"}</DialogTitle>
+        <DialogTitle>{ gameLost() ? "Failure" : "Victory!"}</DialogTitle>
         <DialogContent>
           {
             gameLost()
-            ? "You've answered too many wrong questions."
-            : "You've answered all the questions!"
+              ? "You've answered too many wrong questions."
+              : "You've answered all the questions!"
           }
         </DialogContent>
         <DialogActions>
