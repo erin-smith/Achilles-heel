@@ -87,7 +87,7 @@ function Arena() {
   function handleGameEndAccept() {
     // update store
     const { user } = state;
-    user.score_points += runningScore;
+    user.score += runningScore;
     dispatch({ type: "SetUser", user });
     // save user to db
     API.saveUser(user.display_name, user).then(() => {
@@ -118,6 +118,7 @@ function Arena() {
       <Grid style={styles.levelCards} container direction="row" justify="space-around" spacing={4}>
         {questions.map((question, index) => (
           <Question
+            key={index}
             question={question}
             index={index}
             onQuestionAnswered={onQuestionAnswered}

@@ -13,6 +13,7 @@ function Header() {
     //   avatar: "cat21.jpg",
     //   score: -17
     // }
+    // API.createUser(setNewUser);
     // dispatch({type: "SetUser", user: setNewUser});
     // dispatch({type: "SetWorld", worldName: "Greece"});
 
@@ -25,7 +26,7 @@ function Header() {
           Achilles Heel
         </Typography>
         <Typography>
-          { `${state.user.display_name}:${state.currentWorld.name}` }
+          { `${state.user.display_name}:${state.currentWorld.name}:${state.user.score}` }
         </Typography>
       </Toolbar>
     </AppBar>
