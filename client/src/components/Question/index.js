@@ -60,7 +60,7 @@ function Question(props) {
         <DialogContent>
           <Grid container direction="row" spacing={1}>
             {props.question.answerOptions.map((answer) => (
-              <Grid container item xs={6}>
+              <Grid container item xs={6} key={answer.answerBody}>
                 <Button
                   variant="contained"
                   onClick={() => handleAnswerClick(answer.isCorrect)}
