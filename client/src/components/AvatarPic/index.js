@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "@material-ui/core";
 
 // import { Avatar } from 'react-native-elements';
 // import Avatar from 'react-avatar-edit';
