@@ -37,10 +37,14 @@ function Overworld() {
     setShowLevel(thisLevel);
   }
 
+  function handleClose() {
+    setOpen(false);
+  }
+
   function renderDialog() {
     if (open) {
       return (
-        <Dialog open={open}>
+        <Dialog open={open} onClose={handleClose}>
           <Grid container direction="row">
             <Grid item xs container direction="column" spacing={1}>
               <img src={showLevel[0].icon} width="100%" margin="0 auto" alt="level-graphic" />
@@ -103,7 +107,7 @@ function Overworld() {
 
   return (
     <Grid container justify="center" alignItems="center" style={styles.worldContainer} className="worldMap">
-      {worldLevels.map((level) => { return (<img src={level.icon} className="icons" alt="level-icon" key={level._id} data-level={level._id} onClick={handleIconClick} />); })}
+      {worldLevels.map((level) => <img src={level.icon} className="icons" alt="level-icon" key={level._id} data-level={level._id} onClick={handleIconClick} />)}
 
       {renderDialog()}
     
