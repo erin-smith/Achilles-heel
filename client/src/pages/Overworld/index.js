@@ -24,7 +24,7 @@ function Overworld() {
         setWorldState(res.data[0]);
         setWorldLevels(res.data[0].levels);
       })
-    .catch((err) => console.log(err));
+      .catch((err) => console.log(err));
   }
 
   useEffect(() => {
