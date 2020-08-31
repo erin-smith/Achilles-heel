@@ -11,13 +11,15 @@ import API from "../../utils/API";
 
 
 const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
-});
+
+    root: {
+      maxWidth: 345,
+    },
+    media: {
+        height: 140,
+      },
+  });
+
 
 // function handleSubmit(lalala){
 //   console.log($("TextField").val());
@@ -38,6 +40,7 @@ export default function MediaCard(props) {
 
   function handleAvatarChange(url) {
     setAvatar(url);
+
   }
 
   const textFieldChange = name => e => {
@@ -73,7 +76,7 @@ export default function MediaCard(props) {
             <br></br>
             <CardContent>
               <Typography gutterBottom variant="h6" component="h6" justify-content="left">Hello: {props.email}</Typography>
-              <h4 align-content="left">Nickname:
+              <h4 align-content="left">Nickname: 
                 <TextField id="outlined-required-size-small" onChange={textFieldChange('x')} label="Required" variant="outlined" size="small"></TextField>
               </h4>
             </CardContent>
@@ -83,6 +86,7 @@ export default function MediaCard(props) {
           </CardActions>
         </Card>
         {goToOverworld ? <Redirect to="/overworld" /> : null}
+
       </Container>
     </React.Fragment>
   );

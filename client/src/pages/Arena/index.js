@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Grid } from "@material-ui/core";
-import { useLocation } from "react-router-dom";
+import {
+  Grid,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button
+} from "@material-ui/core";
+import { useLocation, Redirect } from "react-router-dom";
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import API from "../../utils/API";
 import Question from "../../components/Question";
-// import EmojiEventsIcon from "@material-ui/icons/EmojiEvents";
+import { useStore } from "../../utils/globalState";
 
 const styles = {
   levelDetails: {
@@ -30,12 +37,16 @@ function Arena() {
   });
   const [questions, setQuestions] = useState([]);
   const [runningScore, setRunningScore] = useState(0);
+  const [strikes, setStrikes] = useState(0);
+  const [gameEnded, setGameEnded] = useState(false);
+  const [returnToOverworld, setReturnToOverworld] = useState(false);
+  const [state, dispatch] = useStore();
+  const [numQuestionsAnswered, setNumQuestionsAnswered] = useState(0);
 
   useEffect(() => {
     console.log("fetching");
     API.findArena(id).then((response) => {
       setArena(response.data);
-      console.log("arena", response.data);
     });
   }, [id]);
 
@@ -43,16 +54,48 @@ function Arena() {
     if (arena) {
       API.findQuestions(arena.topic).then((response) => {
         setQuestions(response.data);
-        console.log("questions", response.data);
       });
     }
   }, [arena]);
 
+  useEffect(() => {
+    if (strikes >= 3) {
+      setGameEnded(true);
+    }
+  }, [strikes]);
+
+  useEffect(() => {
+    if (numQuestionsAnswered >= questions.length && numQuestionsAnswered > 0) {
+      setGameEnded(true);
+    }
+  }, [numQuestionsAnswered, questions.length]);
+
+  function gameLost() {
+    return strikes >= 3;
+  }
+
   function onQuestionAnswered(index, correct) {
     questions[index].answered = correct;
+    setNumQuestionsAnswered(numQuestionsAnswered + 1);
     if (correct) {
       setRunningScore(runningScore + questions[index].points);
+    } else {
+      setStrikes(strikes + 1);
     }
+  }
+
+  function handleGameEndAccept() {
+    // update store
+    const { user } = state;
+    user.score += runningScore;
+    dispatch({ type: "SetUser", user });
+    // save user to db
+    API.saveUser(user.display_name, user).then(() => {
+      setGameEnded(false);
+      setReturnToOverworld(true);
+    }).catch((err) => {
+      console.log(err);
+    });
   }
 
   return (
@@ -75,6 +118,7 @@ function Arena() {
       <Grid style={styles.levelCards} container direction="row" justify="space-around" spacing={4}>
         {questions.map((question, index) => (
           <Question
+            key={question.question}
             question={question}
             index={index}
             onQuestionAnswered={onQuestionAnswered}
@@ -92,6 +136,22 @@ function Arena() {
         <FlashOnIcon />
         {runningScore}
       </Grid>
+      <Dialog open={gameEnded}>
+        <DialogTitle>{ gameLost() ? "Failure" : "Victory!"}</DialogTitle>
+        <DialogContent>
+          {
+            gameLost()
+              ? "You've answered too many wrong questions."
+              : "You've answered all the questions!"
+          }
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleGameEndAccept} color="primary">
+            Ok
+          </Button>
+        </DialogActions>
+      </Dialog>
+      { returnToOverworld ? <Redirect to="/overworld" /> : null}
     </Grid>
   );
 }

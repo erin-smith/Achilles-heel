@@ -2,15 +2,17 @@
     "root": true,
     "plugins": ["jest"],
     "env": {
+        "es6": true,
         "browser": true,
         "node": true,
         "jest/globals": true
     },
     "extends": [
-        "airbnb"
+        "airbnb",
+        "eslint:recommended"
     ],
     "parserOptions": {
-        "ecmaVersion": 2015,
+        "ecmaVersion": 9,
         "sourceType": "module"
     },
     "rules": {
@@ -27,7 +29,7 @@
         "react/prop-types": "warn",
         "camelcase": "warn",
         "no-underscore-dangle": "warn",
-        "click-events-have-key-events": "off",
-        "no-noninteractive-element-interactions": "off"
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/no-noninteractive-element-interactions": "off"
     }
 }
