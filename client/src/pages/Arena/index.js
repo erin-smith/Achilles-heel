@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Grid } from "@material-ui/core";
-import { useLocation } from "react-router-dom";
+import { Grid, Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@material-ui/core";
+import { useLocation, Redirect } from "react-router-dom";
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import API from "../../utils/API";
 import Question from "../../components/Question";
-// import EmojiEventsIcon from "@material-ui/icons/EmojiEvents";
+import { useStore } from "../../utils/globalState";
 
 const styles = {
   levelDetails: {
@@ -30,6 +30,11 @@ function Arena() {
   });
   const [questions, setQuestions] = useState([]);
   const [runningScore, setRunningScore] = useState(0);
+  const [strikes, setStrikes] = useState(0);
+  const [fail, setFail] = useState(false);
+  const [failAccepted, setFailAccepted] = useState(false);
+  const [state, dispatch] = useStore();
+  const [numQuestionsAnswered, setNumQuestionsAnswered] = useState(0);
 
   useEffect(() => {
     console.log("fetching");
@@ -48,11 +53,41 @@ function Arena() {
     }
   }, [arena]);
 
+  useEffect(() => {
+    if (strikes >= 3) {
+      console.log("failure");
+      setFail(true);
+    }
+  }, [strikes])
+
   function onQuestionAnswered(index, correct) {
     questions[index].answered = correct;
     if (correct) {
       setRunningScore(runningScore + questions[index].points);
     }
+    else {
+      setStrikes(strikes+1);
+      console.log("STRIKE!");
+    }
+  }
+
+  function handleFailureAccept() {
+    console.log("clicked ok");
+    // update store
+    const user = state.user;
+    user.score_points = user.score_points + runningScore;
+    dispatch({type: "SetUser", user});
+    // save user to db
+    API.saveUser(user.display_name, user).then(() => {
+      console.log("save successful");
+      setFail(false);
+      setFailAccepted(true);
+    }).catch(err => {
+      console.log(err);
+    });
+    console.log("shouldn't be here");
+    // redirect to overworld
+    
   }
 
   return (
@@ -92,6 +127,16 @@ function Arena() {
         <FlashOnIcon />
         {runningScore}
       </Grid>
+      <Dialog open={fail}>
+        <DialogTitle>Failure</DialogTitle>
+        <DialogContent>You've answered too many wrong questions.</DialogContent>
+        <DialogActions>
+          <Button onClick={handleFailureAccept} color="primary">
+            Ok
+          </Button>
+        </DialogActions>
+      </Dialog>
+      { failAccepted ? <Redirect to="/overworld" /> : null}
     </Grid>
   );
 }
