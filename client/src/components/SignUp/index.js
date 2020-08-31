@@ -4,7 +4,7 @@ import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Card, CardActionArea, Button, TextField, Typography, CardContent, CardActions, CardMedia } from "@material-ui/core";
 import { Redirect } from "react-router-dom";
-import { useStore } from "../../utils/globalState";
+//import { useStore } from "../../utils/globalState";
 import API from "../../utils/API";
 //import { useForm } from "react-hook-form";
 
@@ -33,7 +33,7 @@ export default function MediaCard(props) {
   const [nickname, setNickname] = useState();
   const [avatar, setAvatar] = useState();
   const [goToOverworld, setGoToOverworld] = useState(false);
-  const [state, dispatch] = useStore();
+  // const [state, dispatch] = useStore();
 
 
   function handleAvatarChange(url) {
@@ -46,19 +46,20 @@ export default function MediaCard(props) {
 
   function onSubmitButton() {
     console.log("submitted");
-    if (!nickname) {
-      alert("nickname required!");
-    }
-    else {
-      //TODO: push to db and redirect
-      dispatch({ type: "SetUser", user });
-      API.createUser(user.display_name, user).then(() => {
-        setGoToOverworld(true);
-      }).catch((err) => {
-        console.log(err);
-      });
-      alert("name= " + nickname + " \nand avatar= " + avatar + " \nand email= " + props.email);
-    }
+    // if (!nickname) {
+    //   alert("nickname required!");
+    // }
+
+    //TODO: push to db and redirect
+    const user = "";
+    // dispatch({ type: "SetUser", user });
+    API.createUser(user).then(() => {
+      console.log("user data saved", user);
+    }).catch((err) => {
+      console.log(err);
+    });
+    alert("name= " + nickname + " \nand avatar= " + avatar + " \nand email= " + props.email);
+    setGoToOverworld(true);
   }
 
   return (
@@ -81,7 +82,7 @@ export default function MediaCard(props) {
             <Button variant="contained" color="primary" size="small" onClick={onSubmitButton}> Submit</Button>
           </CardActions>
         </Card>
-        { goToOverworld ? <Redirect to="/overworld" /> : null}
+        {goToOverworld ? <Redirect to="/overworld" /> : null}
       </Container>
     </React.Fragment>
   );
