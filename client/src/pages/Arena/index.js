@@ -40,7 +40,6 @@ function Arena() {
     console.log("fetching");
     API.findArena(id).then((response) => {
       setArena(response.data);
-      console.log("arena", response.data);
     });
   }, [id]);
 
@@ -48,21 +47,18 @@ function Arena() {
     if (arena) {
       API.findQuestions(arena.topic).then((response) => {
         setQuestions(response.data);
-        console.log("questions", response.data);
       });
     }
   }, [arena]);
 
   useEffect(() => {
     if (strikes >= 3) {
-      console.log("failure");
       setGameEnded(true);
     }
   }, [strikes])
 
   useEffect(() => {
     if (numQuestionsAnswered >= questions.length && numQuestionsAnswered > 0) {
-      console.log("victory");
       setGameEnded(true);
     }
   },[numQuestionsAnswered, questions.length])
@@ -79,26 +75,21 @@ function Arena() {
     }
     else {
       setStrikes(strikes+1);
-      console.log("STRIKE!");
     }
   }
 
   function handleGameEndAccept() {
-    console.log("clicked ok");
     // update store
     const user = state.user;
     user.score_points = user.score_points + runningScore;
     dispatch({type: "SetUser", user});
     // save user to db
     API.saveUser(user.display_name, user).then(() => {
-      console.log("save successful");
       setGameEnded(false);
       setReturnToOverworld(true);
     }).catch(err => {
       console.log(err);
     });
-    console.log("shouldn't be here");
-    // redirect to overworld
     
   }
 
