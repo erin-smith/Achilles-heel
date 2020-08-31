@@ -31,8 +31,8 @@ function Arena() {
   const [questions, setQuestions] = useState([]);
   const [runningScore, setRunningScore] = useState(0);
   const [strikes, setStrikes] = useState(0);
-  const [fail, setFail] = useState(false);
-  const [failAccepted, setFailAccepted] = useState(false);
+  const [gameEnded, setGameEnded] = useState(false);
+  const [returnToOverworld, setReturnToOverworld] = useState(false);
   const [state, dispatch] = useStore();
   const [numQuestionsAnswered, setNumQuestionsAnswered] = useState(0);
 
@@ -56,12 +56,24 @@ function Arena() {
   useEffect(() => {
     if (strikes >= 3) {
       console.log("failure");
-      setFail(true);
+      setGameEnded(true);
     }
   }, [strikes])
 
+  useEffect(() => {
+    if (numQuestionsAnswered >= questions.length && numQuestionsAnswered > 0) {
+      console.log("victory");
+      setGameEnded(true);
+    }
+  },[numQuestionsAnswered, questions.length])
+
+  function gameLost() {
+    return strikes >= 3;
+  }
+
   function onQuestionAnswered(index, correct) {
     questions[index].answered = correct;
+    setNumQuestionsAnswered(numQuestionsAnswered+1);
     if (correct) {
       setRunningScore(runningScore + questions[index].points);
     }
@@ -71,7 +83,7 @@ function Arena() {
     }
   }
 
-  function handleFailureAccept() {
+  function handleGameEndAccept() {
     console.log("clicked ok");
     // update store
     const user = state.user;
@@ -80,8 +92,8 @@ function Arena() {
     // save user to db
     API.saveUser(user.display_name, user).then(() => {
       console.log("save successful");
-      setFail(false);
-      setFailAccepted(true);
+      setGameEnded(false);
+      setReturnToOverworld(true);
     }).catch(err => {
       console.log(err);
     });
@@ -127,16 +139,22 @@ function Arena() {
         <FlashOnIcon />
         {runningScore}
       </Grid>
-      <Dialog open={fail}>
-        <DialogTitle>Failure</DialogTitle>
-        <DialogContent>You've answered too many wrong questions.</DialogContent>
+      <Dialog open={gameEnded}>
+        <DialogTitle>{ gameLost() ? "Failure": "Victory!"}</DialogTitle>
+        <DialogContent>
+          {
+            gameLost()
+            ? "You've answered too many wrong questions."
+            : "You've answered all the questions!"
+          }
+        </DialogContent>
         <DialogActions>
-          <Button onClick={handleFailureAccept} color="primary">
+          <Button onClick={handleGameEndAccept} color="primary">
             Ok
           </Button>
         </DialogActions>
       </Dialog>
-      { failAccepted ? <Redirect to="/overworld" /> : null}
+      { returnToOverworld ? <Redirect to="/overworld" /> : null}
     </Grid>
   );
 }
