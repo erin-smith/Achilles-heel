@@ -1,20 +1,23 @@
 import React from "react";
 import AvatarPic from "../AvatarPic";
 import { useState } from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import { Container, Card, CardActionArea, Button, TextField, Typography, CardContent, CardActions, CardMedia} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import { Container, Card, CardActionArea, Button, TextField, Typography, CardContent, CardActions, CardMedia } from "@material-ui/core";
+import { Redirect } from "react-router-dom";
+import { useStore } from "../../utils/globalState";
+import API from "../../utils/API";
 //import { useForm } from "react-hook-form";
 
 
 
 const useStyles = makeStyles({
-    root: {
-      maxWidth: 345,
-    },
-    media: {
-        height: 140,
-      },
-  });
+  root: {
+    maxWidth: 345,
+  },
+  media: {
+    height: 140,
+  },
+});
 
 // function handleSubmit(lalala){
 //   console.log($("TextField").val());
@@ -29,11 +32,12 @@ export default function MediaCard(props) {
 
   const [nickname, setNickname] = useState();
   const [avatar, setAvatar] = useState();
-  
+  const [goToOverworld, setGoToOverworld] = useState(false);
+  const [state, dispatch] = useStore();
 
-  function handleAvatarChange(url)
-  {
-      setAvatar(url);
+
+  function handleAvatarChange(url) {
+    setAvatar(url);
   }
 
   const textFieldChange = name => e => {
@@ -42,12 +46,18 @@ export default function MediaCard(props) {
 
   function onSubmitButton() {
     console.log("submitted");
-    if(!nickname) {
+    if (!nickname) {
       alert("nickname required!");
     }
-    else{
+    else {
       //TODO: push to db and redirect
-      alert("name=" + nickname + " and avatar=" + avatar + " and email=" + props.email);
+      dispatch({ type: "SetUser", user });
+      API.createUser(user.display_name, user).then(() => {
+        setGoToOverworld(true);
+      }).catch((err) => {
+        console.log(err);
+      });
+      alert("name= " + nickname + " \nand avatar= " + avatar + " \nand email= " + props.email);
     }
   }
 
@@ -57,12 +67,12 @@ export default function MediaCard(props) {
         <Card className={classes.root}>
           <CardActionArea>
             <CardMedia className={classes.media}>
-              <AvatarPic onAvatarChange={handleAvatarChange}/>
+              <AvatarPic onAvatarChange={handleAvatarChange} />
             </CardMedia>
             <br></br>
             <CardContent>
               <Typography gutterBottom variant="h6" component="h6" justify-content="left">Hello: {props.email}</Typography>
-              <h4 align-content="left">Nickname: 
+              <h4 align-content="left">Nickname:
                 <TextField id="outlined-required-size-small" onChange={textFieldChange('x')} label="Required" variant="outlined" size="small"></TextField>
               </h4>
             </CardContent>
@@ -71,6 +81,7 @@ export default function MediaCard(props) {
             <Button variant="contained" color="primary" size="small" onClick={onSubmitButton}> Submit</Button>
           </CardActions>
         </Card>
+        { goToOverworld ? <Redirect to="/overworld" /> : null}
       </Container>
     </React.Fragment>
   );
@@ -89,16 +100,16 @@ export default function MediaCard(props) {
     //     aria-invalid={errors.name ? "true" : "false"}
     //     ref={register({ required: true, maxLength: 30 })}
     //   />
-      
+
     //   {errors.name && errors.name.type === "required" && (
     //     <span role="alert">This is required</span>
     //   )}
     //   {errors.name && errors.name.type === "maxLength" && (
     //     <span role="alert">Max length exceeded</span>
     //   )}
-      
+
     //   <button className="btn btn-success mt-3 mb-5" type="submit">
     //       Submit
     //     </button>
     // </form> 
-    
+
