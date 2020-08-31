@@ -118,7 +118,7 @@ function Arena() {
       <Grid style={styles.levelCards} container direction="row" justify="space-around" spacing={4}>
         {questions.map((question, index) => (
           <Question
-            key={index}
+            key={question.question}
             question={question}
             index={index}
             onQuestionAnswered={onQuestionAnswered}
