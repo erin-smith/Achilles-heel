@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Typography } from "@material-ui/core";
 import "./style.css";
-import { set } from "mongoose";
 
 function PanFlute() {
   const [aiNotes, SetAiNotes] = useState([]);
@@ -11,7 +10,6 @@ function PanFlute() {
   const [currentPlayerTimer, setCurrentPlayerTimer] = useState(null);
   const [currentPlayerDelay, SetCurrentPlayerDelay] = useState(2000);
   const [playerNextNoteIndex, setPlayerNextNoteIndex] = useState(-1);
-  const [currentPlayerNextKeyHit, setCurrentPlayerNextKeyHit] = useState(false);
   const [playersTurn, SetPlayersTurn] = useState(true);
   const [pipes, setPipes] = useState([]);
   const [gameOn, setGameOn] = useState(false);
@@ -34,7 +32,19 @@ function PanFlute() {
         SetCurrentPlayerDelay(currentPlayerDelay - 25);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playersTurn]);
+
+  function playNote(note) {
+    const pipe = pipes[note];
+    const { id } = pipe.dataset;
+    pipe.classList.add(`cls-${id}`);
+    pipe.classList.remove(`cls-${1}`);
+    setTimeout(() => {
+      pipe.classList.remove(`cls-${id}`);
+      pipe.classList.add(`cls-${1}`);
+    }, 500);
+  }
 
   // listens for aiNextNoteIndex changing and plays the note
   useEffect(() => {
@@ -60,7 +70,6 @@ function PanFlute() {
           playNote(aiNotes[aiNextNoteIndex]);
         }
         if (aiNextNoteIndex < aiNotes.length) {
-          // console.log("decided to play another note", "aiNextNoteIndex", aiNextNoteIndex, "aiNotes.length", aiNotes.length);
           setAITimer(setTimeout(() => {
             // console.log("setting next timeout note play");
             setaiNextNoteIndex(aiNextNoteIndex + 1);
@@ -69,6 +78,7 @@ function PanFlute() {
       }
     }
     return () => clearTimeout(aiTimer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [aiNextNoteIndex]);
 
   useEffect(() => {
@@ -77,7 +87,8 @@ function PanFlute() {
     // console.log("Which Note: ", playerNextNoteIndex);
     // console.log("aiNotes", aiNotes);
     // console.log("playerNotes", currentPlayerNotes);
-    // console.log("My Note: ", typeof currentPlayerNotes[playerNextNoteIndex], currentPlayerNotes[playerNextNoteIndex]);
+    // console.log("My Note: ", typeof currentPlayerNotes[playerNextNoteIndex],
+    // currentPlayerNotes[playerNextNoteIndex]);
     // console.log("His Note: ", typeof aiNotes[playerNextNoteIndex], aiNotes[playerNextNoteIndex]);
 
     if (currentPlayerNotes[playerNextNoteIndex] !== aiNotes[playerNextNoteIndex]) {
@@ -91,8 +102,7 @@ function PanFlute() {
         setLog("RAN OUT OF TIME");
         setGameOn(false);
       }, currentPlayerDelay));
-    }
-    else {
+    } else {
       // matched all the notes
       setTimeout(() => {
         // console.log("matched all notes");
@@ -101,6 +111,7 @@ function PanFlute() {
     }
 
     return () => clearTimeout(currentPlayerTimer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playerNextNoteIndex]);
 
   function start() {
@@ -134,23 +145,12 @@ function PanFlute() {
 
       // for now just continue to ai's playersTurn
       if (gameOn) {
-        currentPlayerNotes.push(parseInt(pos));
+        currentPlayerNotes.push(parseInt(pos, 10));
         // console.log("New PLayer Notes", currentPlayerNotes);
         SetCurrentPlayerNotes(currentPlayerNotes);
         setPlayerNextNoteIndex(playerNextNoteIndex + 1);
       }
     }
-  }
-
-  function playNote(note) {
-    const pipe = pipes[note];
-    const { id } = pipe.dataset;
-    pipe.classList.add(`cls-${id}`);
-    pipe.classList.remove(`cls-${1}`);
-    setTimeout(() => {
-      pipe.classList.remove(`cls-${id}`);
-      pipe.classList.add(`cls-${1}`);
-    }, 500);
   }
 
   function stop() {
