@@ -1,0 +1,17 @@
+{
+    "eslint.codeAction.showDocumentation": {
+    
+        "enable": true
+    },
+    "eslint.workingDirectories": [
+        "./client",
+        "./controllers",
+        "./models",
+        "./routes",
+        "./scripts",
+        "."
+    ],
+    "eslint.options": {
+        "configFile": "/Users/voltar/Desktop/class/Homework/Achilles-heel/.eslintrc.json"
+    }
+}
