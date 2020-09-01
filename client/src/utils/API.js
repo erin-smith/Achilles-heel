@@ -4,6 +4,7 @@ export default {
   createUser: (userData) => axios.post("/api/user", userData),
   saveUser: (displayName, userData) => axios.put(`/api/user?display_name=${displayName}`, userData),
   getUser: (displayName) => axios.get(`/api/user?display_name=${displayName}`),
+  getUserByEmail: (email) => axios.get(`/api/user?email=${email}`),
   createOverworld: (worldData) => axios.post("/api/world", worldData),
   findOverworld: (worldName) => axios.get(`/api/world?name=${worldName}`),
   createArena: (arenaData) => axios.post("/api/level", arenaData),
