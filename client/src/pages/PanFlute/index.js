@@ -141,6 +141,7 @@ function PanFlute() {
       setLog("WRONG NOTE");
       setGameOn(false);
       setShowGameOver(true);
+      clearTimeout(currentPlayerTimer);
     }
     if (playerNextNoteIndex < aiNotes.length - 1) {
       // listen for next key or fail
