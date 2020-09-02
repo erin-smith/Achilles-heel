@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { Grid, Button, Typography } from "@material-ui/core";
+import {
+  Grid,
+  Button,
+  Typography,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions
+} from "@material-ui/core";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import StopIcon from "@material-ui/icons/Stop";
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import { Redirect } from "react-router-dom";
+import { useStore } from "../../utils/globalState";
+import API from "../../utils/API";
 import "./style.css";
 
 function PanFlute() {
@@ -21,6 +31,8 @@ function PanFlute() {
   const [runningScore, setRunningScore] = useState(0);
   const [currentRound, setCurrentRound] = useState(0);
   const [returnToOverWorld, setReturnToOverworld] = useState(false);
+  const [showGameOver, setShowGameOver] = useState(false);
+  const [state, dispatch] = useStore();
   const DELAY_BETWEEN_TURNS = 1000;
 
   useEffect(() => {
@@ -103,7 +115,7 @@ function PanFlute() {
     if (currentPlayerNotes[playerNextNoteIndex] !== aiNotes[playerNextNoteIndex]) {
       setLog("WRONG NOTE");
       setGameOn(false);
-      queueReturnToOverworld();
+      setShowGameOver(true);
     }
     if (playerNextNoteIndex < aiNotes.length - 1) {
       // listen for next key or fail
@@ -111,7 +123,7 @@ function PanFlute() {
         // console.log("fail");
         setLog("RAN OUT OF TIME");
         setGameOn(false);
-        queueReturnToOverworld();
+        setShowGameOver(true);
       }, currentPlayerDelay));
     } else {
       // matched all the notes
@@ -124,6 +136,21 @@ function PanFlute() {
     return () => clearTimeout(currentPlayerTimer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playerNextNoteIndex]);
+
+  function save() {
+    // update store
+    const { user } = state;
+    user.score += runningScore;
+    console.log("finished with score", runningScore);
+    dispatch({ type: "SetUser", user });
+    // save user to db
+    API.saveUser(user.display_name, user).then((dbUser) => {
+      console.log(dbUser);
+      setReturnToOverworld(true);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
 
   function start() {
     // console.log("starting game");
@@ -172,12 +199,6 @@ function PanFlute() {
     setGameOn(false);
   }
 
-  function queueReturnToOverworld() {
-    setTimeout(() => {
-      setReturnToOverworld(true);
-    }, 1000);
-  }
-
   return (
     <Grid container direction="column" justify="center" alignItems="center" spacing={3}>
       <Grid item xs={12} container justify="center" alignItems="center">
@@ -223,6 +244,17 @@ function PanFlute() {
         {runningScore}
       </Grid>
       {returnToOverWorld ? <Redirect to="/overworld" /> : null}
+      <Dialog open={showGameOver}>
+        <DialogTitle>Pan&apos;s Angry</DialogTitle>
+        <DialogContent>
+          You&apos;ve won&nbsp;
+          {runningScore}
+          <FlashOnIcon />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={save}>Ok</Button>
+        </DialogActions>
+      </Dialog>
     </Grid>
   );
 }
