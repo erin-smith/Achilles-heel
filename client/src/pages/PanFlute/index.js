@@ -77,6 +77,7 @@ function PanFlute() {
         setRunningScore(2 ** currentRound * 100);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playersTurn]);
 
   function playNote(note) {
@@ -123,6 +124,7 @@ function PanFlute() {
       }
     }
     return () => clearTimeout(aiTimer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [aiNextNoteIndex]);
 
   useEffect(() => {
@@ -157,6 +159,7 @@ function PanFlute() {
     }
 
     return () => clearTimeout(currentPlayerTimer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playerNextNoteIndex]);
 
   function save() {
