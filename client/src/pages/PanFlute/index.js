@@ -12,9 +12,31 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import StopIcon from "@material-ui/icons/Stop";
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import { Redirect } from "react-router-dom";
+import * as Tone from "tone";
 import { useStore } from "../../utils/globalState";
 import API from "../../utils/API";
 import "./style.css";
+
+function pipeIndexToNote(index) {
+  switch (index) {
+    case 0:
+      return "C4";
+    case 1:
+      return "D4";
+    case 2:
+      return "E4";
+    case 3:
+      return "F4";
+    case 4:
+      return "G4";
+    case 5:
+      return "A4";
+    case 6:
+      return "B4";
+    default:
+      return "C4";
+  }
+}
 
 function PanFlute() {
   const [aiNotes, SetAiNotes] = useState([]);
@@ -33,10 +55,12 @@ function PanFlute() {
   const [returnToOverWorld, setReturnToOverworld] = useState(false);
   const [showGameOver, setShowGameOver] = useState(false);
   const [state, dispatch] = useStore();
+  const [synth, setSynth] = useState(null);
   const DELAY_BETWEEN_TURNS = 1000;
 
   useEffect(() => {
     setPipes(document.getElementsByClassName("pipe"));
+    setSynth(new Tone.Synth().toDestination());
   }, []);
 
   useEffect(() => {
@@ -61,6 +85,7 @@ function PanFlute() {
     const { id } = pipe.dataset;
     pipe.classList.add(`cls-${id}`);
     pipe.classList.remove(`cls-${1}`);
+    synth.triggerAttackRelease(pipeIndexToNote(note), "8n");
     setTimeout(() => {
       pipe.classList.remove(`cls-${id}`);
       pipe.classList.add(`cls-${1}`);
@@ -174,6 +199,7 @@ function PanFlute() {
       const pipe = e.target;
       pipe.classList.add(`cls-${id}`);
       pipe.classList.remove(`cls-${1}`);
+      synth.triggerAttackRelease(pipeIndexToNote(parseInt(pos, 10)), "8n");
       setTimeout(() => {
         pipe.classList.remove(`cls-${id}`);
         pipe.classList.add(`cls-${1}`);
