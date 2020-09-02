@@ -1,6 +1,6 @@
 {
     "root": true,
-    "plugins": ["jest"],
+    "plugins": ["jest", "react-hooks"],
     "env": {
         "es6": true,
         "browser": true,
