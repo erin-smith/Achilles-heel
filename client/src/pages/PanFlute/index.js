@@ -165,7 +165,7 @@ function PanFlute() {
 
   useEffect(() => {
     if (!gameOn) {
-      return;
+      return undefined;
     }
     clearTimeout(currentPlayerTimer);
 
