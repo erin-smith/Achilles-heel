@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import {
   Grid,
   Button,
-  Typography,
   Dialog,
   DialogTitle,
   DialogContent,
@@ -16,6 +15,26 @@ import * as Tone from "tone";
 import { useStore } from "../../utils/globalState";
 import API from "../../utils/API";
 import "./style.css";
+import grassyreeds from "../../assets/grassyreeds.png";
+import A4 from "../../assets/sounds/Flute.A4.mp3";
+import B4 from "../../assets/sounds/Flute.B4.mp3";
+import C4 from "../../assets/sounds/Flute.C4.mp3";
+import D4 from "../../assets/sounds/Flute.D4.mp3";
+import E4 from "../../assets/sounds/Flute.E4.mp3";
+import F4 from "../../assets/sounds/Flute.F4.mp3";
+import G4 from "../../assets/sounds/Flute.G4.mp3";
+
+const styles = {
+  container: {
+    backgroundImage: `url(${grassyreeds})`,
+    backgroundSize: "cover",
+    marginLeft: "0vw",
+    height: "96vh"
+  },
+  pipes: {
+    backgroundImage: "radial-gradient(white,green)"
+  }
+};
 
 function pipeIndexToNote(index) {
   switch (index) {
@@ -55,12 +74,23 @@ function PanFlute() {
   const [returnToOverWorld, setReturnToOverworld] = useState(false);
   const [showGameOver, setShowGameOver] = useState(false);
   const [state, dispatch] = useStore();
-  const [synth, setSynth] = useState(null);
+  const [sampler, setSampler] = useState(null);
+  const [showYourTurn, setShowYourTurn] = useState(false);
   const DELAY_BETWEEN_TURNS = 1000;
 
   useEffect(() => {
     setPipes(document.getElementsByClassName("pipe"));
-    setSynth(new Tone.Synth().toDestination());
+    setSampler(new Tone.Sampler({
+      urls: {
+        C4,
+        D4,
+        E4,
+        F4,
+        G4,
+        A4,
+        B4
+      }
+    }).toDestination());
   }, []);
 
   useEffect(() => {
@@ -85,7 +115,7 @@ function PanFlute() {
     const { id } = pipe.dataset;
     pipe.classList.add(`cls-${id}`);
     pipe.classList.remove(`cls-${1}`);
-    synth.triggerAttackRelease(pipeIndexToNote(note), "8n");
+    sampler.triggerAttackRelease(pipeIndexToNote(note), "8n");
     setTimeout(() => {
       pipe.classList.remove(`cls-${id}`);
       pipe.classList.add(`cls-${1}`);
@@ -104,12 +134,18 @@ function PanFlute() {
           const randomNote = Math.floor(Math.random() * (pipes.length));
           playNote(randomNote);
           setTimeout(() => {
+            console.log(137, "setting players turn to true");
             SetPlayersTurn(true);
             // console.log("TIMEOUT Pan's turn ends");
             aiNotes.push(randomNote);
             SetAiNotes(aiNotes);
-            setPlayerNextNoteIndex(-1); // IS THIS WRONG?
             setaiNextNoteIndex(aiNextNoteIndex + 1);
+            setShowYourTurn(true);
+            document.getElementsByClassName("pipes")[0].classList.add("pipes-your-turn");
+            setTimeout(() => {
+              setShowYourTurn(false);
+              setPlayerNextNoteIndex(-1); // IS THIS WRONG?
+            }, 200);
           }, DELAY_BETWEEN_TURNS);
         } else {
           // console.log("playing next note");
@@ -128,6 +164,9 @@ function PanFlute() {
   }, [aiNextNoteIndex]);
 
   useEffect(() => {
+    if (!gameOn) {
+      return undefined;
+    }
     clearTimeout(currentPlayerTimer);
 
     // console.log("Which Note: ", playerNextNoteIndex);
@@ -138,6 +177,7 @@ function PanFlute() {
     // console.log("His Note: ", typeof aiNotes[playerNextNoteIndex], aiNotes[playerNextNoteIndex]);
 
     if (currentPlayerNotes[playerNextNoteIndex] !== aiNotes[playerNextNoteIndex]) {
+      clearTimeout(currentPlayerTimer);
       setLog("WRONG NOTE");
       setGameOn(false);
       setShowGameOver(true);
@@ -154,7 +194,9 @@ function PanFlute() {
       // matched all the notes
       setTimeout(() => {
         // console.log("matched all notes");
+        console.log(194, "setting players turn to false");
         SetPlayersTurn(false);
+        document.getElementsByClassName("pipes")[0].classList.remove("pipes-your-turn");
       }, DELAY_BETWEEN_TURNS);
     }
 
@@ -186,20 +228,21 @@ function PanFlute() {
     SetCurrentPlayerDelay(1000);
 
     setGameOn(true);
+    console.log(228, "setting players turn to false");
     SetPlayersTurn(false);
     setLog("");
   }
 
   function onPipeClicked(e) {
     // console.log("gameOn", gameOn);
-    // console.log("playersTurn", playersTurn);
+    console.log("playersTurn", playersTurn);
     if (playersTurn) {
       clearTimeout(currentPlayerTimer);
       const { id, pos } = e.target.dataset;
       const pipe = e.target;
       pipe.classList.add(`cls-${id}`);
       pipe.classList.remove(`cls-${1}`);
-      synth.triggerAttackRelease(pipeIndexToNote(parseInt(pos, 10)), "8n");
+      sampler.triggerAttackRelease(pipeIndexToNote(parseInt(pos, 10)), "8n");
       setTimeout(() => {
         pipe.classList.remove(`cls-${id}`);
         pipe.classList.add(`cls-${1}`);
@@ -220,17 +263,18 @@ function PanFlute() {
   function stop() {
     clearInterval(aiTimer);
     clearTimeout(currentPlayerTimer);
+    console.log(263, "setting players turn to true");
     SetPlayersTurn(true);
     setaiNextNoteIndex(aiNextNoteIndex.length + 1);
     setGameOn(false);
   }
 
   return (
-    <Grid container direction="column" justify="center" alignItems="center" spacing={3}>
+    <Grid className="container" style={styles.container} container direction="row" justify="flex-start" alignItems="flex-start" disableGutters>
       <Grid item xs={12} container justify="center" alignItems="center">
         <h1>Pan&apos;s Flute Lessons</h1>
       </Grid>
-      <Grid item xs={12} container justify="center" alignItems="center">
+      <Grid className="pipes" item xs={12} container justify="center" alignItems="center">
         <svg xmlns="http://www.w3.org/2000/svg" width="284.47" height="285.34" viewBox="0 0 284.47 285.34">
           <g id="Flute">
             <g>
@@ -260,26 +304,26 @@ function PanFlute() {
         <Button onClick={stop} variant="contained" color="primary" endIcon={<StopIcon />}>Stop</Button>
       </Grid>
       <Grid item xs={12} container direction="column" justify="center" alignItems="center">
-        <Typography component="h5">
-          { gameOn ? playersTurn ? "Your Turn" : "Pan's Turn" : ""}
-        </Typography>
-        <h1>{ log }</h1>
+        <h2>{ log }</h2>
       </Grid>
-      <Grid item xs={12} container justify="center" alignItems="center">
+      <Grid item xs={12} container justify="center" alignItems="flex-start">
         <FlashOnIcon />
         {runningScore}
       </Grid>
       {returnToOverWorld ? <Redirect to="/overworld" /> : null}
       <Dialog open={showGameOver}>
-        <DialogTitle>Pan&apos;s Angry</DialogTitle>
+        <DialogTitle>Game Over - Pan&apos;s Angry</DialogTitle>
         <DialogContent>
-          You&apos;ve won&nbsp;
+          You&apos;ve collected&nbsp;
           {runningScore}
           <FlashOnIcon />
         </DialogContent>
         <DialogActions>
-          <Button onClick={save}>Ok</Button>
+          <Button variant="contained" onClick={save}>Ok</Button>
         </DialogActions>
+      </Dialog>
+      <Dialog open={showYourTurn}>
+        <DialogTitle>YOUR TURN</DialogTitle>
       </Dialog>
     </Grid>
   );
