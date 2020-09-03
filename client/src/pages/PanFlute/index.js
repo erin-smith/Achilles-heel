@@ -138,7 +138,6 @@ function PanFlute() {
           const randomNote = Math.floor(Math.random() * (pipes.length));
           playNote(randomNote);
           setTimeout(() => {
-            console.log(137, "setting players turn to true");
             SetPlayersTurn(true);
             // console.log("TIMEOUT Pan's turn ends");
             aiNotes.push(randomNote);
@@ -185,6 +184,7 @@ function PanFlute() {
       setLog("WRONG NOTE");
       setGameOn(false);
       setShowGameOver(true);
+      return undefined;
     }
     if (playerNextNoteIndex < aiNotes.length - 1) {
       // listen for next key or fail
@@ -198,7 +198,6 @@ function PanFlute() {
       // matched all the notes
       setTimeout(() => {
         // console.log("matched all notes");
-        console.log(194, "setting players turn to false");
         SetPlayersTurn(false);
         document.getElementsByClassName("pipes")[0].classList.remove("pipes-your-turn");
       }, DELAY_BETWEEN_TURNS);
@@ -232,14 +231,12 @@ function PanFlute() {
     SetCurrentPlayerDelay(1000);
 
     setGameOn(true);
-    console.log(228, "setting players turn to false");
     SetPlayersTurn(false);
     setLog("");
   }
 
   function onPipeClicked(e) {
     // console.log("gameOn", gameOn);
-    console.log("playersTurn", playersTurn);
     if (playersTurn) {
       clearTimeout(currentPlayerTimer);
       const { id, pos } = e.target.dataset;
@@ -267,7 +264,6 @@ function PanFlute() {
   function stop() {
     clearInterval(aiTimer);
     clearTimeout(currentPlayerTimer);
-    console.log(263, "setting players turn to true");
     SetPlayersTurn(true);
     setaiNextNoteIndex(aiNextNoteIndex.length + 1);
     setGameOn(false);
