@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import {
   Grid,
   Button,
-  Typography,
   Dialog,
   DialogTitle,
   DialogContent,
@@ -75,23 +74,21 @@ function PanFlute() {
   const [returnToOverWorld, setReturnToOverworld] = useState(false);
   const [showGameOver, setShowGameOver] = useState(false);
   const [state, dispatch] = useStore();
-  const [synth, setSynth] = useState(null);
   const [sampler, setSampler] = useState(null);
   const [showYourTurn, setShowYourTurn] = useState(false);
   const DELAY_BETWEEN_TURNS = 1000;
 
   useEffect(() => {
     setPipes(document.getElementsByClassName("pipe"));
-    setSynth(new Tone.Synth().toDestination());
     setSampler(new Tone.Sampler({
       urls: {
-        "C4": C4,
-        "D4": D4,
-        "E4": E4,
-        "F4": F4,
-        "G4": G4,
-        "A4": A4,
-        "B4": B4
+        C4,
+        D4,
+        E4,
+        F4,
+        G4,
+        A4,
+        B4
       }
     }).toDestination());
   }, []);
@@ -118,7 +115,6 @@ function PanFlute() {
     const { id } = pipe.dataset;
     pipe.classList.add(`cls-${id}`);
     pipe.classList.remove(`cls-${1}`);
-    // synth.triggerAttackRelease(pipeIndexToNote(note), "8n");
     sampler.triggerAttackRelease(pipeIndexToNote(note), "8n");
     setTimeout(() => {
       pipe.classList.remove(`cls-${id}`);
