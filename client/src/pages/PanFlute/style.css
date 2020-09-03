@@ -33,3 +33,17 @@
 .cls-9 {
     fill: orange;
 }
+
+/* .container > * {
+    border: 1px solid black;
+} */
+
+.pipes {
+    padding-top: 3em !important;
+    padding-bottom: 3em !important;
+    
+}
+
+.pipes-your-turn {
+    background-image: radial-gradient(circle closest-corner at 50% 42%, white 10%, transparent 66%);
+}
