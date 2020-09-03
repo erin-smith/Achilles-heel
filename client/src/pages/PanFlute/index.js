@@ -27,12 +27,16 @@ import G4 from "../../assets/sounds/Flute.G4.mp3";
 const styles = {
   container: {
     backgroundImage: `url(${grassyreeds})`,
-    backgroundSize: "cover",
-    marginLeft: "0vw",
-    height: "96vh"
+    backgroundSize: "cover"
   },
   pipes: {
     backgroundImage: "radial-gradient(white,green)"
+  },
+  footer: {
+    paddingBottom: "3em"
+  },
+  output: {
+    height: "10vh"
   }
 };
 
@@ -134,7 +138,6 @@ function PanFlute() {
           const randomNote = Math.floor(Math.random() * (pipes.length));
           playNote(randomNote);
           setTimeout(() => {
-            console.log(137, "setting players turn to true");
             SetPlayersTurn(true);
             // console.log("TIMEOUT Pan's turn ends");
             aiNotes.push(randomNote);
@@ -181,6 +184,7 @@ function PanFlute() {
       setLog("WRONG NOTE");
       setGameOn(false);
       setShowGameOver(true);
+      return undefined;
     }
     if (playerNextNoteIndex < aiNotes.length - 1) {
       // listen for next key or fail
@@ -194,7 +198,6 @@ function PanFlute() {
       // matched all the notes
       setTimeout(() => {
         // console.log("matched all notes");
-        console.log(194, "setting players turn to false");
         SetPlayersTurn(false);
         document.getElementsByClassName("pipes")[0].classList.remove("pipes-your-turn");
       }, DELAY_BETWEEN_TURNS);
@@ -228,14 +231,12 @@ function PanFlute() {
     SetCurrentPlayerDelay(1000);
 
     setGameOn(true);
-    console.log(228, "setting players turn to false");
     SetPlayersTurn(false);
     setLog("");
   }
 
   function onPipeClicked(e) {
     // console.log("gameOn", gameOn);
-    console.log("playersTurn", playersTurn);
     if (playersTurn) {
       clearTimeout(currentPlayerTimer);
       const { id, pos } = e.target.dataset;
@@ -263,14 +264,13 @@ function PanFlute() {
   function stop() {
     clearInterval(aiTimer);
     clearTimeout(currentPlayerTimer);
-    console.log(263, "setting players turn to true");
     SetPlayersTurn(true);
     setaiNextNoteIndex(aiNextNoteIndex.length + 1);
     setGameOn(false);
   }
 
   return (
-    <Grid className="container" style={styles.container} container direction="row" justify="flex-start" alignItems="flex-start" disableGutters>
+    <Grid className="container" style={styles.container} container direction="column" justify="flex-start" alignItems="flex-start" disableGutters>
       <Grid item xs={12} container justify="center" alignItems="center">
         <h1>Pan&apos;s Flute Lessons</h1>
       </Grid>
@@ -304,9 +304,9 @@ function PanFlute() {
         <Button onClick={stop} variant="contained" color="primary" endIcon={<StopIcon />}>Stop</Button>
       </Grid>
       <Grid item xs={12} container direction="column" justify="center" alignItems="center">
-        <h2>{ log }</h2>
+        <h2 style={styles.output}>{ log }</h2>
       </Grid>
-      <Grid item xs={12} container justify="center" alignItems="flex-start">
+      <Grid style={styles.footer} item xs={12} container justify="center" alignItems="flex-start">
         <FlashOnIcon />
         {runningScore}
       </Grid>
