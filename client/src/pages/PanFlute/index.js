@@ -27,12 +27,16 @@ import G4 from "../../assets/sounds/Flute.G4.mp3";
 const styles = {
   container: {
     backgroundImage: `url(${grassyreeds})`,
-    backgroundSize: "cover",
-    marginLeft: "0vw",
-    height: "96vh"
+    backgroundSize: "cover"
   },
   pipes: {
     backgroundImage: "radial-gradient(white,green)"
+  },
+  footer: {
+    paddingBottom: "3em"
+  },
+  output: {
+    height: "10vh"
   }
 };
 
@@ -270,7 +274,7 @@ function PanFlute() {
   }
 
   return (
-    <Grid className="container" style={styles.container} container direction="row" justify="flex-start" alignItems="flex-start" disableGutters>
+    <Grid className="container" style={styles.container} container direction="column" justify="flex-start" alignItems="flex-start" disableGutters>
       <Grid item xs={12} container justify="center" alignItems="center">
         <h1>Pan&apos;s Flute Lessons</h1>
       </Grid>
@@ -304,9 +308,9 @@ function PanFlute() {
         <Button onClick={stop} variant="contained" color="primary" endIcon={<StopIcon />}>Stop</Button>
       </Grid>
       <Grid item xs={12} container direction="column" justify="center" alignItems="center">
-        <h2>{ log }</h2>
+        <h2 style={styles.output}>{ log }</h2>
       </Grid>
-      <Grid item xs={12} container justify="center" alignItems="flex-start">
+      <Grid style={styles.footer} item xs={12} container justify="center" alignItems="flex-start">
         <FlashOnIcon />
         {runningScore}
       </Grid>
