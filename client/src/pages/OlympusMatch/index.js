@@ -30,7 +30,6 @@ import hecate1 from "../../assets/GreekGods/hecate1.svg";
 import hera1 from "../../assets/GreekGods/hera.svg";
 import demeter1 from "../../assets/GreekGods/demeter.svg";
 import poseidon1 from "../../assets/GreekGods/poseidon.svg";
-import olympusback from "../../assets/GreekGods/matching_card_clear.svg";
 
 const matchCards = [
   {
