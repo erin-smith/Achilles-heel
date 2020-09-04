@@ -21,7 +21,11 @@
   height: 100%;
   width: 100%;
   backface-visibility: hidden;
-  background-color: blue !important;
+  background-color: black !important;
+  background-image: url(../../assets/GreekGods/matching_card_clear.svg);
+  background-size: 80% 80%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .cardBack {
@@ -30,7 +34,7 @@
   width: 100%;
   backface-visibility: hidden;
   transform: rotateY(180deg);
-  background-color: red !important;
+  background-color: white !important;
 }
 
 .cardContainer {

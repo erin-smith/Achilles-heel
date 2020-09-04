@@ -20,8 +20,17 @@ import ares0 from "../../assets/GreekGods/ares.png";
 import zeus0 from "../../assets/GreekGods/zeus.png";
 import hecate0 from "../../assets/GreekGods/hecate.png";
 import hera0 from "../../assets/GreekGods/hera.png";
-import athena0 from "../../assets/GreekGods/athena.png";
+import demeter0 from "../../assets/GreekGods/demeter.png";
 import poseidon0 from "../../assets/GreekGods/poseidon.png";
+import hades1 from "../../assets/GreekGods/hades.svg";
+import aphrodite1 from "../../assets/GreekGods/aphrodite.svg";
+import ares1 from "../../assets/GreekGods/ares.svg";
+import zeus1 from "../../assets/GreekGods/zeus.svg";
+import hecate1 from "../../assets/GreekGods/hecate1.svg";
+import hera1 from "../../assets/GreekGods/hera.svg";
+import demeter1 from "../../assets/GreekGods/demeter.svg";
+import poseidon1 from "../../assets/GreekGods/poseidon.svg";
+import olympusback from "../../assets/GreekGods/matching_card_clear.svg";
 
 const matchCards = [
   {
@@ -31,7 +40,7 @@ const matchCards = [
   },
   {
     key: "Hades1",
-    image: "",
+    image: hades1,
     type: "Hades",
   },
   {
@@ -41,7 +50,7 @@ const matchCards = [
   },
   {
     key: "Aphrodite1",
-    image: "",
+    image: aphrodite1,
     type: "Aphrodite",
   },
   {
@@ -51,7 +60,7 @@ const matchCards = [
   },
   {
     key: "Ares1",
-    image: "",
+    image: ares1,
     type: "Ares",
   },
   {
@@ -61,7 +70,7 @@ const matchCards = [
   },
   {
     key: "Zeus1",
-    image: "",
+    image: zeus1,
     type: "Zeus",
   },
   {
@@ -71,7 +80,7 @@ const matchCards = [
   },
   {
     key: "Hecate1",
-    image: "",
+    image: hecate1,
     type: "Hecate",
   },
   {
@@ -81,18 +90,18 @@ const matchCards = [
   },
   {
     key: "Hera1",
-    image: "",
+    image: hera1,
     type: "Hera",
   },
   {
-    key: "Athena0",
-    image: athena0,
-    type: "Athena",
+    key: "Demeter0",
+    image: demeter0,
+    type: "Demeter",
   },
   {
-    key: "Athena1",
-    image: "",
-    type: "Athena",
+    key: "Demeter1",
+    image: demeter1,
+    type: "Demeter",
   },
   {
     key: "Poseidon0",
@@ -101,7 +110,7 @@ const matchCards = [
   },
   {
     key: "Poseidon1",
-    image: "",
+    image: poseidon1,
     type: "Poseidon",
   }
 ];
@@ -159,7 +168,7 @@ function OlympusMatch() {
             <Grid key={card.key} item xs={3} container justify="center" alignItems="center">
               <div className="cardContainer">
                 <Paper className="card" onClick={onCardClicked} data-type={card.type}>
-                  <Paper className="cardFront">A</Paper>
+                  <Paper className="cardFront" />
                   <Paper className="cardBack">
                     <img className="cardBackImg" src={card.image} alt={card.type} />
                   </Paper>
