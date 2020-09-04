@@ -56,7 +56,10 @@ function Question(props) {
 
   return (
     <Grid item xs={4} container justify="center">
-      <Paper style={styles.paper} onClick={props.question.answered === undefined ? handlePaperClick : null}>
+      <Paper
+        style={styles.paper}
+        onClick={props.question.answered === undefined ? handlePaperClick : null}
+      >
         <Grid container justify="center" alignItems="center">
           { props.question.answered !== undefined ? props.question.answered === true ? <CheckCircleIcon className="icon right" /> : <CancelIcon className="icon wrong" /> : <HelpIcon className="icon" />}
         </Grid>
