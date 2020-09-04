@@ -7,6 +7,13 @@ const LevelSchema = new Schema({
     type: String,
     required: true,
   },
+  routeName: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String
+  },
   score_points: {
     type: Number,
     required: true
@@ -18,13 +25,17 @@ const LevelSchema = new Schema({
     type: String,
     required: true
   },
-  x_coordinate: {
-    type: Number,
-    required: true
+  icon: {
+    url: String,
+    size: [Number]
   },
-  y_coordinate: {
-    type: Number,
-    required: true
+  geometry: {
+    type: {
+      type: String,
+    },
+    coordinates: {
+      type: [Number]
+    }
   }
 });
 
