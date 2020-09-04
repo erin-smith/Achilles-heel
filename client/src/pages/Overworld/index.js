@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React, { useEffect, useState } from "react";
 import {
-  Grid, Dialog, DialogTitle, DialogContent, Typography, Button, StepIcon
+  Grid, Dialog, DialogTitle, DialogContent, Typography, Button
 } from "@material-ui/core";
 import {
   Map, TileLayer, Marker
