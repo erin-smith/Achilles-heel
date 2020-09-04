@@ -14,6 +14,8 @@ import {
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import { Redirect } from "react-router-dom";
 import "./style.css";
+import { useStore } from "../../utils/globalState";
+import API from "../../utils/API";
 import hades0 from "../../assets/GreekGods/hades.png";
 import aphrodite0 from "../../assets/GreekGods/aphrodite.png";
 import ares0 from "../../assets/GreekGods/ares.png";
@@ -121,6 +123,7 @@ function OlympusMatch() {
   const [returnToOverworld, setReturnToOverworld] = useState(false);
   const [showGameOver, setShowGameOver] = useState(false);
   const [runningScore, setRunningScore] = useState(6400);
+  const [state, dispatch] = useStore();
 
   useEffect(() => {
     setCards(matchCards.sort(() => 0.5 - Math.random()));
@@ -158,6 +161,21 @@ function OlympusMatch() {
     }
   }
 
+  function save() {
+    // update store
+    const { user } = state;
+    user.score += runningScore;
+    console.log("finished with score", runningScore);
+    dispatch({ type: "SetUser", user });
+    // save user to db
+    API.saveUser(user.display_name, user).then((dbUser) => {
+      console.log(dbUser);
+      setReturnToOverworld(true);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+
   return (
     <Grid container direction="column" justify="center" alignItems="center">
       <h1>Olympus Match</h1>
@@ -191,7 +209,7 @@ function OlympusMatch() {
             <FlashOnIcon />
           </DialogContent>
           <DialogActions>
-            <Button onClick={() => setReturnToOverworld(true)}>
+            <Button onClick={save}>
               Ok
             </Button>
           </DialogActions>
