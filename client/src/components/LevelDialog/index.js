@@ -16,7 +16,7 @@ function LevelDialog(props) {
           <DialogTitle className="levelTitle">
             {props.thisLevel.name}
           </DialogTitle>
-          <Link to={`/${props.thisLevel.routeName}`}>
+          <Link to={`/${props.thisLevel.routeName}?id=${props.thisLevel._id}`}>
             <Button size="medium" variant="contained">Play!</Button>
           </Link>
         </Grid>
