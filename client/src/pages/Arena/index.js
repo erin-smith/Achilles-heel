@@ -12,8 +12,15 @@ import FlashOnIcon from "@material-ui/icons/FlashOn";
 import API from "../../utils/API";
 import Question from "../../components/Question";
 import { useStore } from "../../utils/globalState";
+import Underworld from "../../assets/Aeneas_Sybil_Underworld.png";
 
 const styles = {
+  container: {
+    backgroundImage: `url(${Underworld})`,
+    backgroundSize: "cover",
+    paddingBottom: "4em",
+    color: "white"
+  },
   levelDetails: {
     marginTop: "0.5em",
     marginBottom: "0.5em"
@@ -99,7 +106,7 @@ function Arena() {
   }
 
   return (
-    <Grid container direction="column" justify="center" alignItems="center">
+    <Grid style={styles.container} container direction="column" justify="center" alignItems="center">
       <Grid item container direction="column" justify="center" alignItems="center">
         <h1>{arena.name}</h1>
         <h6 style={styles.levelDetails}>

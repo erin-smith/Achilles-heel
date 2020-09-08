@@ -11,6 +11,8 @@ import Arena from "./pages/Arena";
 import Test from "./components/Test";
 import AvatarPic from "./components/AvatarPic";
 import { StoreProvider } from "./utils/globalState";
+import PanFlute from "./pages/PanFlute";
+import OlympusMatch from "./pages/OlympusMatch";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
             <Route path="/tos" component={TOS} />
             <Route path="/test" component={Test} />
             <Route path="/avatar" component={AvatarPic} />
+            <Route path="/panflute" component={PanFlute} />
+            <Route path="/olympus" component={OlympusMatch} />
           </Switch>
         </StoreProvider>
       </div>

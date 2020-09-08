@@ -13,7 +13,7 @@ const levelSeeds = [
     description: "Learn to play the ancient flute from the master Pan himself. Pan is the god of the wild, shepherds, and rustic music.",
     score_points: 1000,
     difficulty: 1,
-    topic: "Magic",
+    topic: "Myth",
     iconUrl: "https://i.imgur.com/l82DW3e.png",
     iconSize: [40],
     geometry: {
@@ -61,7 +61,7 @@ const worldSeeds = [{
     {
       url: "https://i.imgur.com/HEsnv7r.png",
       size: [140],
-      position: [38.513788, 23.520165]
+      position: [38.5137882595116, 23.5201657392248]
     }
   ],
   levels: []
