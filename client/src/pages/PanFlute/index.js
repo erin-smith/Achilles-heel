@@ -269,6 +269,13 @@ function PanFlute() {
     setGameOn(false);
   }
 
+  function retry() {
+    setShowGameOver(false);
+    document.getElementsByClassName("pipes")[0].classList.remove("pipes-your-turn");
+    setGameOn(false);
+    setRunningScore(0);
+  }
+
   return (
     <Grid className="container" style={styles.container} container direction="column" justify="flex-start" alignItems="flex-start" disableGutters>
       <Grid item xs={12} container justify="center" alignItems="center">
@@ -319,6 +326,7 @@ function PanFlute() {
           <FlashOnIcon />
         </DialogContent>
         <DialogActions>
+          <Button variant="contained" onClick={retry}>Retry</Button>
           <Button variant="contained" onClick={save}>Ok</Button>
         </DialogActions>
       </Dialog>
