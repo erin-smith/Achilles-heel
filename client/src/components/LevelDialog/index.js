@@ -3,7 +3,6 @@ import React from "react";
 import {
   Grid, DialogTitle, DialogContent, Typography, Button
 } from "@material-ui/core";
-// import { Link } from "react-router-dom";
 
 function LevelDialog(props) {
   return (

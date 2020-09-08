@@ -10,21 +10,6 @@ import LevelDialog from "../../components/LevelDialog";
 import API from "../../utils/API";
 import "./style.css";
 
-// const useStyles = makeStyles({
-//   card: {
-//     maxWidth: 220
-//   },
-//   media: {
-//     height: 140
-//   },
-//   modal: {
-//     display: "flex",
-//     alignItems: "center",
-//     justifyContent: "center",
-//     maxWidth: 345
-//   }
-// });
-
 function Overworld() {
   const [worldState, setWorldState] = useState("");
   const [worldLevels, setWorldLevels] = useState([]);

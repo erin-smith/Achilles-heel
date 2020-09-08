@@ -8,24 +8,62 @@ mongoose.connect(
 
 const levelSeeds = [
   {
-    name: "Medusa's Lair",
+    name: "Flute Lessons",
+    routeName: "pansflute",
+    description: "Learn to play the ancient flute from the master Pan himself. Pan is the god of the wild, shepherds, and rustic music.",
     score_points: 1000,
     difficulty: 1,
-    topic: "Myth",
-    icon: "https://i.imgur.com/xLBbq4z.png"
+    topic: "Magic",
+    iconUrl: "https://i.imgur.com/l82DW3e.png",
+    iconSize: [40],
+    geometry: {
+      type: "Point",
+      coordinates: [37.418163, 22.296752]
+    }
   },
   {
-    name: "Den of Hades",
+    name: "Hades' Gate",
+    routeName: "hadesgate",
+    description: "Hades' Gate is the entrance to the Underworld. Kill all Hades' monsters to save your soul. Enter at your own risk.",
     score_points: 5000,
-    difficulty: 2,
+    difficulty: 3,
     topic: "Underworld",
-    icon: "https://i.imgur.com/0sjDcfB.png"
+    iconUrl: "https://i.imgur.com/DNFAYKX.png",
+    iconSize: [75],
+    geometry: {
+      type: "Point",
+      coordinates: [37.8921955, 28.3337402]
+    }
+  },
+  {
+    name: "Mount Olympus",
+    routeName: "olympus",
+    description: "Mount Olympus is the home of the gods. Make as many majestic matches as you can.",
+    score_points: 3000,
+    difficulty: 2,
+    topic: "Gods",
+    iconUrl: "https://i.imgur.com/dfud3mF.png",
+    iconSize: [50],
+    geometry: {
+      type: "Point",
+      coordinates: [40.3465441, 22.2802734]
+    }
   }
 ];
 
 const worldSeeds = [{
   name: "Greece",
-  background_image: "https://i.imgur.com/kuObrGZ.png",
+  mapStyle: "ckemcpovb0ji919nvjtuxg9qz",
+  mapToken: "pk.eyJ1IjoiYWxleGFzdGVmIiwiYSI6ImNrZWx5MGdtYTAwYTMyeG0wZjE3MzU5cm0ifQ.RXcqX1-NpZY1TrAMzmoUxA",
+  mapBounds: [[41.967659, 28.290531], [34.813803, 18.748031]],
+  mapCenter: [40.702659, 27.030628],
+  mapNames: [
+    {
+      url: "https://i.imgur.com/HEsnv7r.png",
+      size: [140],
+      position: [38.513788, 23.520165]
+    }
+  ],
   levels: []
 }];
 
