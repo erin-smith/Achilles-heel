@@ -54,6 +54,8 @@ function Arena() {
     console.log("fetching");
     API.findArena(id).then((response) => {
       setArena(response.data);
+    }).catch((err) => {
+      console.log(err);
     });
   }, [id]);
 

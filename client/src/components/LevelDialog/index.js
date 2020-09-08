@@ -3,6 +3,7 @@ import React from "react";
 import {
   Grid, DialogTitle, DialogContent, Typography, Button
 } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 function LevelDialog(props) {
   return (
@@ -15,9 +16,9 @@ function LevelDialog(props) {
           <DialogTitle className="levelTitle">
             {props.thisLevel.name}
           </DialogTitle>
-          {/* <Link to={`/arena?id=${showLevel[0]._id}`}> */}
-          <Button size="medium" variant="contained">Play!</Button>
-          {/* </Link> */}
+          <Link to={`/${props.thisLevel.routeName}?id=${props.thisLevel._id}`}>
+            <Button size="medium" variant="contained">Play!</Button>
+          </Link>
         </Grid>
       </Grid>
       <Grid container direction="row">
