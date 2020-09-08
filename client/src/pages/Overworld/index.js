@@ -1,4 +1,3 @@
-
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable max-len */
 import React, { useEffect, useState } from "react";
@@ -31,7 +30,6 @@ function Overworld() {
   useEffect(() => {
     loadWorld("Greece");
   }, []);
-
 
   function handleClose() {
     setOpen(false);
