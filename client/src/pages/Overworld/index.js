@@ -1,7 +1,12 @@
+/* eslint-disable max-len */
 import React, { useEffect, useState } from "react";
 import {
   Grid, Dialog, DialogTitle, DialogContent, Typography, Button
 } from "@material-ui/core";
+import {
+  Map, TileLayer, Marker
+} from "react-leaflet";
+import { Icon } from "leaflet";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import "./style.css";
@@ -11,18 +16,14 @@ function Overworld() {
   const [worldLevels, setWorldLevels] = useState([]);
   const [showLevel, setShowLevel] = useState([]);
   const [open, setOpen] = useState(false);
-
-  const styles = {
-    worldContainer: {
-      backgroundImage: `url(${worldState.background_image})`
-    }
-  };
+  const [mapNames, setMapNames] = useState([]);
 
   function loadWorld(worldName) {
     API.findOverworld(worldName)
       .then((res) => {
         setWorldState(res.data[0]);
         setWorldLevels(res.data[0].levels);
+        setMapNames(res.data[0].mapNames);
       })
       .catch((err) => console.log(err));
   }
@@ -32,7 +33,8 @@ function Overworld() {
   }, []);
 
   function handleIconClick(evt) {
-    const thisLevel = worldLevels.filter((level) => level._id === evt.target.dataset.level);
+    const thisLevel = worldLevels.filter((level) => level.routeName === evt.target.options.id);
+    console.log(thisLevel);
     setOpen(true);
     setShowLevel(thisLevel);
   }
@@ -42,6 +44,7 @@ function Overworld() {
   }
 
   function renderDialog() {
+    console.log("hitting render dialog");
     if (open) {
       return (
         <Dialog open={open} onClose={handleClose}>
@@ -102,16 +105,21 @@ function Overworld() {
     return null;
   }
 
-  // in this file, need to render the icons at specific coordinates on map
-  // play button needs
+  function createIcon(name) {
+    const customIcon = new Icon({
+      iconUrl: name.url,
+      iconSize: name.size
+    });
+    return customIcon;
+  }
 
   return (
-    <Grid container justify="center" alignItems="center" style={styles.worldContainer} className="worldMap">
-      {worldLevels.map((level) => <img src={level.icon} className="icons" alt="level-icon" key={level._id} data-level={level._id} onClick={handleIconClick} />)}
-
-      {renderDialog()}
-    
-    </Grid>
+    <Map center={worldState.mapCenter} zoom={7} maxBounds={worldState.mapBounds} minZoom={6} dragging>
+      <TileLayer url={`https://api.mapbox.com/styles/v1/alexastef/${worldState.mapStyle}/tiles/256/{z}/{x}/{y}@2x?access_token=${worldState.mapToken}`} />
+      {mapNames.map((name) => <Marker position={name.position} icon={createIcon(name)} />)}
+      {worldLevels.map((level) => <Marker position={level.geometry.coordinates} icon={createIcon(level.icon)} id={level.routeName} onClick={handleIconClick} />)}
+      {renderDialog}
+    </Map>
   );
 }
 

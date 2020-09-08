@@ -1,0 +1,50 @@
+.card {
+  font-size: 8pt;
+  height: 100%;
+  width: 80%;
+  transform-style: preserve-3d;
+  transition: all 1s ease !important;
+  border: 1px solid black;
+  position: absolute;
+}
+
+.cardClicked {
+  transform: rotateY(180deg);
+}
+
+.cardMatched {
+  opacity: 0;
+}
+
+.cardFront {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  background-color: black !important;
+  background-image: url(../../assets/GreekGods/matching_card_clear.svg);
+  background-size: 80% 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.cardBack {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  background-color: white !important;
+}
+
+.cardContainer {
+  position: relative;
+  margin-bottom: 2em;
+  height: 12vh;
+  width: 10vh;
+}
+
+.cardBackImg {
+  width: 100%;
+  height: 100%;
+}

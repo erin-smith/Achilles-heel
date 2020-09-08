@@ -8,9 +8,25 @@ const WorldSchema = new Schema({
     required: true,
     unique: true
   },
-  background_image: {
+  mapStyle: {
     type: String
   },
+  mapToken: {
+    type: String
+  },
+  mapBounds: [Array, Number],
+  mapCenter: [
+    Number
+  ],
+  mapNames: [
+    {
+      url: {
+        type: String,
+      },
+      size: [Number],
+      position: [Number]
+    }
+  ],
   levels:
         [
           {
