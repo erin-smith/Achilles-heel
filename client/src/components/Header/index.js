@@ -9,6 +9,8 @@ import {
   IconButton,
   Avatar,
 } from "@material-ui/core";
+import AvatarPic from "../AvatarPic";
+import FlashOnIcon from "@material-ui/icons/FlashOn";
 import { withRouter } from "react-router-dom";
 import { useStore } from "../../utils/globalState";
 
@@ -84,10 +86,10 @@ const Header = (props) => {
             onClick={handleMenu}
             color="inherit"
           >
-            <Avatar>{`${state.user.avatar}`}</Avatar>
+            <Avatar src={props.avatar}>{`${state.user.avatar}`}</Avatar>
           </IconButton>
           <Typography variant="h6">
-            Total Score:
+            <FlashOnIcon />
             {`${state.user.score}`}
           </Typography>
           <Menu
@@ -105,9 +107,9 @@ const Header = (props) => {
             open={open}
             onClose={() => setAnchorEl(null)}
           >
-            <MenuItem onClick={() => handleMenuClick("/")}>Home</MenuItem>
-            <MenuItem onClick={() => handleMenuClick("/login")}>My Profile</MenuItem>
-            <MenuItem onClick={() => handleMenuClick("/about")}>About</MenuItem>
+            <MenuItem onClick={() => handleMenuClick("/overworld")}>WorldMap</MenuItem>
+            <MenuItem onClick={() => handleMenuClick("/")}>Login</MenuItem>
+            <MenuItem onClick={() => handleMenuClick("/credits")}>About</MenuItem>
             <MenuItem onClick={() => handleMenuClick("/logout")}>Logout</MenuItem>
           </Menu>
         </Toolbar>

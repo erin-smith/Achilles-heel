@@ -18,7 +18,6 @@ const colorsArr = [
 const randomColorId = Math.floor(Math.random() * colorsArr.length);
 
 export default class AvatarPic extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -29,19 +28,24 @@ export default class AvatarPic extends React.Component {
     };
   }
 
-  getAvatar(colorId){
+  getAvatar(colorId) {
     return avatarAPI + colorsArr[colorId];
   }
 
   handleDecrement = () => {
-    this.setState(prevState => (
-      {choiceColor: (prevState.choiceColor-1) < 0 ? colorsArr.length-1 : prevState.choiceColor-1})
-    )
+    this.setState(prevState => ({
+      choiceColor:
+      (prevState.choiceColor - 1)
+      < 0 ? colorsArr.length - 1 : prevState.choiceColor - 1
+    }));
   }
+
   handleIncrement = () => {
     this.setState(prevState => (
-      {choiceColor: (prevState.choiceColor+1) >= colorsArr.length ? 0 : prevState.choiceColor+1})
-    )
+      {
+        choiceColor:
+    (prevState.choiceColor + 1) >= colorsArr.length ? 0 : prevState.choiceColor + 1
+      }));
   }
 
   render() {
@@ -49,12 +53,13 @@ export default class AvatarPic extends React.Component {
     return (
       <div className="row mt-3">
         <div className="card-header">
-          <button justify-content="left" onClick={this.handleDecrement}>Prev</button>
+          <button type="button" justify-content="left" onClick={this.handleDecrement}>Prev</button>
           <img className="card-img-top" src={this.getAvatar(this.state.choiceColor)} style={{ width: 150, height: 150 }} alt="avatarPic" />
-          <button onClick={this.handleIncrement}>Next</button>
-          {/* <div className="card-title">{this.state.choiceColor}:{colorsArr[this.state.choiceColor]} </div> */}
-          <br></br>
-          <br></br>
+          <button type="button" onClick={this.handleIncrement}>Next</button>
+          {/* <div className="card-title">{this.state.choiceColor}:
+          {colorsArr[this.state.choiceColor]} </div> */}
+          <br />
+          <br />
         </div>
       </div>
     );
