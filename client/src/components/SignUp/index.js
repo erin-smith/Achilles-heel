@@ -94,7 +94,7 @@ export default function MediaCard(props) {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button variant="contained" color="primary" size="small" onClick={onSubmitButton}> Submit</Button>
+            <Button variant="contained" color="primary" size="small" onClick={onSubmitButton()}> Submit</Button>
           </CardActions>
         </Card>
         {goToOverworld ? <Redirect to="/overworld" /> : null}

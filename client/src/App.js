@@ -23,13 +23,13 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/overworld" exact component={Overworld} />
-            <Route path="/arena" exact component={Arena} />
+            <Route path="/hadesgate" exact component={Arena} />
             <Route path="/login" exact component={GoogleButton} />
             <Route path="/privacy" exact component={PrivacyPolicy} />
             <Route path="/tos" component={TOS} />
             <Route path="/test" component={Test} />
             <Route path="/avatar" component={AvatarPic} />
-            <Route path="/panflute" component={PanFlute} />
+            <Route path="/pansflute" component={PanFlute} />
             <Route path="/olympus" component={OlympusMatch} />
           </Switch>
         </StoreProvider>

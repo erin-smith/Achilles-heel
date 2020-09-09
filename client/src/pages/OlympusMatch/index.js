@@ -177,7 +177,7 @@ function OlympusMatch() {
   }
 
   return (
-    <Grid container direction="column" justify="center" alignItems="center">
+    <Grid className="olympus" container direction="column" justify="center" alignItems="center">
       <h1>Olympus Match</h1>
       <Grid container direction="row" justify="center" alignItems="center">
         {
@@ -187,7 +187,20 @@ function OlympusMatch() {
                 <Paper className="card" onClick={onCardClicked} data-type={card.type}>
                   <Paper className="cardFront" />
                   <Paper className="cardBack">
-                    <img className="cardBackImg" src={card.image} alt={card.type} />
+                    {
+                      card.key[card.key.length - 1] === "1"
+                        ? <img className="cardBackImg" src={card.image} alt={card.type} />
+                        : (
+                          <Grid container direction="column" justify="center" alignItems="center">
+                            <Grid item>
+                              <img className="cardBackImg" src={card.image} alt={card.type} />
+                            </Grid>
+                            <Grid item>
+                              <div>{card.type}</div>
+                            </Grid>
+                          </Grid>
+                        )
+                    }
                   </Paper>
                 </Paper>
               </div>
@@ -195,7 +208,7 @@ function OlympusMatch() {
           ))
         }
       </Grid>
-      <Grid item xs={12} container justify="center" alignItems="center">
+      <Grid className="points" item xs={12} container justify="center" alignItems="center">
         {runningScore}
         &nbsp;
         <FlashOnIcon />

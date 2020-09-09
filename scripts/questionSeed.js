@@ -27,7 +27,7 @@ const questionsSeed = [{
   ],
   category: "Monsters",
   points: 300,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "How do you kill a Chimaera ?",
@@ -51,7 +51,7 @@ const questionsSeed = [{
   ],
   category: "Monsters",
   points: 900,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "How do you vanquish a Sphinx?",
@@ -75,7 +75,7 @@ const questionsSeed = [{
   ],
   category: "Monsters",
   points: 600,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "How do you quash a Basilisk without a mirror ?",
@@ -99,7 +99,7 @@ const questionsSeed = [{
   ],
   category: "Monsters",
   points: 600,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "How do you destroy a Hydra ?",
@@ -123,7 +123,7 @@ const questionsSeed = [{
   ],
   category: "Monsters",
   points: 100,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "How do you kill a Nemean Lion ?",
@@ -147,7 +147,7 @@ const questionsSeed = [{
   ],
   category: "Monsters",
   points: 600,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "How do you exterminate Medusa ?",
@@ -171,7 +171,7 @@ const questionsSeed = [{
   ],
   category: "Monsters",
   points: 100,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "How do you defeat Sirens ?",
@@ -195,7 +195,7 @@ const questionsSeed = [{
   ],
   category: "Monsters",
   points: 300,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "How do you kill a Werewolf ?",
@@ -219,7 +219,7 @@ const questionsSeed = [{
   ],
   category: "Monsters",
   points: 100,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "How can one destroy a Wendigo?",
@@ -243,7 +243,7 @@ const questionsSeed = [{
   ],
   category: "Monsters",
   points: 900,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "How was the Minotaur killed?",
@@ -267,7 +267,7 @@ const questionsSeed = [{
   ],
   category: "Monsters",
   points: 300,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "How do you escape a Nuckelavee?",
@@ -291,7 +291,7 @@ const questionsSeed = [{
   ],
   category: "Monsters",
   points: 900,
-  topic: "Myth"
+  topic: "Underworld"
 }
 ];
 

@@ -14,29 +14,11 @@ const levelSeeds = [
     score_points: 1000,
     difficulty: 1,
     topic: "Myth",
-    icon: {
-      url: "https://i.imgur.com/l82DW3e.png",
-      size: [40]
-    },
+    iconUrl: "https://i.imgur.com/l82DW3e.png",
+    iconSize: [40],
     geometry: {
       type: "Point",
-      coordinates: [37.4181632, 22.2967529]
-    }
-  },
-  {
-    name: "Mt. Olympus Majestic Match",
-    routeName: "majesticmatch",
-    description: "Mount Olympus is the home of the gods. How well do you know them? Match as many gods & goddesses as you can.",
-    score_points: 3000,
-    difficulty: 2,
-    topic: "Gods",
-    icon: {
-      url: "https://i.imgur.com/dfud3mF.png",
-      size: [50]
-    },
-    geometry: {
-      type: "Point",
-      coordinates: [40.3465441, 22.2802734]
+      coordinates: [37.418163, 22.296752]
     }
   },
   {
@@ -46,13 +28,25 @@ const levelSeeds = [
     score_points: 5000,
     difficulty: 3,
     topic: "Underworld",
-    icon: {
-      url: "https://i.imgur.com/HXi2wTy.png?1",
-      size: [60]
-    },
+    iconUrl: "https://i.imgur.com/DNFAYKX.png",
+    iconSize: [75],
     geometry: {
       type: "Point",
       coordinates: [37.8921955, 28.3337402]
+    }
+  },
+  {
+    name: "Mount Olympus",
+    routeName: "olympus",
+    description: "Mount Olympus is the home of the gods. Make as many majestic matches as you can.",
+    score_points: 3000,
+    difficulty: 2,
+    topic: "Gods",
+    iconUrl: "https://i.imgur.com/dfud3mF.png",
+    iconSize: [50],
+    geometry: {
+      type: "Point",
+      coordinates: [40.3465441, 22.2802734]
     }
   }
 ];

@@ -25,9 +25,11 @@ const LevelSchema = new Schema({
     type: String,
     required: true
   },
-  icon: {
-    url: String,
-    size: [Number]
+  iconUrl: {
+    type: String
+  },
+  iconSize: {
+    type: [Number]
   },
   geometry: {
     type: {
