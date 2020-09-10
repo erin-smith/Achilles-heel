@@ -26,7 +26,7 @@ const hadesSeed = [{
   ],
   category: "Underworld",
   points: 100,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "What creature does not live near the entrance to the Underworld?",
@@ -49,7 +49,7 @@ const hadesSeed = [{
   ],
   category: "Underworld",
   points: 300,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "Which monster(s) worked with dead souls to avenge crimes against the natural world order?",
@@ -72,7 +72,7 @@ const hadesSeed = [{
   ],
   category: "Underworld",
   points: 600,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "Monsters Scylla and Charybdis are a metaphor for which idiom?",
@@ -95,7 +95,7 @@ const hadesSeed = [{
   ],
   category: "Underworld",
   points: 900,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "How do you destroy a Lernaean Hydra ?",
@@ -118,7 +118,7 @@ const hadesSeed = [{
   ],
   category: "Hydra",
   points: 100,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "Who killed the Lernaean Hydra in Greek Mythology ?",
@@ -141,7 +141,7 @@ const hadesSeed = [{
   ],
   category: "Hydra",
   points: 300,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "The Hydra lives in the Underworld guarding what?",
@@ -165,7 +165,7 @@ const hadesSeed = [{
   ],
   category: "Hydra",
   points: 600,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "What is special about the Hydra's heads ?",
@@ -188,7 +188,7 @@ const hadesSeed = [{
   ],
   category: "Hydra",
   points: 900,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "What is the Greek Chimaera made up of?",
@@ -211,7 +211,7 @@ const hadesSeed = [{
   ],
   category: "Chimaera",
   points: 100,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "What comes out of the Chimaera's mouth?",
@@ -234,7 +234,7 @@ const hadesSeed = [{
   ],
   category: "Chimaera",
   points: 300,
-  topic: "Myth"
+  topic: "Underworld"
 },
 
 {
@@ -258,7 +258,7 @@ const hadesSeed = [{
   ],
   category: "Chimaera",
   points: 600,
-  topic: "Myth"
+  topic: "Underworld"
 },
 {
   question: "Who killed the Chimaera in Greek Myth",
@@ -281,7 +281,7 @@ const hadesSeed = [{
   ],
   category: "Chimaera",
   points: 900,
-  topic: "Myth"
+  topic: "Underworld"
 },
 ];
 
