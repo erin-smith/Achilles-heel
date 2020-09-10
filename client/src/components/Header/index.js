@@ -10,6 +10,7 @@ import {
   IconButton,
   Avatar,
 } from "@material-ui/core";
+import FlashOnIcon from "@material-ui/icons/FlashOn";
 import { withRouter } from "react-router-dom";
 import { useStore } from "../../utils/globalState";
 import AppBarImage from "../../assets/appbar2.png";
@@ -118,9 +119,9 @@ const Header = (props) => {
             open={open}
             onClose={() => setAnchorEl(null)}
           >
-            <MenuItem onClick={() => handleMenuClick("/")}>Home</MenuItem>
-            <MenuItem onClick={() => handleMenuClick("/login")}>My Profile</MenuItem>
-            <MenuItem onClick={() => handleMenuClick("/about")}>About</MenuItem>
+            <MenuItem onClick={() => handleMenuClick("/overworld")}>WorldMap</MenuItem>
+            <MenuItem onClick={() => handleMenuClick("/")}>Login</MenuItem>
+            <MenuItem onClick={() => handleMenuClick("/credits")}>About</MenuItem>
             <MenuItem onClick={() => handleMenuClick("/logout")}>Logout</MenuItem>
           </Menu>
         </Toolbar>

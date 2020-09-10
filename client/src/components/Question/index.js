@@ -24,8 +24,8 @@ const styles = {
     backgroundColor: "#68a0e1",
     paddingTop: "1.5em",
     paddingBottom: "1.5em",
-    paddingLeft: "0.5em",
-    paddingRight: "0.5em",
+    paddingLeft: "1.5em",
+    paddingRight: "1.5em",
     width: "10vw"
   },
   dialog: {
