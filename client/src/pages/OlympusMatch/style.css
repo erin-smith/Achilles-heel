@@ -22,6 +22,7 @@
   width: 100%;
   backface-visibility: hidden;
   background-color: black !important;
+    -webkit-backface-visibility: hidden !important;
   background-image: url(../../assets/GreekGods/matching_card_clear.svg);
   background-size: 80% 80%;
   background-position: center;
@@ -32,6 +33,7 @@
   position: absolute;
   height: 100%;
   width: 100%;
+  -webkit-backface-visibility: hidden !important;
   backface-visibility: hidden;
   transform: rotateY(180deg);
   background-color: white !important;
