@@ -9,7 +9,6 @@ import {
   IconButton,
   Avatar,
 } from "@material-ui/core";
-import AvatarPic from "../AvatarPic";
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import { withRouter } from "react-router-dom";
 import { useStore } from "../../utils/globalState";
