@@ -42,7 +42,6 @@ function icon(index) {
     default:
       return <FlashOnIcon />;
   }
-
 }
 
 function LeaderBoardModal(props) {
