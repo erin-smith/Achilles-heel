@@ -30,11 +30,11 @@ const reducer = (state, action) => {
       console.log("default dispatch action detected");
       return state;
   }
-}
+};
 
-export function StoreProvider({ value = {}, ...props }) {
+export function StoreProvider({ ...props }) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  return <Provider value={[state, dispatch]} {...props} />
+  return <Provider value={[state, dispatch]} {...props} />;
 }
 
 export const useStore = () => useContext(StoreContext);
