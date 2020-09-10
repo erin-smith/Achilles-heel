@@ -128,4 +128,3 @@ const Header = (props) => {
 };
 
 export default withRouter(Header);
-
