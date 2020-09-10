@@ -30,7 +30,7 @@ export default class AvatarPic extends React.Component {
     return avatarAPI + colorsArr[colorId];
   }
 
-  handleDecrement = () => {
+  handleDecrement() {
     this.setState((prevState) => (
       {
         choiceColor: (prevState.choiceColor - 1) < 0
@@ -38,7 +38,7 @@ export default class AvatarPic extends React.Component {
       }));
   }
 
-  handleIncrement = () => {
+  handleIncrement() {
     this.setState((prevState) => (
       {
         choiceColor: (prevState.choiceColor + 1) >= colorsArr.length
