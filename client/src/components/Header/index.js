@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
@@ -12,6 +12,7 @@ import {
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import { withRouter } from "react-router-dom";
 import { useStore } from "../../utils/globalState";
+import LeaderBoardModal from "../LeaderBoardModal";
 
 const logo = {
   src: require("../../assets/achilles_heel_logo2.png"),
@@ -47,6 +48,7 @@ const Header = (props) => {
   const [state] = useStore();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [leaderboardOpen, setLeaderboardOpen] = useState(false);
   const open = Boolean(anchorEl);
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -87,7 +89,7 @@ const Header = (props) => {
           >
             <Avatar src={state.user.avatar}>{`${state.user.avatar}`}</Avatar>
           </IconButton>
-          <Typography variant="h6">
+          <Typography variant="h6" onClick={() => setLeaderboardOpen(true)}>
             <FlashOnIcon />
             {`${state.user.score}`}
           </Typography>
@@ -112,6 +114,7 @@ const Header = (props) => {
             <MenuItem onClick={() => handleMenuClick("/logout")}>Logout</MenuItem>
           </Menu>
         </Toolbar>
+        <LeaderBoardModal open={leaderboardOpen} close={() => { setLeaderboardOpen(false); }} />
       </AppBar>
     </div>
   );
