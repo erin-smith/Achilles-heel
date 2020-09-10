@@ -33,7 +33,7 @@ const styles = {
     backgroundImage: "radial-gradient(white,green)"
   },
   footer: {
-    paddingBottom: "3em"
+    paddingBottom: "15em"
   },
   output: {
     height: "10vh"
@@ -269,12 +269,19 @@ function PanFlute() {
     setGameOn(false);
   }
 
+  function retry() {
+    setShowGameOver(false);
+    document.getElementsByClassName("pipes")[0].classList.remove("pipes-your-turn");
+    setGameOn(false);
+    setRunningScore(0);
+  }
+
   return (
-    <Grid className="container" style={styles.container} container direction="column" justify="flex-start" alignItems="flex-start" disableGutters>
+    <Grid className="container" style={styles.container} container direction="column" justify="center" alignItems="center" disableGutters>
       <Grid item xs={12} container justify="center" alignItems="center">
         <h1>Pan&apos;s Flute Lessons</h1>
       </Grid>
-      <Grid className="pipes" item xs={12} container justify="center" alignItems="center">
+      <Grid className="pipes" item xs={12} lg={3} container justify="center" alignItems="center">
         <svg xmlns="http://www.w3.org/2000/svg" width="284.47" height="285.34" viewBox="0 0 284.47 285.34">
           <g id="Flute">
             <g>
@@ -314,11 +321,12 @@ function PanFlute() {
       <Dialog open={showGameOver}>
         <DialogTitle>Game Over - Pan&apos;s Angry</DialogTitle>
         <DialogContent>
-          You&apos;ve collected&nbsp;
+          You&apos;ve collected&nbsp; only
           {runningScore}
           <FlashOnIcon />
         </DialogContent>
         <DialogActions>
+          <Button variant="contained" onClick={retry}>Retry</Button>
           <Button variant="contained" onClick={save}>Ok</Button>
         </DialogActions>
       </Dialog>

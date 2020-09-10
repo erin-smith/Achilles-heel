@@ -13,9 +13,10 @@ function Home() {
   return (
     <Grid container direction="column" justify="center" alignItems="center">
       <Paper>
-        <GoogleButton styles={{ marginBottom: "30px" }} />
         <div />
         <img width={image.width} src={image.url} alt="Achilles" />
+        <br />
+        <GoogleButton styles={{ marginBottom: "30px" }} />
       </Paper>
     </Grid>
   );

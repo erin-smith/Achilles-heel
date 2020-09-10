@@ -39,9 +39,8 @@ export default class GoogleBtn extends React.Component {
         googleId: response.googleId,
         email: response.profileObj.email
       }));
-      return (response.profileObj.email);
     }
-    return null;
+    return response.profileObj.email;
   }
 
   logout() {
