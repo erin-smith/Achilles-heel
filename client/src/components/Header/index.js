@@ -85,7 +85,7 @@ const Header = (props) => {
             onClick={handleMenu}
             color="inherit"
           >
-            <Avatar src={props.avatar}>{`${state.user.avatar}`}</Avatar>
+            <Avatar src={state.user.avatar}>{`${state.user.avatar}`}</Avatar>
           </IconButton>
           <Typography variant="h6">
             <FlashOnIcon />
