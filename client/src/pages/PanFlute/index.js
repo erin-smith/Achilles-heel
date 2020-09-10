@@ -321,7 +321,7 @@ function PanFlute() {
       <Dialog open={showGameOver}>
         <DialogTitle>Game Over - Pan&apos;s Angry</DialogTitle>
         <DialogContent>
-          You&apos;ve collected&nbsp;
+          You&apos;ve collected&nbsp; only
           {runningScore}
           <FlashOnIcon />
         </DialogContent>

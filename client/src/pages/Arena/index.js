@@ -26,7 +26,8 @@ const styles = {
     marginBottom: "0.5em"
   },
   levelCards: {
-    marginTop: "1em"
+    marginTop: "1em",
+    padding: "1em",
   },
   pointsGrid: {
     marginTop: "1em"
