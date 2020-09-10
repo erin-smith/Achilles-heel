@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles, createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import {
@@ -13,6 +13,7 @@ import {
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import { withRouter } from "react-router-dom";
 import { useStore } from "../../utils/globalState";
+import LeaderBoardModal from "../LeaderBoardModal";
 import AppBarImage from "../../assets/appbar2.png";
 import BlackLogo from "../../assets/achilles_heel_logo_black_nobkgd.png";
 
@@ -56,6 +57,7 @@ const Header = (props) => {
   const [state] = useStore();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [leaderboardOpen, setLeaderboardOpen] = useState(false);
   const open = Boolean(anchorEl);
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -96,7 +98,7 @@ const Header = (props) => {
             >
               <Avatar src={state.user.avatar} />
             </IconButton>
-            <Typography color="primary" variant="h6">
+            <Typography color="primary" variant="h6" onClick={() => setLeaderboardOpen(true)}>
               <FlashOnIcon />
               {`${state.user.score}`}
             </Typography>
@@ -122,6 +124,7 @@ const Header = (props) => {
             <MenuItem onClick={() => handleMenuClick("/logout")}>Logout</MenuItem>
           </Menu>
         </Toolbar>
+        <LeaderBoardModal open={leaderboardOpen} close={() => { setLeaderboardOpen(false); }} />
       </AppBar>
     </div>
   );
