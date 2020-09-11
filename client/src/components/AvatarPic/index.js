@@ -23,8 +23,6 @@ export default class AvatarPic extends React.Component {
     super(props);
 
     this.state = {
-      username: "",
-      randomAvatar: "",
       choiceColor: randomColorId
     };
   }
@@ -33,19 +31,19 @@ export default class AvatarPic extends React.Component {
     return avatarAPI + colorsArr[colorId];
   }
 
-  handleDecrement = () => {
-    this.setState(prevState => ({
-      choiceColor:
-      (prevState.choiceColor - 1)
-      < 0 ? colorsArr.length - 1 : prevState.choiceColor - 1
-    }));
+  handleDecrement() {
+    this.setState((prevState) => (
+      {
+        choiceColor: (prevState.choiceColor - 1) < 0
+          ? colorsArr.length - 1 : prevState.choiceColor - 1
+      }));
   }
 
-  handleIncrement = () => {
-    this.setState(prevState => (
+  handleIncrement() {
+    this.setState((prevState) => (
       {
-        choiceColor:
-    (prevState.choiceColor + 1) >= colorsArr.length ? 0 : prevState.choiceColor + 1
+        choiceColor: (prevState.choiceColor + 1) >= colorsArr.length
+          ? 0 : prevState.choiceColor + 1
       }));
   }
 

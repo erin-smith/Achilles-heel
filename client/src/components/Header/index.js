@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useEffect, useState } from "react";
+import { makeStyles, createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
 import {
   AppBar,
   Toolbar,
@@ -12,23 +13,34 @@ import {
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import { withRouter } from "react-router-dom";
 import { useStore } from "../../utils/globalState";
+import LeaderBoardModal from "../LeaderBoardModal";
+import AppBarImage from "../../assets/appbar2.png";
+import BlackLogo from "../../assets/achilles_heel_logo_black_nobkgd.png";
 
 const logo = {
-  src: require("../../assets/achilles_heel_logo2.png"),
+  src: BlackLogo,
   width: "40px"
 };
 
-const appImg = {
-  src: require("../../assets/appbar_img.png"),
+const appStyles = {
+  backgroundImage: `url(${AppBarImage})`,
   width: "100%",
   backgroundRepeat: "no-repeat",
-  backgroundPosition: "center center",
+  backgroundPosition: "center",
   backgroundSize: "cover",
-  backgroundAttachment: "fixed",
-  height: "100%",
+  margin: "0",
+  padding: "0"
 };
 
 const font = "'Caesar Dressing', cursive";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#282827",
+    }
+  }
+});
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -36,9 +48,7 @@ const useStyles = makeStyles(() => ({
   },
   title: {
     flexGrow: 1,
-    fontFamily: font,
-    fontSize: "40px",
-    color: "charcoal",
+    fontFamily: font
   }
 }));
 
@@ -47,6 +57,7 @@ const Header = (props) => {
   const [state] = useStore();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [leaderboardOpen, setLeaderboardOpen] = useState(false);
   const open = Boolean(anchorEl);
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -58,7 +69,6 @@ const Header = (props) => {
   };
 
   useEffect(() => {
-
     // test code demonstrating how to set the user and world in store
     // const setNewUser = {
     //   email: "kennethMurphy@gmail.com",
@@ -72,25 +82,27 @@ const Header = (props) => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" src={appImg.src} alt="stained stone">
+      <AppBar position="static" style={appStyles} alt="stained stone">
         <Toolbar>
           <img edge="start" style={{ marginRight: "10px" }} width={logo.width} src={logo.src} alt="Achilles" />
-          <Typography variant="h6" className={classes.title}>
-            Achilles Heel
-          </Typography>
-          <IconButton
-            aria-label="account of current user"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            onClick={handleMenu}
-            color="inherit"
-          >
-            <Avatar src={state.user.avatar}>{`${state.user.avatar}`}</Avatar>
-          </IconButton>
-          <Typography variant="h6">
-            <FlashOnIcon />
-            {`${state.user.score}`}
-          </Typography>
+          <ThemeProvider theme={theme}>
+            <Typography color="primary" variant="h3" className={classes.title}>
+              Achilles Heel
+            </Typography>
+            <IconButton
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleMenu}
+              color="inherit"
+            >
+              <Avatar src={state.user.avatar} />
+            </IconButton>
+            <Typography color="primary" variant="h6" onClick={() => setLeaderboardOpen(true)}>
+              <FlashOnIcon />
+              {`${state.user.score}`}
+            </Typography>
+          </ThemeProvider>
           <Menu
             id="menu-appbar"
             anchorEl={anchorEl}
@@ -112,6 +124,7 @@ const Header = (props) => {
             <MenuItem onClick={() => handleMenuClick("/logout")}>Logout</MenuItem>
           </Menu>
         </Toolbar>
+        <LeaderBoardModal open={leaderboardOpen} close={() => { setLeaderboardOpen(false); }} />
       </AppBar>
     </div>
   );
