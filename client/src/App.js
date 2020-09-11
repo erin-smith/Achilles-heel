@@ -13,6 +13,7 @@ import AvatarPic from "./components/AvatarPic";
 import { StoreProvider } from "./utils/globalState";
 import PanFlute from "./pages/PanFlute";
 import OlympusMatch from "./pages/OlympusMatch";
+import Credits from "./pages/Credits";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="/avatar" component={AvatarPic} />
             <Route path="/pansflute" component={PanFlute} />
             <Route path="/olympus" component={OlympusMatch} />
+            <Route path="/credits" component={Credits} />
           </Switch>
         </StoreProvider>
       </div>
