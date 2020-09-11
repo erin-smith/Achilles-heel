@@ -134,7 +134,8 @@ function OlympusMatch() {
     e.currentTarget.classList.add("cardClicked");
 
     if (otherSelectedCard) {
-      if (e.currentTarget.dataset.type === otherSelectedCard.dataset.type) {
+      if (e.currentTarget.dataset.type === otherSelectedCard.dataset.type
+        && e.currentTarget.dataset.key !== otherSelectedCard.dataset.key) {
         if (numMatches >= 7) {
           setTimeout(() => {
             setShowGameOver(true);
@@ -184,7 +185,7 @@ function OlympusMatch() {
           cards.map((card) => (
             <Grid key={card.key} item xs={3} container justify="center" alignItems="center">
               <div className="cardContainer">
-                <Paper className="card" onClick={onCardClicked} data-type={card.type}>
+                <Paper className="card" onClick={onCardClicked} data-type={card.type} data-key={card.key}>
                   <Paper className="cardFront" />
                   <Paper className="cardBack">
                     {
