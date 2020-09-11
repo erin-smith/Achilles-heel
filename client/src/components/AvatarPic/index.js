@@ -1,4 +1,5 @@
 import React from "react";
+import { Grid, Card } from "@material-ui/core";
 
 // import { Avatar } from 'react-native-elements';
 // import Avatar from 'react-avatar-edit';
@@ -51,17 +52,21 @@ export default class AvatarPic extends React.Component {
   render() {
     this.props.onAvatarChange(this.getAvatar(this.state.choiceColor));
     return (
-      <div className="row mt-3">
-        <div className="card-header">
-          <button type="button" justify-content="left" onClick={this.handleDecrement}>Prev</button>
-          <img className="card-img-top" src={this.getAvatar(this.state.choiceColor)} style={{ width: 150, height: 150 }} alt="avatarPic" />
-          <button type="button" onClick={this.handleIncrement}>Next</button>
-          {/* <div className="card-title">{this.state.choiceColor}:
+        <Grid justifyContent="center">
+          <div className="row mt-3" justifyContent="center">
+            <Card>
+              <div className="card-header" justifyContent="center">
+                <button type="button" justify-content="left" onClick={this.handleDecrement}>Prev</button>
+                <img className="card-img-top" src={this.getAvatar(this.state.choiceColor)} style={{ width: 150, height: 150 }} alt="avatarPic" />
+                <button type="button" onClick={this.handleIncrement}>Next</button>
+                {/* <div className="card-title">{this.state.choiceColor}:
           {colorsArr[this.state.choiceColor]} </div> */}
-          <br />
-          <br />
-        </div>
-      </div>
+                <br />
+                <br />
+              </div>
+            </Card>
+          </div>
+        </Grid>
     );
   }
 
