@@ -16,6 +16,7 @@ import { useStore } from "../../utils/globalState";
 import LeaderBoardModal from "../LeaderBoardModal";
 import AppBarImage from "../../assets/appbar2.png";
 import BlackLogo from "../../assets/achilles_heel_logo_black_nobkgd.png";
+import "./style.css";
 
 const logo = {
   src: BlackLogo,
@@ -98,7 +99,7 @@ const Header = (props) => {
             >
               <Avatar src={state.user.avatar} />
             </IconButton>
-            <Typography color="primary" variant="h6" onClick={() => setLeaderboardOpen(true)}>
+            <Typography className="score" color="primary" variant="h6" onClick={() => setLeaderboardOpen(true)}>
               <FlashOnIcon />
               {`${state.user.score}`}
             </Typography>
