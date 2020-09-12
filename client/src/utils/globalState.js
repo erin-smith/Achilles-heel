@@ -16,25 +16,25 @@ const initialState = {
 };
 
 const StoreContext = createContext();
-const {Provider} = StoreContext
+const { Provider } = StoreContext;
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "SetUser":
-      return {...state, user: action.user};
+      return { ...state, user: action.user };
     case "SetWorld":
-      return { ...state, currentWorld: { name: action.worldName} };
+      return { ...state, currentWorld: { name: action.worldName } };
     case "SetLevel":
       return { ...state, currentLevel: action.levelId };
     default:
       console.log("default dispatch action detected");
       return state;
   }
-}
+};
 
-export function StoreProvider ({value = {} , ...props}) {
+export function StoreProvider({ ...props }) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  return <Provider value={[state, dispatch]} {...props} />
+  return <Provider value={[state, dispatch]} {...props} />;
 }
 
 export const useStore = () => useContext(StoreContext);

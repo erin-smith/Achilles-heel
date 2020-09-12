@@ -1,6 +1,9 @@
 const db = require("../models");
 
 module.exports = {
+  getAllUsers: (req, res) => {
+    db.User.find({}).then((dbUsers) => res.json(dbUsers)).catch((err) => res.status(422).json(err));
+  },
   createUser: (req, res) => {
     db.User.create(req.body)
       .then((dbUser) => res.json(dbUser))

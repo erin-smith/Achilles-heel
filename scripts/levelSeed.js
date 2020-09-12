@@ -10,7 +10,7 @@ const levelSeeds = [
   {
     name: "Flute Lessons",
     routeName: "pansflute",
-    description: "Learn to play the ancient flute from the master Pan himself. Pan is the god of the wild, shepherds, and rustic music.",
+    description: "Learn the ancient flute from Pan himself! Pan is the god of shepherds, the Wild, and rustic music. Can you replicate his dulcet tune? ",
     score_points: 1000,
     difficulty: 1,
     topic: "Myth",
@@ -24,7 +24,7 @@ const levelSeeds = [
   {
     name: "Hades' Gate",
     routeName: "hadesgate",
-    description: "Hades' Gate is the entrance to the Underworld. Kill all Hades' monsters to save your soul. Enter at your own risk.",
+    description: "Hades' Gate opens the Underworld. Decimate all of Hades' monsters to save your soul. Answer at your own risk.",
     score_points: 5000,
     difficulty: 3,
     topic: "Underworld",
@@ -38,7 +38,7 @@ const levelSeeds = [
   {
     name: "Mount Olympus",
     routeName: "olympus",
-    description: "Mount Olympus is the home of the gods. Make as many majestic matches as you can.",
+    description: "Mt. Olympus is the home of the gods. Make as many majestic matches as you can. Match each God or Goddess to their Symbol!",
     score_points: 3000,
     difficulty: 2,
     topic: "Gods",
@@ -55,7 +55,7 @@ const worldSeeds = [{
   name: "Greece",
   mapStyle: "ckemcpovb0ji919nvjtuxg9qz",
   mapToken: "pk.eyJ1IjoiYWxleGFzdGVmIiwiYSI6ImNrZWx5MGdtYTAwYTMyeG0wZjE3MzU5cm0ifQ.RXcqX1-NpZY1TrAMzmoUxA",
-  mapBounds: [[41.967659, 28.290531], [34.813803, 18.748031]],
+  mapBounds: [[41.967659, 32.290531], [34.813803, 18.748031]],
   mapCenter: [40.702659, 27.030628],
   mapNames: [
     {
