@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import { withRouter } from "react-router-dom";
+import API from "../../utils/API";
 import { useStore } from "../../utils/globalState";
 import LeaderBoardModal from "../LeaderBoardModal";
 import AppBarImage from "../../assets/appbar2.png";
@@ -46,7 +47,7 @@ const useStyles = makeStyles(() => ({
 
 const Header = (props) => {
   const { history } = props;
-  const [state] = useStore();
+  const [state, dispatch] = useStore();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [leaderboardOpen, setLeaderboardOpen] = useState(false);
@@ -64,6 +65,23 @@ const Header = (props) => {
     window.localStorage.clear();
     window.location.href = "/";
   };
+
+  useEffect(() => {
+    console.log("calling useEffect");
+    if (state.user.display_name === "") {
+      console.log("display name is blank in state");
+      const displayName = window.localStorage.getItem("displayName");
+      if (displayName !== "") {
+        console.log(`display name in localstorage is ${displayName}`);
+        API.getUser(displayName).then((dbUser) => {
+          if (dbUser.data.length === 1) {
+            dispatch({ type: "SetUser", user: dbUser.data[0] });
+            console.log("dbUser.data", dbUser.data);
+          }
+        });
+      }
+    }
+  }, [state.user.display_name]);
 
   // useEffect(() => {
   //   // test code demonstrating how to set the user and world in store
