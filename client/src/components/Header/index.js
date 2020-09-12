@@ -37,7 +37,7 @@ const font = "'Caesar Dressing', cursive";
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#282827",
+      main: "#282827 !important",
     }
   }
 });
