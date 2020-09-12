@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { makeStyles, createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import {
@@ -73,17 +73,17 @@ const Header = (props) => {
     window.location.href = "/";
   };
 
-  useEffect(() => {
-    // test code demonstrating how to set the user and world in store
-    // const setNewUser = {
-    //   email: "kennethMurphy@gmail.com",
-    //   display_name: "KennethMurphy",
-    //   avatar: "cat21.jpg",
-    //   score: -17 }
-    // API.createUser(setNewUser);
-    // dispatch({type: "SetUser", user: setNewUser});
-    // dispatch({type: "SetWorld", worldName: "Greece"});
-  }, []);
+  // useEffect(() => {
+  //   // test code demonstrating how to set the user and world in store
+  //   // const setNewUser = {
+  //   //   email: "kennethMurphy@gmail.com",
+  //   //   display_name: "KennethMurphy",
+  //   //   avatar: "cat21.jpg",
+  //   //   score: -17 }
+  //   // API.createUser(setNewUser);
+  //   // dispatch({type: "SetUser", user: setNewUser});
+  //   // dispatch({type: "SetWorld", worldName: "Greece"});
+  // }, []);
 
   return (
     <div className={classes.root}>
