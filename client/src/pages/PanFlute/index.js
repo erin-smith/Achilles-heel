@@ -27,7 +27,9 @@ import G4 from "../../assets/sounds/Flute.G4.mp3";
 const styles = {
   container: {
     backgroundImage: `url(${grassyreeds})`,
-    backgroundSize: "cover"
+    backgroundSize: "cover",
+    marginTop: "4em"
+    
   },
   pipes: {
     backgroundImage: "radial-gradient(white,green)"
