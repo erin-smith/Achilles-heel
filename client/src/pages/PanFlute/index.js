@@ -29,7 +29,6 @@ const styles = {
     backgroundImage: `url(${grassyreeds})`,
     backgroundSize: "cover",
     marginTop: "4em"
-    
   },
   pipes: {
     backgroundImage: "radial-gradient(white,green)"
