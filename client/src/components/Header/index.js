@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { makeStyles, createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
   Toolbar,
