@@ -49,19 +49,19 @@ export default class AvatarPic extends React.Component {
   render() {
     this.props.onAvatarChange(this.getAvatar(this.state.choiceColor));
     return (
-          <div className="row mt-3" justifyContent="center">
-            <div className="card-header" justifyContent="center">
-                <button type="button" justify-content="left" onClick={this.handleDecrement}>Prev</button>
-                <img className="card-img-top" src={this.getAvatar(this.state.choiceColor)} style={{ width: 150, height: 150 }} alt="avatarPic" />
-                <button type="button" onClick={this.handleIncrement}>Next</button>
-                {/* <div className="card-title">{this.state.choiceColor}:
+      <div className="row mt-3" justifyContent="center">
+        <div className="card-header" justifyContent="center">
+          <button type="button" justify-content="left" onClick={this.handleDecrement}>Prev</button>
+          <img className="card-img-top" src={this.getAvatar(this.state.choiceColor)} style={{ width: 150, height: 150 }} alt="avatarPic" />
+          <button type="button" onClick={this.handleIncrement}>Next</button>
+          {/* <div className="card-title">{this.state.choiceColor}:
           {colorsArr[this.state.choiceColor]} </div> */}
-                <br />
-                <br />
-              </div>
-          </div>
-    );
-  }
+          <br />
+          <br />
+        </div>
+      </div>
+     );
+   }
 
   // constructor(props) {
   //   super(props)
@@ -82,19 +82,20 @@ export default class AvatarPic extends React.Component {
   //   this.setState({ preview })
   // }
 
-  // render() {
-       this.props.onAvatarChange(this.getAvatar(this.state.choiceColor));
-       return (
-         <div className="row mt-3" justifyContent="center">
-           <div className="card-header" justifyContent="center">
-             <button type="button" justify-content="left" onClick={this.handleDecrement}>Prev</button>
-             <img className="card-img-top" src={this.getAvatar(this.state.choiceColor)} style={{ width: 150, height: 150 }} alt="avatarPic" />
-             <button type="button" onClick={this.handleIncrement}>Next</button>
-             {/* <div className="card-title">{this.state.choiceColor}:
-             {colorsArr[this.state.choiceColor]} </div> */}
-             <br />
-             <br />
-           </div>
-         </div>
-       );
-     }
+   // render() {
+  //   return (
+  //     <div>
+  //       <Avatar
+  //         width={350}
+  //         height={350}
+  //         onCrop={this.onCrop}
+  //         onClose={this.onClose}
+  //         src={this.state.src}
+  //         rounded
+  //       />
+  //       <img className="justify-center-align" src={this.state.preview} alt="avatarPreview" />
+  //     </div>
+  //   )
+  // }
+}
+
