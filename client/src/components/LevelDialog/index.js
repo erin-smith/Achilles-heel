@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import React from "react";
 import {
@@ -10,7 +11,7 @@ function LevelDialog(props) {
     <>
       <Grid container direction="row">
         <Grid item xs container direction="column" spacing={1}>
-          <img src={props.thisLevel.iconUrl} width="100%" margin="0 auto" alt="level-graphic" />
+          <img src={props.thisLevel.iconUrl} width="50%" height="100%" margin="0 auto" alt="level-graphic" />
         </Grid>
         <Grid item xs container direction="column" justify="center" alignItems="center">
           <DialogTitle className="levelTitle">
