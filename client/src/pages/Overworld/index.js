@@ -49,8 +49,14 @@ function Overworld() {
     return customIcon;
   }
 
+  function onMapClick(evt) {
+    console.log(evt);
+  }
+
+  const center = [39.42217284397604, 23.347380319610245];
+  // leaving this as the center so everyone can check it before setting it in the database
   return (
-    <Map center={worldState.mapCenter} zoom={7} maxBounds={worldState.mapBounds} minZoom={6} dragging="true">
+    <Map center={center} zoom={7} maxBounds={worldState.mapBounds} minZoom={6} dragging="true" onClick={onMapClick} z-index={-60000000}>
       <TileLayer url={`https://api.mapbox.com/styles/v1/alexastef/${worldState.mapStyle}/tiles/256/{z}/{x}/{y}@2x?access_token=${worldState.mapToken}`} />
 
       {mapNames.map((name) => <Marker position={name.position} icon={createIcon(name.url, name.size)} key={name} />)}
