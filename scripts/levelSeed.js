@@ -28,7 +28,7 @@ const levelSeeds = [
     score_points: 5000,
     difficulty: 3,
     topic: "Underworld",
-    iconUrl: "https://i.imgur.com/JsJuzd5.png",
+    iconUrl: "https://i.imgur.com/7gvnK8a.png",
     iconSize: [100],
     geometry: {
       type: "Point",
