@@ -60,8 +60,8 @@ export default class AvatarPic extends React.Component {
           <br />
         </div>
       </div>
-     );
-   }
+    );
+  }
 
   // constructor(props) {
   //   super(props)
@@ -82,7 +82,7 @@ export default class AvatarPic extends React.Component {
   //   this.setState({ preview })
   // }
 
-   // render() {
+  // render() {
   //   return (
   //     <div>
   //       <Avatar
@@ -98,4 +98,3 @@ export default class AvatarPic extends React.Component {
   //   )
   // }
 }
-
