@@ -1,15 +1,23 @@
+Paper {
+  background: transparent;
+}
 .card {
   font-size: 8pt;
   height: 100%;
   width: 80%;
-  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: all 1s ease !important;
+  -o-transition: all 1s ease !important;
   transition: all 1s ease !important;
   border: 1px solid black;
   position: absolute;
+  background: transparent !important;
 }
 
 .cardClicked {
-  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
 }
 
 .cardMatched {
@@ -20,9 +28,9 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  backface-visibility: hidden;
+  backface-visibility: hidden !important;
   background-color: black !important;
-    -webkit-backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
   background-image: url(../../assets/GreekGods/matching_card_clear.svg);
   background-size: 80% 80%;
   background-position: center;
@@ -34,7 +42,11 @@
   height: 100%;
   width: 100%;
   -webkit-backface-visibility: hidden !important;
-  backface-visibility: hidden;
+  backface-visibility: hidden !important;
+  -ms-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
   transform: rotateY(180deg);
   background-color: white !important;
 }
