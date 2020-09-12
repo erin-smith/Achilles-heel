@@ -4,12 +4,12 @@ import React, {
 } from "react";
 import {
   Grid,
-  Paper,
   Button,
   Dialog as MyDialog,
   DialogTitle,
   DialogContent,
-  DialogActions
+  DialogActions,
+  Paper
 } from "@material-ui/core";
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import { Redirect } from "react-router-dom";
