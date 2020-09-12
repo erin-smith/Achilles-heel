@@ -15,6 +15,7 @@ import { useStore } from "../../utils/globalState";
 import LeaderBoardModal from "../LeaderBoardModal";
 import AppBarImage from "../../assets/appbar2.png";
 import BlackLogo from "../../assets/achilles_heel_logo_black_nobkgd.png";
+import "./style.css";
 
 const logo = {
   src: BlackLogo,
@@ -32,7 +33,6 @@ const appStyles = {
 };
 
 const font = "'Caesar Dressing', cursive";
-
 const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
@@ -80,6 +80,7 @@ const Header = (props) => {
             <FlashOnIcon />
             {`${state.user.score}`}
           </Typography>
+
           <Menu
             id="menu-appbar"
             anchorEl={anchorEl}
