@@ -18,16 +18,17 @@ const styles = {
   container: {
     backgroundImage: `url(${Underworld})`,
     backgroundSize: "cover",
-    paddingBottom: "4em",
-    color: "white"
+    color: "white",
+    width: "100%",
+    overflowX: "hidden",
+    height: "100vh",
   },
   levelDetails: {
     marginTop: "0.5em",
     marginBottom: "0.5em"
   },
   levelCards: {
-    marginTop: "1em",
-    padding: "1em",
+    marginTop: "1em"
   },
   pointsGrid: {
     marginTop: "1em"
