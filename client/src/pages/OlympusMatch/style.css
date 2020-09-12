@@ -67,6 +67,7 @@ Paper {
   background-image: url(../../assets/olympus.jpg);
   background-size: cover;
   background-position: center;
+  padding-bottom: 1.57em;
 }
 
 .points {
