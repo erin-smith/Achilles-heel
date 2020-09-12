@@ -60,6 +60,23 @@ const Header = (props) => {
     setAnchorEl(null);
   };
 
+  const logout = () => {
+    window.localStorage.clear();
+    window.location.href = "/";
+  };
+
+  // useEffect(() => {
+  //   // test code demonstrating how to set the user and world in store
+  //   // const setNewUser = {
+  //   //   email: "kennethMurphy@gmail.com",
+  //   //   display_name: "KennethMurphy",
+  //   //   avatar: "cat21.jpg",
+  //   //   score: -17 }
+  //   // API.createUser(setNewUser);
+  //   // dispatch({type: "SetUser", user: setNewUser});
+  //   // dispatch({type: "SetWorld", worldName: "Greece"});
+  // }, []);
+
   return (
     <div className={classes.root}>
       <AppBar position="fixed" style={appStyles} alt="stained stone" z-index={50000}>
@@ -96,10 +113,12 @@ const Header = (props) => {
             open={open}
             onClose={() => setAnchorEl(null)}
           >
-            <MenuItem onClick={() => handleMenuClick("/overworld")}>WorldMap</MenuItem>
-            <MenuItem onClick={() => handleMenuClick("/")}>Login</MenuItem>
-            <MenuItem onClick={() => handleMenuClick("/credits")}>About</MenuItem>
-            <MenuItem onClick={() => handleMenuClick("/logout")}>Logout</MenuItem>
+            <MenuItem onClick={() => handleMenuClick("/overworld")}>Home</MenuItem>
+            {/* <MenuItem onClick={() => handleMenuClick("/")}>Login</MenuItem> */}
+            <MenuItem onClick={() => handleMenuClick("/credits")}>Credits</MenuItem>
+            <MenuItem onClick={() => handleMenuClick("/tos")}>Terms of Service</MenuItem>
+            <MenuItem onClick={() => handleMenuClick("/privacy")}>Privacy</MenuItem>
+            <MenuItem onClick={logout}>Logout</MenuItem>
           </Menu>
         </Toolbar>
         <LeaderBoardModal open={leaderboardOpen} close={() => { setLeaderboardOpen(false); }} />
