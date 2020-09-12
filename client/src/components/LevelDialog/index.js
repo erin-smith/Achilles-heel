@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import React from "react";
 import {
@@ -53,7 +54,8 @@ function LevelDialog(props) {
       >
         <img
           src={props.thisLevel.iconUrl}
-          width="80%"
+          width="50%"
+          height="100%"
           margin="0 auto"
           alt="level-graphic"
         />

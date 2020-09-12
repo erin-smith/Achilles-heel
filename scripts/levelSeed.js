@@ -14,11 +14,11 @@ const levelSeeds = [
     score_points: 1000,
     difficulty: 1,
     topic: "Myth",
-    iconUrl: "https://i.imgur.com/l82DW3e.png",
+    iconUrl: "https://i.imgur.com/ZDmhRZ4.png",
     iconSize: [40],
     geometry: {
       type: "Point",
-      coordinates: [37.418163, 22.296752]
+      coordinates: [38.418163, 22.296752]
     }
   },
   {
@@ -28,11 +28,11 @@ const levelSeeds = [
     score_points: 5000,
     difficulty: 3,
     topic: "Underworld",
-    iconUrl: "https://i.imgur.com/DNFAYKX.png",
-    iconSize: [75],
+    iconUrl: "https://i.imgur.com/JsJuzd5.png",
+    iconSize: [100],
     geometry: {
       type: "Point",
-      coordinates: [37.8921955, 28.3337402]
+      coordinates: [38.8921955, 28.3337402]
     }
   },
   {
@@ -43,10 +43,10 @@ const levelSeeds = [
     difficulty: 2,
     topic: "Gods",
     iconUrl: "https://i.imgur.com/dfud3mF.png",
-    iconSize: [50],
+    iconSize: [65],
     geometry: {
       type: "Point",
-      coordinates: [40.3465441, 22.2802734]
+      coordinates: [41.3465441, 22.2802734]
     }
   }
 ];
