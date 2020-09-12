@@ -50,7 +50,7 @@ export default class AvatarPic extends React.Component {
     this.props.onAvatarChange(this.getAvatar(this.state.choiceColor));
     return (
           <div className="row mt-3" justifyContent="center">
-              <div className="card-header" justifyContent="center">
+            <div className="card-header" justifyContent="center">
                 <button type="button" justify-content="left" onClick={this.handleDecrement}>Prev</button>
                 <img className="card-img-top" src={this.getAvatar(this.state.choiceColor)} style={{ width: 150, height: 150 }} alt="avatarPic" />
                 <button type="button" onClick={this.handleIncrement}>Next</button>
