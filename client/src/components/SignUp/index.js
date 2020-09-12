@@ -20,9 +20,11 @@ const useStyles = makeStyles({
 
   root: {
     maxWidth: 345,
+    justifyContent: "center",
   },
   media: {
     height: 140,
+    justifyContent: "center",
   },
 });
 
@@ -75,8 +77,8 @@ export default function MediaCard(props) {
 
   return (
     <>
-      <Container maxWidth="sm">
-        <Card className={classes.root}>
+      <Container maxWidth="sm" justifyContent="center">
+        <Card className={classes.root} justifyContent="center">
           <CardActionArea>
             <CardMedia className={classes.media}>
               <AvatarPic onAvatarChange={handleAvatarChange} />

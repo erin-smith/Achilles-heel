@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { makeStyles, createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
   Toolbar,
@@ -16,6 +15,7 @@ import { useStore } from "../../utils/globalState";
 import LeaderBoardModal from "../LeaderBoardModal";
 import AppBarImage from "../../assets/appbar2.png";
 import BlackLogo from "../../assets/achilles_heel_logo_black_nobkgd.png";
+import "./style.css";
 
 const logo = {
   src: BlackLogo,
@@ -33,22 +33,14 @@ const appStyles = {
 };
 
 const font = "'Caesar Dressing', cursive";
-
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#282827",
-    }
-  }
-});
-
 const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
   },
   title: {
     flexGrow: 1,
-    fontFamily: font
+    fontFamily: font,
+    color: "black"
   }
 }));
 
@@ -87,27 +79,25 @@ const Header = (props) => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={appStyles} alt="stained stone">
+      <AppBar position="fixed" style={appStyles} alt="stained stone" z-index={50000}>
         <Toolbar>
           <img edge="start" style={{ marginRight: "10px" }} width={logo.width} src={logo.src} alt="Achilles" />
-          <ThemeProvider theme={theme}>
-            <Typography color="primary" variant="h3" className={classes.title}>
-              Achilles Heel
-            </Typography>
-            <IconButton
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleMenu}
-              color="inherit"
-            >
-              <Avatar src={state.user.avatar} />
-            </IconButton>
-            <Typography color="primary" variant="h6" onClick={() => setLeaderboardOpen(true)}>
-              <FlashOnIcon />
-              {`${state.user.score}`}
-            </Typography>
-          </ThemeProvider>
+          <Typography variant="h3" className={classes.title}>
+            Achilles Heel
+          </Typography>
+          <IconButton
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleMenu}
+          >
+            <Avatar src={state.user.avatar} />
+          </IconButton>
+          <Typography variant="h6" onClick={() => setLeaderboardOpen(true)}>
+            <FlashOnIcon />
+            {`${state.user.score}`}
+          </Typography>
+
           <Menu
             id="menu-appbar"
             anchorEl={anchorEl}
