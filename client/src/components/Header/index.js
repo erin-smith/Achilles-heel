@@ -70,8 +70,8 @@ const Header = (props) => {
 
   const logout = () => {
     window.localStorage.clear();
-    window.location.href = "/"
-  }
+    window.location.href = "/";
+  };
 
   useEffect(() => {
     // test code demonstrating how to set the user and world in store
