@@ -67,9 +67,7 @@ Paper {
   background-image: url(../../assets/olympus.jpg);
   background-size: cover;
   background-position: center;
-  padding-bottom: 1.57em;
-}
-
-.points {
-  padding-bottom: 10em;
+  margin-top: 4em;
+  padding-bottom: 11.6em;
+  overflow-y: hidden;
 }
