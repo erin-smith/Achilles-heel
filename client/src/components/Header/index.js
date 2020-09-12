@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { makeStyles, createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
   Toolbar,
@@ -45,9 +44,6 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-let theme = createMuiTheme();
-theme = responsiveFontSizes(theme);
-
 const Header = (props) => {
   const { history } = props;
   const [state] = useStore();
@@ -67,46 +63,44 @@ const Header = (props) => {
   return (
     <div className={classes.root}>
       <AppBar position="fixed" style={appStyles} alt="stained stone" z-index={50000}>
-        <ThemeProvider theme={theme}>
-          <Toolbar>
-            <img edge="start" style={{ marginRight: "10px" }} width={logo.width} src={logo.src} alt="Achilles" />
-            <Typography variant="h3" className={classes.title}>
-              Achilles Heel
-            </Typography>
-            <IconButton
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleMenu}
-            >
-              <Avatar src={state.user.avatar} />
-            </IconButton>
-            <Typography variant="h6" onClick={() => setLeaderboardOpen(true)}>
-              <FlashOnIcon />
-              {`${state.user.score}`}
-            </Typography>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={open}
-              onClose={() => setAnchorEl(null)}
-            >
-              <MenuItem onClick={() => handleMenuClick("/overworld")}>WorldMap</MenuItem>
-              <MenuItem onClick={() => handleMenuClick("/")}>Login</MenuItem>
-              <MenuItem onClick={() => handleMenuClick("/credits")}>About</MenuItem>
-              <MenuItem onClick={() => handleMenuClick("/logout")}>Logout</MenuItem>
-            </Menu>
-          </Toolbar>
-        </ThemeProvider>
+        <Toolbar>
+          <img edge="start" style={{ marginRight: "10px" }} width={logo.width} src={logo.src} alt="Achilles" />
+          <Typography variant="h3" className={classes.title}>
+            Achilles Heel
+          </Typography>
+          <IconButton
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleMenu}
+          >
+            <Avatar src={state.user.avatar} />
+          </IconButton>
+          <Typography variant="h6" onClick={() => setLeaderboardOpen(true)}>
+            <FlashOnIcon />
+            {`${state.user.score}`}
+          </Typography>
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorEl}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            open={open}
+            onClose={() => setAnchorEl(null)}
+          >
+            <MenuItem onClick={() => handleMenuClick("/overworld")}>WorldMap</MenuItem>
+            <MenuItem onClick={() => handleMenuClick("/")}>Login</MenuItem>
+            <MenuItem onClick={() => handleMenuClick("/credits")}>About</MenuItem>
+            <MenuItem onClick={() => handleMenuClick("/logout")}>Logout</MenuItem>
+          </Menu>
+        </Toolbar>
         <LeaderBoardModal open={leaderboardOpen} close={() => { setLeaderboardOpen(false); }} />
       </AppBar>
     </div>
