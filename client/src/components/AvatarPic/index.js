@@ -24,6 +24,9 @@ export default class AvatarPic extends React.Component {
     this.state = {
       choiceColor: randomColorId
     };
+
+    this.handleDecrement = this.handleDecrement.bind(this);
+    this.handleIncrement = this.handleIncrement.bind(this);
   }
 
   getAvatar(colorId) {
