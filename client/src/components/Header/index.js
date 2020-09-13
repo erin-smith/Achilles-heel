@@ -81,7 +81,7 @@ const Header = (props) => {
         });
       }
     }
-  }, [state.user.display_name]);
+  }, [state.user.display_name, dispatch]);
 
   // useEffect(() => {
   //   // test code demonstrating how to set the user and world in store
