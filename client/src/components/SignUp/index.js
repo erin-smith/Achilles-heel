@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Container,
-  Card, CardActionArea,
+  Card,
   Button,
   TextField,
   Typography,
@@ -81,24 +81,22 @@ export default function MediaCard(props) {
     <>
       <Container maxWidth="sm" justifyContent="center">
         <Card className={classes.root} justifyContent="center">
-          <CardActionArea>
-            <CardMedia className={classes.media}>
-              <AvatarPic onAvatarChange={handleAvatarChange} />
-            </CardMedia>
-            <br />
-            <CardContent>
-              <Typography gutterBottom variant="h6" component="h6" justify-content="left">
-                Hello:
-                {props.email}
-              </Typography>
-              <h4 align-content="left">
-                Nickname:
-                <TextField id="outlined-required-size-small" onChange={textFieldChange("x")} label="Required" variant="outlined" size="small" />
-              </h4>
-            </CardContent>
-          </CardActionArea>
+          <CardMedia className={classes.media}>
+            <AvatarPic onAvatarChange={handleAvatarChange} />
+          </CardMedia>
+          <br />
+          <CardContent>
+            <Typography gutterBottom variant="h6" component="h6" justify-content="left">
+              Hello:
+              {props.email}
+            </Typography>
+            <h4 align-content="left">
+              Nickname:
+              <TextField id="outlined-required-size-small" onChange={textFieldChange("x")} label="Required" variant="outlined" size="small" />
+            </h4>
+          </CardContent>
           <CardActions>
-            <Button variant="contained" color="primary" size="small" onClick={onSubmitButton()}> Submit</Button>
+            <Button variant="contained" color="primary" size="small" onClick={onSubmitButton}> Submit</Button>
           </CardActions>
         </Card>
         {goToOverworld ? <Redirect to="/overworld" /> : null}
