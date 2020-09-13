@@ -40,6 +40,7 @@ export default function MediaCard(props) {
     API.getUserByEmail(props.email).then((dbUser) => {
       if (dbUser.data.length > 0) {
         dispatch({ type: "SetUser", user: dbUser.data[0] });
+        window.localStorage.setItem("displayName", dbUser.data[0].display_name);
         setGoToOverworld(true);
       }
     });
@@ -69,6 +70,7 @@ export default function MediaCard(props) {
     API.createUser(user).then((dbUser) => {
       console.log("user data saved", dbUser.data);
       dispatch({ type: "SetUser", user: dbUser.data });
+      window.localStorage.setItem("displayName", dbUser.data.display_name);
       setGoToOverworld(true);
     }).catch((err) => {
       console.log(err);
