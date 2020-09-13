@@ -28,7 +28,7 @@ const styles = {
   container: {
     backgroundImage: `url(${grassyreeds})`,
     backgroundSize: "cover",
-    marginTop: "4em"
+    marginTop: "64px"
   },
   pipes: {
     backgroundImage: "radial-gradient(white,green)"
@@ -230,6 +230,7 @@ function PanFlute() {
     // console.log("setting ai next note to 0 from ", aiNextNoteIndex);
     setaiNextNoteIndex(0);
     SetCurrentPlayerDelay(1000);
+    setCurrentRound(0);
 
     setGameOn(true);
     SetPlayersTurn(false);
