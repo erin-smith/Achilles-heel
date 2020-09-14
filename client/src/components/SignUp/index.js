@@ -39,7 +39,7 @@ const useStyles = makeStyles({
   CardContent: {
     padding: "3px",
   },
-  AvatarPic: {
+  avatarPic: {
     button: {
       color: "#90EE90",
     }
@@ -100,7 +100,7 @@ export default function MediaCard(props) {
       <Container className={classes.root} maxWidth="sm" justifyContent="center">
         <Card justifyContent="center">
           <CardMedia className={classes.media}>
-            <AvatarPic className={classes.AvatarPic.button} onAvatarChange={handleAvatarChange} />
+            <AvatarPic className={classes.avatarPic.button} onAvatarChange={handleAvatarChange} />
           </CardMedia>
           <br />
           <CardContent>
