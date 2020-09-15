@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
+  Container,
   Grid,
   Dialog,
   DialogTitle,
@@ -7,6 +8,7 @@ import {
   DialogActions,
   Button
 } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import { useLocation, Redirect } from "react-router-dom";
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import API from "../../utils/API";
@@ -14,28 +16,30 @@ import Question from "../../components/Question";
 import { useStore } from "../../utils/globalState";
 import Underworld from "../../assets/Aeneas_Sybil_Underworld.png";
 
-const styles = {
+const useStyles = makeStyles(() => ({
   container: {
     backgroundImage: `url(${Underworld})`,
     backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
     color: "white",
     width: "100%",
-    overflowX: "hidden",
-    height: "100vh",
-  },
-  levelDetails: {
-    marginTop: "0.5em",
-    marginBottom: "0.5em"
+    // overflowX: "hidden",
+    height: "100%",
   },
   levelCards: {
-    marginTop: "1em"
+    marginTop: "1em",
+  },
+  levelDetails: {
+    marginTop: "0.3em",
+    marginBottom: "0.3em"
   },
   pointsGrid: {
-    marginTop: "1em"
+    marginTop: "1.5em"
   }
-};
+}));
 
 function Arena() {
+  const classes = useStyles();
   const location = useLocation();
   const id = new URLSearchParams(location.search).get("id");
   const [arena, setArena] = useState({
@@ -110,60 +114,62 @@ function Arena() {
   }
 
   return (
-    <Grid style={styles.container} container direction="column" justify="center" alignItems="center">
-      <Grid item container direction="column" justify="center" alignItems="center">
-        <h1>{arena.name}</h1>
-        <h6 style={styles.levelDetails}>
-          Reward:
-          {arena.score_points}
-        </h6>
-        <h6 style={styles.levelDetails}>
-          Difficulty:
-          {arena.difficulty}
-        </h6>
-        <h6 style={styles.levelDetails}>
-          Subject:
-          {arena.topic}
-        </h6>
-      </Grid>
-      <Grid style={styles.levelCards} container direction="row" justify="space-around" spacing={4}>
-        {questions.map((question, index) => (
-          <Question
-            key={question.question}
-            question={question}
-            index={index}
-            onQuestionAnswered={onQuestionAnswered}
-          />
-        ))}
-      </Grid>
-      <Grid
-        item
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        style={styles.pointsGrid}
-      >
-        <FlashOnIcon />
-        {runningScore}
-      </Grid>
-      <Dialog open={gameEnded}>
-        <DialogTitle>{ gameLost() ? "Failure" : "Victory!"}</DialogTitle>
-        <DialogContent>
-          {
+    <div className={classes.container}>
+      <Container maxWidth="lg">
+        <Grid container direction="column" justify="center" alignItems="center">
+          <h1>{arena.name}</h1>
+          <h5 className={classes.levelDetails}>
+            Reward:&nbsp;
+            {arena.score_points}
+          </h5>
+          <h5 className={classes.levelDetails}>
+            Difficulty:&nbsp;
+            {arena.difficulty}
+          </h5>
+          <h5 className={classes.levelDetails} id="gap">
+            Subject:&nbsp;
+            {arena.topic}
+          </h5>
+          <Grid className={classes.levelCards} container direction="row" justify="space-around" spacing={4} md={6}>
+            {questions.map((question, index) => (
+              <Question
+                key={question.question}
+                question={question}
+                index={index}
+                onQuestionAnswered={onQuestionAnswered}
+              />
+            ))}
+          </Grid>
+          <Grid
+            item
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            className={classes.pointsGrid}
+          >
+            <FlashOnIcon />
+            {runningScore}
+          </Grid>
+          <Dialog open={gameEnded}>
+            <DialogTitle>{ gameLost() ? "Failure" : "Victory!"}</DialogTitle>
+            <DialogContent className={classes.DialogContent}>
+              {
             gameLost()
-              ? "You've answered too many wrong questions."
-              : "You've answered all the questions!"
-          }
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleGameEndAccept} color="primary">
-            Ok
-          </Button>
-        </DialogActions>
-      </Dialog>
-      { returnToOverworld ? <Redirect to="/overworld" /> : null}
-    </Grid>
+              ? "Oh No! You've answered too many wrong questions. GAME OVER."
+              : "You've answered all the questions! Congratulations!"
+        }
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleGameEndAccept} color="primary">
+                Ok
+              </Button>
+            </DialogActions>
+          </Dialog>
+          { returnToOverworld ? <Redirect to="/overworld" /> : null}
+        </Grid>
+      </Container>
+    </div>
   );
 }
 
