@@ -36,12 +36,12 @@ const styles = {
   },
   paper: {
     backgroundImage: `url(${Vase})`,
-    paddingTop: "3.5em",
-    paddingBottom: "3.5em",
-    paddingLeft: 0,
-    paddingRight: 0,
-    width: "12vw",
+    paddingTop: "1.5em",
+    paddingBottom: "1.5em",
     backgroundColor: "skyblue",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "80% 70%"
   }
 };
 
@@ -66,7 +66,7 @@ function Question(props) {
     <Grid item xs={4} container justify="center">
       <Paper
         id="vase"
-        className="crdSize"
+        className="cardSize"
         style={styles.paper}
         onClick={props.question.answered === undefined ? handlePaperClick : null}
       >

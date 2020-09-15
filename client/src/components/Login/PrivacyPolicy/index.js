@@ -1,8 +1,13 @@
 import React from "react";
+import BackgroundImage from "../../../assets/athens3.jpg";
 
 const styles = {
   container: {
-    textAlign: "left"
+    textAlign: "left",
+    padding: "2em",
+    backgroundImage: `url(${BackgroundImage})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
   }
 };
 

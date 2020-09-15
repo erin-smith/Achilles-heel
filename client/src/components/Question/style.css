@@ -7,23 +7,33 @@
 .wrong {
   color: red;
 }
-#vase {
+/* #vase {
 background-image: url(../../assets/vase.png);
-background-size: 45% 80%;
+background-size: 50%;
 background-position: center;
 background-repeat: no-repeat;
-}
-.crdSize {
+} */
+.cardSize {
   background-image: url(../../assets/vase.png);
-    padding-top: "3.5em";
-    padding-bottom: "3.5em";
+    /* padding-top: "3.5em";
+    padding-bottom: "3.5em"; */
     padding-left: 0;
     padding-right: 0;
-    width: "12vw";
+    height: 10vh;
+    width: 80%;
     background-color: "skyblue";
 }
 
 @media only screen and (max-width: 600px) {
+  .cardSize {
+    padding-top: "1.5em" !important;
+    padding-bottom: "1.5em" !important;
+    height: 4vh;
+    width: 80%;
+   }
+ }
+
+/* @media only screen and (max-width: 600px) {
  .crdSize {
     padding-top: "1.5em" !important;
   padding-bottom: "1.5em" !important;
@@ -50,4 +60,4 @@ background-repeat: no-repeat;
     padding-bottom: "3em" !important;
     width: "12vw" !important;
   }
-}
+} */
