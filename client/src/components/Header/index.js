@@ -96,7 +96,7 @@ const Header = (props) => {
       <AppBar position="fixed" style={appStyles} alt="stained stone" z-index={50000}>
         <Toolbar>
           <img edge="start" style={{ marginRight: "10px" }} width={logo.width} src={logo.src} alt="Achilles" onClick={handleLogoClick} />
-          <Typography variant="h3" className={classes.title}>
+          <Typography variant="h4" className={classes.title}>
             Achilles Heel
           </Typography>
           <IconButton
@@ -107,7 +107,7 @@ const Header = (props) => {
           >
             <Avatar src={state.user.avatar} />
           </IconButton>
-          <Typography variant="h6" onClick={() => setLeaderboardOpen(true)}>
+          <Typography variant="subtitle" onClick={() => setLeaderboardOpen(true)}>
             <FlashOnIcon />
             {`${state.user.score}`}
           </Typography>
