@@ -16,6 +16,7 @@ import { StoreProvider } from "./utils/globalState";
 import PanFlute from "./pages/PanFlute";
 import OlympusMatch from "./pages/OlympusMatch";
 import Credits from "./pages/Credits";
+import About from "./pages/About";
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
@@ -39,6 +40,7 @@ function App() {
               <Route path="/pansflute" component={PanFlute} />
               <Route path="/olympus" component={OlympusMatch} />
               <Route path="/credits" component={Credits} />
+              <Route path="/about" component={About} />
             </Switch>
           </StoreProvider>
         </ThemeProvider>
