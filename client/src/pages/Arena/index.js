@@ -24,7 +24,7 @@ const useStyles = makeStyles(() => ({
     color: "white",
     width: "100%",
     // overflowX: "hidden",
-    height: "100%",
+    height: "calc(100vh - 64px)",
   },
   levelCards: {
     marginTop: "1em",
@@ -118,18 +118,6 @@ function Arena() {
       <Container maxWidth="lg">
         <Grid container direction="column" justify="center" alignItems="center">
           <h1>{arena.name}</h1>
-          <h5 className={classes.levelDetails}>
-            Reward:&nbsp;
-            {arena.score_points}
-          </h5>
-          <h5 className={classes.levelDetails}>
-            Difficulty:&nbsp;
-            {arena.difficulty}
-          </h5>
-          <h5 className={classes.levelDetails} id="gap">
-            Subject:&nbsp;
-            {arena.topic}
-          </h5>
           <Grid className={classes.levelCards} container direction="row" justify="space-around" spacing={4} md={6}>
             {questions.map((question, index) => (
               <Question
