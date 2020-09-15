@@ -36,12 +36,13 @@ const styles = {
   },
   paper: {
     backgroundImage: `url(${Vase})`,
-    paddingTop: "3.5em",
-    paddingBottom: "3.5em",
-    paddingLeft: 0,
-    paddingRight: 0,
-    width: "12vw",
+    paddingTop: "1.5em",
+    paddingBottom: "1.5em",
+    width: "80%",
     backgroundColor: "skyblue",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "80% 70%"
   }
 };
 
