@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -66,6 +67,13 @@ const Header = (props) => {
     window.location.href = "/";
   };
 
+  const handleLogoClick = () => {
+    if (state.user.email !== "" || state.user.display_name !== "") {
+      history.push("/overworld");
+      setAnchorEl(null);
+    }
+  };
+
   useEffect(() => {
     console.log("calling useEffect");
     if (state.user.display_name === "") {
@@ -83,23 +91,11 @@ const Header = (props) => {
     }
   }, [state.user.display_name, dispatch]);
 
-  // useEffect(() => {
-  //   // test code demonstrating how to set the user and world in store
-  //   // const setNewUser = {
-  //   //   email: "kennethMurphy@gmail.com",
-  //   //   display_name: "KennethMurphy",
-  //   //   avatar: "cat21.jpg",
-  //   //   score: -17 }
-  //   // API.createUser(setNewUser);
-  //   // dispatch({type: "SetUser", user: setNewUser});
-  //   // dispatch({type: "SetWorld", worldName: "Greece"});
-  // }, []);
-
   return (
     <div className={classes.root}>
       <AppBar position="fixed" style={appStyles} alt="stained stone" z-index={50000}>
         <Toolbar>
-          <img edge="start" style={{ marginRight: "10px" }} width={logo.width} src={logo.src} alt="Achilles" />
+          <img edge="start" style={{ marginRight: "10px" }} width={logo.width} src={logo.src} alt="Achilles" onClick={handleLogoClick} />
           <Typography variant="h4" className={classes.title}>
             Achilles Heel
           </Typography>
@@ -132,10 +128,11 @@ const Header = (props) => {
             onClose={() => setAnchorEl(null)}
           >
             <MenuItem onClick={() => handleMenuClick("/overworld")}>Home</MenuItem>
-            {/* <MenuItem onClick={() => handleMenuClick("/")}>Login</MenuItem> */}
+            <MenuItem onClick={() => setLeaderboardOpen(true)}>High Scores</MenuItem>
+            <MenuItem onClick={() => handleMenuClick("/about")}>About</MenuItem>
             <MenuItem onClick={() => handleMenuClick("/credits")}>Credits</MenuItem>
-            <MenuItem onClick={() => handleMenuClick("/tos")}>Terms of Service</MenuItem>
             <MenuItem onClick={() => handleMenuClick("/privacy")}>Privacy</MenuItem>
+            <MenuItem onClick={() => handleMenuClick("/tos")}>Terms of Service</MenuItem>
             <MenuItem onClick={logout}>Logout</MenuItem>
           </Menu>
         </Toolbar>
