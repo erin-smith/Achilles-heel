@@ -2,13 +2,12 @@
   background-image: url("../../assets/athens3.jpg");
   background-size: cover;
   width: 100%;
-  margin-top: -20px;;
   height: 100%;
   background-position: center;
 }
 
 .aboutSection {
-  padding-top: 130px;
+  padding-top: "2em";
   margin-left: 0 auto;
   margin-right: 0 auto;
 

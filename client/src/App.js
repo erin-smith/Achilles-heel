@@ -17,6 +17,7 @@ import PanFlute from "./pages/PanFlute";
 import OlympusMatch from "./pages/OlympusMatch";
 import Credits from "./pages/Credits";
 import About from "./pages/About";
+import AppBody from "./components/AppBody";
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
@@ -28,20 +29,22 @@ function App() {
         <ThemeProvider theme={theme}>
           <StoreProvider>
             <Header />
-            <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/overworld" exact component={Overworld} />
-              <Route path="/hadesgate" exact component={Arena} />
-              <Route path="/login" exact component={GoogleButton} />
-              <Route path="/privacy" exact component={PrivacyPolicy} />
-              <Route path="/tos" component={TOS} />
-              <Route path="/test" component={Test} />
-              <Route path="/avatar" component={AvatarPic} />
-              <Route path="/pansflute" component={PanFlute} />
-              <Route path="/olympus" component={OlympusMatch} />
-              <Route path="/credits" component={Credits} />
-              <Route path="/about" component={About} />
-            </Switch>
+            <AppBody>
+              <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/overworld" exact component={Overworld} />
+                <Route path="/hadesgate" exact component={Arena} />
+                <Route path="/login" exact component={GoogleButton} />
+                <Route path="/privacy" exact component={PrivacyPolicy} />
+                <Route path="/tos" component={TOS} />
+                <Route path="/test" component={Test} />
+                <Route path="/avatar" component={AvatarPic} />
+                <Route path="/pansflute" component={PanFlute} />
+                <Route path="/olympus" component={OlympusMatch} />
+                <Route path="/credits" component={Credits} />
+                <Route path="/about" component={About} />
+              </Switch>
+            </AppBody>
           </StoreProvider>
         </ThemeProvider>
       </div>

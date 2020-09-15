@@ -209,7 +209,7 @@ function OlympusMatch() {
           ))
         }
       </Grid>
-      <Grid className="points" item xs={12} container justify="center" alignItems="center">
+      <Grid className="points" item container justify="center" alignItems="center">
         {runningScore}
         &nbsp;
         <FlashOnIcon />

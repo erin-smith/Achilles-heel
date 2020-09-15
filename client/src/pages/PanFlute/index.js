@@ -28,13 +28,10 @@ const styles = {
   container: {
     backgroundImage: `url(${grassyreeds})`,
     backgroundSize: "cover",
-    marginTop: "64px"
+    height: "calc(100vh - 64px)"
   },
   pipes: {
     backgroundImage: "radial-gradient(white,green)"
-  },
-  footer: {
-    paddingBottom: "15em"
   },
   output: {
     height: "10vh"
@@ -280,10 +277,10 @@ function PanFlute() {
 
   return (
     <Grid className="container" style={styles.container} container direction="column" justify="center" alignItems="center" disableGutters>
-      <Grid item xs={12} container justify="center" alignItems="center">
+      <Grid item container justify="center" alignItems="center">
         <h1>Pan&apos;s Flute Lessons</h1>
       </Grid>
-      <Grid className="pipes" item xs={12} lg={3} container justify="center" alignItems="center">
+      <Grid className="pipes" item sm={4} lg={4} container justify="center" alignItems="center">
         <svg xmlns="http://www.w3.org/2000/svg" width="284.47" height="285.34" viewBox="0 0 284.47 285.34">
           <g id="Flute">
             <g>
@@ -308,14 +305,14 @@ function PanFlute() {
           </g>
         </svg>
       </Grid>
-      <Grid item xs={12} container direction="row" justify="space-around" alignItems="center">
+      <Grid item container direction="row" justify="space-around" alignItems="center">
         <Button onClick={start} variant="contained" color="primary" endIcon={<PlayArrowIcon />}>Start</Button>
         <Button onClick={stop} variant="contained" color="primary" endIcon={<StopIcon />}>Stop</Button>
       </Grid>
-      <Grid item xs={12} container direction="column" justify="center" alignItems="center">
+      <Grid item container direction="column" justify="center" alignItems="center">
         <h2 style={styles.output}>{ log }</h2>
       </Grid>
-      <Grid style={styles.footer} item xs={12} container justify="center" alignItems="flex-start">
+      <Grid style={styles.footer} item container justify="center" alignItems="flex-start">
         <FlashOnIcon />
         {runningScore}
       </Grid>

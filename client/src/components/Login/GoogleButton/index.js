@@ -1,5 +1,5 @@
 import React from "react";
-import { GoogleLogin, GoogleLogout } from "react-google-login";
+import { GoogleLogin } from "react-google-login";
 import SignUp from "../../SignUp";
 
 const CLIENT_ID = "15003138507-rrf8me4d9tdffufbu8l38mji2h372j2m.apps.googleusercontent.com";
@@ -63,13 +63,7 @@ export default class GoogleBtn extends React.Component {
     return (
       <div>
         {this.state.isLogined ?
-          <GoogleLogout
-            clientId={CLIENT_ID}
-            buttonText='Logout'
-            onLogoutSuccess={this.logout}
-            onFailure={this.handleLogoutFailure}
-          >
-          </GoogleLogout> : <GoogleLogin
+          null : <GoogleLogin
             clientId={CLIENT_ID}
             buttonText='Login'
             onSuccess={this.login}
