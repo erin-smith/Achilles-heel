@@ -12,16 +12,27 @@ function About() {
         <Grid container direction="row" justify="center" alignItems="center">
           <h3 className="aboutHeader">About Achilles' Heel</h3>
           <p>
-            Achilles' Heel is a mythical game app designed to transport players to a different time, full of excitement and adventure. We all need a break from daily life sometimes, especially these days, so our founders wanted to provide an outlet for people where they could play, learn, and gather. They were inspired by Ancient Greece - the myths and magic, the art, the landscape, the knowledge, and the agora. The game is meant to be educational yet fun with something for everyone.
+            <strong>Achilles' Heel</strong>
+            &nbsp;
+            is a mythical game app transporting players to a vibrant cultural renaissance of adventure!
           </p>
           <p>
-            Play through all the levels to learn about different facets of Ancient Greece and its mythology. Learn the flute with Pan, match the gods with their symbols, and defeat the villains of the Underworld in a test of knowledge. Earn points and fame as your travel across the map.
+            Most people know of "Achilles' Heel" as a flaw.  But in Ancient Greece, Achilles was dipped into the River Styx by the heel, which saved his life.
+            During 2020, we could all use a life-saver or break from pandemic daily life. And many of us miss the Summer Olympics!
+          </p>
+          <p>
+            <strong>Enter Achilles' Heel:</strong>
+            &nbsp;
+            an outlet for all-ages to play, learn, and gather. We were inspired by Ancient Greece - the myth, magic, art, landscape, history, and the agora. The game is educational yet fun with something for everyone.
+          </p>
+          <p>
+            Come and play with us through each level to learn about different facets of Ancient Greece and mythology. Learn the flute with Pan, match the gods with their symbols, and defeat the villains of the Underworld in a test of knowledge. Earn points and fame as your travel across the map.
           </p>
         </Grid>
         <br />
         <Grid container direction="row" justify="center" alignItems="center">
           <h3 className="aboutCreators">About the Creators</h3>
-          <p>Achilles' Heel was created by Johnny Li, Matt Moncayo, Erin Smith, and Alexa Stefankiewicz. This is the second project the team built together.</p>
+          <p>Achilles' Heel was created by:&nbsp; Johnny Li, Matt Moncayo, Erin Smith, and Alexa Stefankiewicz.&nbsp;This is the second project this team has built together.</p>
         </Grid>
         <br />
         <Grid container direction="row" justify="center" alignItems="center">
@@ -43,9 +54,9 @@ function About() {
         <Grid container direction="row" justify="center" alignItems="center">
           <p>
             <ul className="legalLinks" float="bottom">
-              <Link to="/credits"><li className="legalLink">Credits</li></Link>
-              <Link to="/tos"><li className="legalLink">Terms of Service</li></Link>
-              <Link to="/privacy"><li className="legalLink">Privacy Policy</li></Link>
+              <Link to="/credits"><li className="legalLink"><strong>Credits</strong></li></Link>
+              <Link to="/tos"><li className="legalLink"><strong>Terms of Service</strong></li></Link>
+              <Link to="/privacy"><li className="legalLink"><strong>Privacy Policy</strong></li></Link>
             </ul>
           </p>
         </Grid>
