@@ -63,13 +63,7 @@ export default class GoogleBtn extends React.Component {
     return (
       <div>
         {this.state.isLogined ?
-          <GoogleLogout
-            clientId={CLIENT_ID}
-            buttonText='Logout'
-            onLogoutSuccess={this.logout}
-            onFailure={this.handleLogoutFailure}
-          >
-          </GoogleLogout> : <GoogleLogin
+          null : <GoogleLogin
             clientId={CLIENT_ID}
             buttonText='Login'
             onSuccess={this.login}
