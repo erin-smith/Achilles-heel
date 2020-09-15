@@ -133,6 +133,7 @@ const Header = (props) => {
           >
             <MenuItem onClick={() => handleMenuClick("/overworld")}>Home</MenuItem>
             <MenuItem onClick={() => setLeaderboardOpen(true)}>High Scores</MenuItem>
+            <MenuItem onClick={() => handleMenuClick("/about")}>About</MenuItem>
             <MenuItem onClick={() => handleMenuClick("/credits")}>Credits</MenuItem>
             <MenuItem onClick={() => handleMenuClick("/privacy")}>Privacy</MenuItem>
             <MenuItem onClick={() => handleMenuClick("/tos")}>Terms of Service</MenuItem>

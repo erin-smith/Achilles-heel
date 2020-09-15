@@ -1,0 +1,33 @@
+.backgroundImage {
+  background-image: url("../../assets/athens3.jpg");
+  background-size: cover;
+  width: 100%;
+  margin-top: -20px;;
+  height: 100%;
+  background-position: center;
+}
+
+.aboutSection {
+  padding-top: 130px;
+  margin-left: 0 auto;
+  margin-right: 0 auto;
+
+}
+
+.comingSoon {
+  list-style-position: inside;
+  text-align: left;
+  font-weight: bold;
+}
+
+.legalLinks {
+  margin-top: 100px;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.legalLink {
+  display: inline;
+  padding: 0px 10px 0px 10px;
+  text-decoration: underline;
+}

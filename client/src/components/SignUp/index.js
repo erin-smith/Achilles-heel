@@ -21,11 +21,29 @@ const useStyles = makeStyles({
   root: {
     maxWidth: 345,
     justifyContent: "center",
+    paddingRight: "5px",
+    paddingLeft: "5px",
   },
   media: {
     height: 140,
     justifyContent: "center",
   },
+  button: {
+    marginBottom: "20px",
+    marginLeft: "20px",
+    paddingBottom: "5px"
+  },
+  h4: {
+    marginBottom: 0
+  },
+  CardContent: {
+    padding: "3px",
+  },
+  avatarPic: {
+    button: {
+      color: "#90EE90",
+    }
+  }
 });
 
 export default function MediaCard(props) {
@@ -79,10 +97,10 @@ export default function MediaCard(props) {
 
   return (
     <>
-      <Container maxWidth="sm" justifyContent="center">
-        <Card className={classes.root} justifyContent="center">
+      <Container className={classes.root} maxWidth="sm" justifyContent="center">
+        <Card justifyContent="center">
           <CardMedia className={classes.media}>
-            <AvatarPic onAvatarChange={handleAvatarChange} />
+            <AvatarPic className={classes.avatarPic.button} onAvatarChange={handleAvatarChange} />
           </CardMedia>
           <br />
           <CardContent>
@@ -90,13 +108,13 @@ export default function MediaCard(props) {
               Hello:
               {props.email}
             </Typography>
-            <h4 align-content="left">
-              Nickname:
+            <h4 className={classes.h4} align-content="left">
+              Nickname:&nbsp;
               <TextField id="outlined-required-size-small" onChange={textFieldChange("x")} label="Required" variant="outlined" size="small" />
             </h4>
           </CardContent>
           <CardActions>
-            <Button variant="contained" color="primary" size="small" onClick={onSubmitButton}> Submit</Button>
+            <Button className={classes.button} variant="contained" color="primary" size="small" onClick={onSubmitButton}> Submit</Button>
           </CardActions>
         </Card>
         {goToOverworld ? <Redirect to="/overworld" /> : null}
