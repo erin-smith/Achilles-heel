@@ -10,16 +10,16 @@ const styles = {
   },
   superContainer: {
     backgroundImage: `url(${BackgroundImage})`,
-    backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    height: "100vh"
+    backgroundSize: "cover",
+    height: "calc(100vh - 64px)"
   }
 };
 
 function Credits() {
   return (
     <div style={styles.superContainer}>
-      <div style={styles.container} className="backgroundImage">
+      <div style={styles.container}>
         <h1>Credits</h1>
         <h3>Many of our graphics were designed by our amazing team. But for those weren't, the artists are credited below</h3>
         <br />
