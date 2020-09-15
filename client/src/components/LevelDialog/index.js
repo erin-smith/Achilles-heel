@@ -55,7 +55,7 @@ function LevelDialog(props) {
         <img
           src={props.thisLevel.iconUrl}
           width="50%"
-          height="100%"
+          // maxHeight="100%"
           margin="0 auto"
           alt="level-graphic"
         />
