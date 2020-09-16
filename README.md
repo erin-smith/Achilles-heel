@@ -1,10 +1,10 @@
 # Achilles' Heel: Battling Through Ancient Greece
-![GitHub License](https://img.shields.io/travis/erin-smith/Achilles-heel) ![GitHub License](https://img.shields.io/github/commit-activity/m/erin-smith/Achilles-heel) ![GitHub License](https://img.shields.io/npm/l/express) ![GitHub License](https://img.shields.io/github/repo-size/erin-smith/Achilles-heel) ![GitHub License](https://img.shields.io/github/issues-raw/erin-smith/Achilles-heel) ![GitHub License](https://img.shields.io/github/issues-closed-raw/erin-smith/Achilles-heel) ![GitHub License](https://img.shields.io/github/package-json/dependency-version/erin-smith/Achilles-heel/mongodb) ![GitHub License](https://img.shields.io/github/package-json/dependency-version/erin-smith/Achilles-heel/mongoose) ![GitHub License](https://img.shields.io/github/package-json/dependency-version/erin-smith/Achilles-heel/axios) ![GitHub License](https://img.shields.io/github/package-json/dependency-version/erin-smith/Achilles-heel/concurrently) ![GitHub License](https://img.shields.io/github/package-json/dependency-version/erin-smith/Achilles-heel/eslint-config-airbnb) ![GitHub License](https://img.shields.io/github/package-json/dependency-version/erin-smith/Achilles-heel/express) ![GitHub License](https://img.shields.io/github/followers/alexastef?style=social) ![GitHub License](https://img.shields.io/github/followers/reptile18?style=social) ![GitHub License](https://img.shields.io/github/followers/mmoncayo?style=social) ![GitHub License](https://img.shields.io/github/followers/erin-smith?style=social) [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+![GitHub License](https://img.shields.io/github/commit-activity/m/erin-smith/Achilles-heel) ![GitHub License](https://img.shields.io/npm/l/express) ![GitHub License](https://img.shields.io/github/repo-size/erin-smith/Achilles-heel) ![GitHub License](https://img.shields.io/github/issues-raw/erin-smith/Achilles-heel) ![GitHub License](https://img.shields.io/github/issues-closed-raw/erin-smith/Achilles-heel) ![GitHub License](https://img.shields.io/github/package-json/dependency-version/erin-smith/Achilles-heel/mongodb) ![GitHub License](https://img.shields.io/github/package-json/dependency-version/erin-smith/Achilles-heel/mongoose) ![GitHub License](https://img.shields.io/github/package-json/dependency-version/erin-smith/Achilles-heel/axios) ![GitHub License](https://img.shields.io/github/package-json/dependency-version/erin-smith/Achilles-heel/concurrently) ![GitHub License](https://img.shields.io/github/package-json/dependency-version/erin-smith/Achilles-heel/eslint-config-airbnb) ![GitHub License](https://img.shields.io/github/package-json/dependency-version/erin-smith/Achilles-heel/express) ![GitHub License](https://img.shields.io/github/followers/alexastef?style=social) ![GitHub License](https://img.shields.io/github/followers/reptile18?style=social) ![GitHub License](https://img.shields.io/github/followers/mmoncayo?style=social) ![GitHub License](https://img.shields.io/github/followers/erin-smith?style=social) [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 
 ## Description
 
-Achilles' Heel is a full-stack web application that is a fun and engaging game designed for all ages to give the user an educational opportunity to learn a bit about Ancient Greek mythology in an interactive way. The web application follows the MERN stack framework as this best suites our apps needs for having dynamic web interfaces with primarily cloud-native and JSON heavy cases. ESLint was used for code validation and consistency and the Airbnb configuration style guidelines were applied while linting. 
+Achilles' Heel is a full-stack web application that is a fun and engaging game designed for all ages to give the user an educational opportunity to learn a bit about Ancient Greek mythology in an interactive way. This web application follows the MERN stack framework as this best suites our apps needs for having dynamic web interfaces with primarily cloud-native and JSON heavy cases. ESLint was used for code validation and consistency and the Airbnb configuration style guidelines were applied while linting. 
 
 
 The app is currently deployed on Heroku so you can check out [Achilles' Heel](https://achilles-heel.herokuapp.com/) now!
@@ -37,16 +37,16 @@ The app is currently deployed on Heroku so you can check out [Achilles' Heel](ht
 Achilles' Heel live on [Heroku!](https://achilles-heel.herokuapp.com/)
 
 ### New User Sign-Up Process
-![Sign-Up Process]()
+![Sign-Up Process](./client/src/assets/SignUp.gif)
 
 ### Pan's Flute Lesson
-![Pan's Flute]()
+![Pan's Flute](./client/src/assets/PansFlute.gif)
 
 ### Mount Olympus Match
-![Mt. Olympus]()
+![Mt. Olympus](./client/src/assets/MtOlympus.gif)
 
 ### Hades' Gate Trivia 
-![Hades' Gate]()
+![Hades' Gate](./client/src/assets/HadesGate.gif)
 
 
 ## Prerequisites
@@ -63,15 +63,13 @@ Should you want to create your own replica of the application, you'll need to ha
 
 ## Installation
 
-To review the repository of the project, you can locally clone the repo remotely on your local machine with the following command line interface
+To review the repository of the project, you can clone the repo remotely on your local machine with the following command line in your terminal
 
 ```
 git clone https://github.com/erin-smith/Achilles-heel.git
 ```
 
-If you'd like to install the app locally, you can navigate to the 'Achilles-heel' directory and then follow the next steps:
-
-Install the necessary and relevant dependencies using Node.js by running the following command from the root directory:
+If you'd like to install the app locally, you can navigate to the 'Achilles-heel' directory and first install the necessary and relevant dependencies using Node.js by running the following command from the root directory:
 
 ```
 npm install
