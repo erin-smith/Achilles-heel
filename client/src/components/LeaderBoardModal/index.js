@@ -50,7 +50,7 @@ function LeaderBoardModal(props) {
     API.getUsers().then((dbUsers) => {
       setSortedUsers(dbUsers.data.sort((a, b) => b.score - a.score));
     });
-  }, []);
+  }, [props.open]);
   return (
     <Dialog fullWidth open={props.open} style={styles.dialog}>
       <DialogTitle>Leaderboard</DialogTitle>

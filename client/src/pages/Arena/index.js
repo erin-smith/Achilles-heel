@@ -23,6 +23,7 @@ const useStyles = makeStyles(() => ({
     backgroundRepeat: "no-repeat",
     color: "white",
     width: "100%",
+
     // overflowX: "hidden",
     height: "calc(100vh - 64px)",
   },
